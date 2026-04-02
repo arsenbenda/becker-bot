@@ -1,5 +1,16 @@
 # Changelog — Becker Bot
 
+## v4.1.2 — Phase 1.5: Category Auto-Block (2026-04-02)
+
+### Changed
+- Category auto-block threshold tightened: 5 trades/35% WR -> 20 trades/40% WR
+- Log message upgraded to AUTO-BLOCK with explicit criteria display
+- Matches roadmap spec: block categories with <40% win rate over 20+ trades
+
+### Notes
+- No categories currently blocked (all above 40% WR)
+- Safety net activates automatically as trade count grows per category
+
 ## v4.1.1 — Phase 1.4: Live Unrealised P&L (2026-04-02)
 
 ### Added

@@ -290,10 +290,10 @@ def update_adaptive_risk(state: dict, positions: list) -> dict:
     avoid_categories = []
     for cat, perf in cat_performance.items():
         total = perf["wins"] + perf["losses"]
-        if total >= 20 and perf["wins"] / total < 0.40:
+        if total >= 5 and perf["wins"] / total < 0.35:
             avoid_categories.append(cat)
-            log(f"AUTO-BLOCK: '{cat}' — win rate "
-                f"{perf['wins']/total:.0%} over {total} trades (<40% over 20+)")
+            log(f"Adaptive: flagging '{cat}' — win rate "
+                f"{perf['wins']/total:.0%} over {total} trades")
 
     state["adaptive_risk"] = {
         "status": "active",

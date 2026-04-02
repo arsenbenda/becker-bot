@@ -41,7 +41,7 @@
 - [ ] 1.2 Correlation filter (max 2 per cluster, <=15% bankroll)
 - [ ] 1.3 Logical arbitrage scanner (nested market mispricing)
 - [x] 1.4 Live unrealised P&L (CLOB mid-price per position)
-- [ ] 1.5 Category auto-block (<40% win rate over 20+ trades)
+- [x] 1.5 Category auto-block (<40% win rate over 20+ trades)
 - [ ] 1.6 Adaptive scan intervals (120s volatile / 600s calm)
 - [ ] 1.7 Auto-retire Layer 1 (when L2 outperforms by >2pp MAE)
 - [ ] 1.8 Geopolitics priority mode (25% bankroll, zero fees)
