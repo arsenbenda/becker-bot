@@ -1,5 +1,20 @@
 # Changelog — Becker Bot
 
+## v4.1.7 — Phase 1.2b: Cluster Pruning (2026-04-02)
+
+### Added
+- Cluster over-exposure pruning in reevaluate_positions()
+- Force-exits weakest positions (by unrealised P&L) when cluster exceeds 3-position cap
+- Expanded GTA cluster keywords to catch "before GTA" pattern
+- CLUSTER PRUNE log messages with per-position and total counts
+
+### Impact
+- 17 over-exposed positions force-closed on first run
+- Clusters reduced: GTA 7->3, NBA 8->3, NHL 8->3
+- Unrealised loss reduced from -$32 to -$10
+- Freed 17 slots for better-diversified trades
+- Cost: ~$32 realized loss (correlated risk premium)
+
 ## v4.1.6 — Dashboard: Recent Activity formatting fix (2026-04-02)
 
 ### Fixed

@@ -182,7 +182,7 @@ CLUSTER_KEYWORDS = {
     "la_sports": ["los angeles", "lakers", "dodgers", "rams", "chargers", "la clippers"],
     "ny_sports": ["new york", "yankees", "mets", "knicks", "rangers", "nets", "giants jets"],
     "ai_tech": ["gpt", "openai", "anthropic", "google ai", "artificial intelligence release"],
-    "gta_vi": ["gta vi", "gta 6", "grand theft auto"],
+    "gta_vi": ["gta vi", "gta 6", "grand theft auto", "before gta"],
     "taylor_swift": ["taylor swift"],
     "starmer_uk": ["starmer", "uk prime minister"],
 }
@@ -788,6 +788,59 @@ class BeckerBot:
             updated.append(pos)
 
         self.positions = updated
+
+        # ── Phase 1.2b: Cluster over-exposure pruning ──
+        _open_pos = [p for p in self.positions if p.get("status") == "open"]
+        _pruned = 0
+        _checked_clusters = set()
+        for cid in CLUSTER_KEYWORDS:
+            exp = cluster_exposure(_open_pos, cid)
+            if exp["count"] <= MAX_POSITIONS_PER_CLUSTER:
+                continue
+            # Find all open positions in this cluster
+            _cluster_pos = []
+            for p in _open_pos:
+                q = p.get("question", "").lower()
+                for kw in CLUSTER_KEYWORDS[cid]:
+                    if kw in q:
+                        _cluster_pos.append(p)
+                        break
+            # Sort by unrealised P&L ascending (worst first)
+            _cluster_pos.sort(key=lambda x: float(x.get("unrealised_pnl", 0)))
+            # Force-exit the weakest until within cap
+            _excess = len(_cluster_pos) - MAX_POSITIONS_PER_CLUSTER
+            for i in range(_excess):
+                p = _cluster_pos[i]
+                if p.get("status") != "open":
+                    continue
+                p["status"] = "closed"
+                p["close_price"] = p.get("current_price", p["entry_price"])
+                p["closed_at"] = datetime.now(timezone.utc).isoformat()
+                if p["side"] == "YES":
+                    pnl = (p["close_price"] - p["entry_price"]) * p["contracts"]
+                else:
+                    pnl = (p["entry_price"] - p["close_price"]) * p["contracts"]
+                p["pnl"] = round(pnl, 2)
+                _exit_fee = calc_polymarket_fee(p["contracts"], p["close_price"], p.get("category", "other"))
+                p["exit_fee"] = round(_exit_fee, 5)
+                p["entry_fee"] = p.get("entry_fee", calc_polymarket_fee(p["contracts"], p["entry_price"], p.get("category", "other")))
+                p["total_fees"] = round(p["entry_fee"] + p["exit_fee"], 5)
+                p["net_pnl"] = round(pnl - p["total_fees"], 2)
+                self.realized_pnl += pnl
+                self.realized_pnl_net = getattr(self, "realized_pnl_net", 0) + p["net_pnl"]
+                self.total_fees = getattr(self, "total_fees", 0) + p["total_fees"]
+                self.bankroll += p["cost"] + pnl
+                if pnl > 0:
+                    self.winning_trades += 1
+                self.total_trades += 1
+                log(f"CLUSTER PRUNE: {p['question'][:55]} — cluster '{cid}' over-exposed ({exp['count']} > {MAX_POSITIONS_PER_CLUSTER}) — P&L ${pnl:+.2f}")
+                append_trade({"action": "CLUSTER_PRUNE", "market_id": p["market_id"],
+                              "question": p["question"], "reason": f"cluster '{cid}' pruned",
+                              "pnl": p["pnl"], "timestamp": p["closed_at"]})
+                _pruned += 1
+        if _pruned:
+            log(f"CLUSTER PRUNE TOTAL: {_pruned} positions force-closed")
+            save_positions(self.positions)
         save_positions(self.positions)
 
     def scan(self):

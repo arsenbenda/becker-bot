@@ -2340,5 +2340,141 @@
     "net_pnl": -2.27,
     "fees": 0.24214,
     "timestamp": "2026-04-02T13:56:55.899401+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "540816",
+    "question": "Russia-Ukraine Ceasefire before GTA VI?",
+    "reason": "cluster 'russia_ukraine' pruned",
+    "pnl": -2.85,
+    "timestamp": "2026-04-02T14:15:44.814814+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "610381",
+    "question": "Ukraine election held by June 30, 2026?",
+    "reason": "cluster 'russia_ukraine' pruned",
+    "pnl": -2.8,
+    "timestamp": "2026-04-02T14:15:44.823211+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "556063",
+    "question": "MegaETH market cap (FDV) >$6B one day after launch?",
+    "reason": "cluster 'megaeth' pruned",
+    "pnl": -0.85,
+    "timestamp": "2026-04-02T14:15:44.830712+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "556062",
+    "question": "MegaETH market cap (FDV) >$2B one day after launch?",
+    "reason": "cluster 'megaeth' pruned",
+    "pnl": -0.29,
+    "timestamp": "2026-04-02T14:15:44.838889+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "553842",
+    "question": "Will the New York Islanders win the 2026 NHL Stanley Cup?",
+    "reason": "cluster 'nhl_hockey' pruned",
+    "pnl": -2.98,
+    "timestamp": "2026-04-02T14:15:44.848460+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "553850",
+    "question": "Will the Boston Bruins win the 2026 NHL Stanley Cup?",
+    "reason": "cluster 'nhl_hockey' pruned",
+    "pnl": -2.05,
+    "timestamp": "2026-04-02T14:15:44.856986+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "553833",
+    "question": "Will the Winnipeg Jets win the 2026 NHL Stanley Cup?",
+    "reason": "cluster 'nhl_hockey' pruned",
+    "pnl": -1.51,
+    "timestamp": "2026-04-02T14:15:44.865629+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "553844",
+    "question": "Will the Columbus Blue Jackets win the 2026 NHL Stanley Cup?",
+    "reason": "cluster 'nhl_hockey' pruned",
+    "pnl": -0.88,
+    "timestamp": "2026-04-02T14:15:44.875379+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "553831",
+    "question": "Will the Los Angeles Kings win the 2026 NHL Stanley Cup?",
+    "reason": "cluster 'nhl_hockey' pruned",
+    "pnl": -0.22,
+    "timestamp": "2026-04-02T14:15:44.884891+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "553859",
+    "question": "Will the Minnesota Timberwolves win the 2026 NBA Finals?",
+    "reason": "cluster 'nba_basketball' pruned",
+    "pnl": -1.54,
+    "timestamp": "2026-04-02T14:15:44.897527+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "553868",
+    "question": "Will the Los Angeles Clippers win the 2026 NBA Finals?",
+    "reason": "cluster 'nba_basketball' pruned",
+    "pnl": -0.9,
+    "timestamp": "2026-04-02T14:15:44.903510+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "553865",
+    "question": "Will the Denver Nuggets win the 2026 NBA Finals?",
+    "reason": "cluster 'nba_basketball' pruned",
+    "pnl": -0.86,
+    "timestamp": "2026-04-02T14:15:44.910593+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "553860",
+    "question": "Will the Houston Rockets win the 2026 NBA Finals?",
+    "reason": "cluster 'nba_basketball' pruned",
+    "pnl": -0.75,
+    "timestamp": "2026-04-02T14:15:44.916121+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "553858",
+    "question": "Will the New York Knicks win the 2026 NBA Finals?",
+    "reason": "cluster 'nba_basketball' pruned",
+    "pnl": -0.47,
+    "timestamp": "2026-04-02T14:15:44.921959+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "540820",
+    "question": "Trump out as President before GTA VI?",
+    "reason": "cluster 'gta_vi' pruned",
+    "pnl": -1.84,
+    "timestamp": "2026-04-02T14:15:44.927804+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "540881",
+    "question": "GTA VI released before June 2026?",
+    "reason": "cluster 'gta_vi' pruned",
+    "pnl": -1.67,
+    "timestamp": "2026-04-02T14:15:44.934079+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "540843",
+    "question": "Will China invades Taiwan before GTA VI?",
+    "reason": "cluster 'gta_vi' pruned",
+    "pnl": -0.05,
+    "timestamp": "2026-04-02T14:15:44.938884+00:00"
   }
 ]
