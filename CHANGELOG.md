@@ -1,5 +1,18 @@
 # Changelog — Becker Bot
 
+## v4.1.4 — Phase 1.9: Category Performance Panel (2026-04-02)
+
+### Added
+- Category Performance section on dashboard (between Risk Monitor and Score Card)
+- Category P&L bar chart: horizontal bars, green/red by net P&L, sorted by performance
+- Category Breakdown table: trades, win rate, net P&L, avg P&L per trade, fees
+- Status icons: green (>=60% WR), yellow (>=40%), red (<40%)
+
+### Notes
+- Pure dashboard addition — no bot logic changes
+- All data computed from closed trades in positions.json
+- Updates automatically as new trades close
+
 ## v4.1.3 — Phase 1.1: Momentum Z-Scores (2026-04-02)
 
 ### Added

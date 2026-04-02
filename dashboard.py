@@ -574,6 +574,81 @@ if "Dashboard" in page:
                             unsafe_allow_html=True)
 
 
+    # ── ROW 3.6: Category Performance (Phase 1.9) ──
+    """
+    ## Category Performance
+    """
+
+    if closed_pos:
+        # Build per-category stats from closed trades
+        _cat_stats = {}
+        for c in closed_pos:
+            cat = c.get("category", "other")
+            if cat not in _cat_stats:
+                _cat_stats[cat] = {"wins": 0, "losses": 0, "pnl": 0.0, "net_pnl": 0.0, "trades": 0, "fees": 0.0}
+            _cat_stats[cat]["trades"] += 1
+            _pnl_val = float(c.get("pnl", 0))
+            _net_val = float(c.get("net_pnl", c.get("pnl", 0)))
+            _fee_val = float(c.get("total_fees", 0))
+            _cat_stats[cat]["pnl"] += _pnl_val
+            _cat_stats[cat]["net_pnl"] += _net_val
+            _cat_stats[cat]["fees"] += _fee_val
+            if _pnl_val > 0:
+                _cat_stats[cat]["wins"] += 1
+            else:
+                _cat_stats[cat]["losses"] += 1
+
+        cp_cols = st.columns(2)
+
+        # Left: Category P&L bar chart
+        with cp_cols[0]:
+            with st.container(border=True):
+                st.caption("CATEGORY P&L")
+                _cp_sorted = sorted(_cat_stats.items(), key=lambda x: -x[1]["net_pnl"])
+                _cp_cats = [c[0].title() for c in _cp_sorted]
+                _cp_vals = [round(c[1]["net_pnl"], 2) for c in _cp_sorted]
+                _cp_colors = [GREEN if v >= 0 else RED for v in _cp_vals]
+                fig_cp = go.Figure(go.Bar(
+                    x=_cp_vals, y=_cp_cats, orientation="h",
+                    marker_color=_cp_colors,
+                    text=[f"${v:+.2f}" for v in _cp_vals],
+                    textposition="auto",
+                    textfont=dict(color=FONT_COLOR, size=11),
+                    hovertemplate="<b>%{y}</b><br>Net P&L: $%{x:+.2f}<extra></extra>"))
+                fig_cp.update_layout(
+                    height=250, margin=dict(l=0, r=0, t=10, b=0),
+                    paper_bgcolor=PBG, plot_bgcolor=PBG,
+                    font=dict(color=MUTED, size=11),
+                    xaxis=dict(showgrid=True, gridcolor=GC, tickprefix="$", color=MUTED),
+                    yaxis=dict(showgrid=False, autorange="reversed", color=FONT_COLOR))
+                st.plotly_chart(fig_cp, use_container_width=True, config={"displayModeBar": False})
+
+        # Right: Category stats table
+        with cp_cols[1]:
+            with st.container(border=True):
+                st.caption("CATEGORY BREAKDOWN")
+                _cp_rows = []
+                for cat, s in sorted(_cat_stats.items(), key=lambda x: -x[1]["trades"]):
+                    wr = s["wins"] / s["trades"] * 100 if s["trades"] > 0 else 0
+                    avg = s["net_pnl"] / s["trades"] if s["trades"] > 0 else 0
+                    _status = "🟢" if wr >= 60 else "🟡" if wr >= 40 else "🔴"
+                    _cp_rows.append({
+                        "": _status,
+                        "Category": cat.title(),
+                        "Trades": s["trades"],
+                        "Win Rate": f"{wr:.0f}%",
+                        "Net P&L": f"${s['net_pnl']:+.2f}",
+                        "Avg/Trade": f"${avg:+.2f}",
+                        "Fees": f"${s['fees']:.2f}",
+                    })
+                st.dataframe(pd.DataFrame(_cp_rows), use_container_width=True, hide_index=True,
+                             height=min(len(_cp_rows) * 38 + 40, 350))
+    else:
+        st.info("No closed trades yet — category stats populate after first resolution", icon=":material/hourglass_empty:")
+
+    ""
+    ""
+
     # ── ROW 3.7: Score Card ──
     """
     ## Score Card

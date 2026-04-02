@@ -45,7 +45,7 @@
 - [ ] 1.6 Adaptive scan intervals (120s volatile / 600s calm)
 - [ ] 1.7 Auto-retire Layer 1 (when L2 outperforms by >2pp MAE)
 - [ ] 1.8 Geopolitics priority mode (25% bankroll, zero fees)
-- [ ] 1.9 Category performance dashboard panel
+- [x] 1.9 Category performance dashboard panel
 - [ ] 1.10 Install pmxt library (Polymarket/Kalshi/Limitless API)
 - [ ] 1.11 Tremor.live webhook (anomaly alerts)
 
