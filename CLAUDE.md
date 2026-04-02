@@ -52,7 +52,25 @@ It contains project conventions, rules, and habits that must be followed.
 - ROADMAP.md — phased upgrade plan with checkboxes and evaluation gate
 - CHANGELOG.md — version history with dates
 
+## Pending Design Decision — Unified Scoring System (Post-Gate)
+
+**Context (2026-04-02):** Current systems conflict with each other:
+1. Learner corrections push estimates up (+0.84 for geopolitics) while Becker sanity filter shrinks them back toward market price
+2. Kelly sizing ignores category fee efficiency (sports 3% fees vs geopolitics 0%)
+3. Capacity fills first-come-first-served, not by expected profitability
+4. Sports has 49% of deployed capital but lowest return/trade ($1.69); geopolitics has 7x better return/trade ($11.82) with zero fees
+
+**Decision:** Do NOT implement Phase 1.8 (geopolitics priority) as a standalone hack. Instead, after crossing the 50-trade gate, build a unified composite scoring system that replaces the current patchwork:
+- Single score per opportunity combining: EV, fee drag, category historical performance, correlation with existing book
+- Bot fills slots by rank, not by API response order
+- Replaces independent sanity filter, category block, and Kelly as separate stages
+- Needs 30+ closed trades per category for stable per-category averages
+- Target: implement between 50-100 closed trades
+
+**Combines roadmap items:** 1.2 (correlation filter), 1.8 (geopolitics priority), and elements of 4.5 (portfolio-aware sizing) into one coherent system.
+
 ## Session Startup
+
 
 When beginning a new session, the human will provide:
 
