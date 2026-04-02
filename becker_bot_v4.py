@@ -413,24 +413,28 @@ def reevaluate_position(pos, cfg):
 
     # Phase 0.5: Bayesian re-estimation — adjust probability toward market if price moved significantly
     price_move = abs(current_price - market_price)
+    bayesian_updated = False
     if price_move > 0.03:  # >3pp price movement = new information
         # Bayesian blend: weight market signal by magnitude of move
         blend_weight = min(price_move * 2, 0.4)  # max 40% market weight
         est_prob = est_prob * (1 - blend_weight) + current_price * blend_weight
+        bayesian_updated = True
 
     edge = abs(est_prob - current_price)
 
     if edge < min_edge * 0.5:
         return {"action": "EXIT", "reason": f"Edge collapsed: {edge:.3f}",
-                "current_price": round(current_price, 4), "remaining_edge": round(edge, 4)}
+                "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
+                "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
     elif edge < min_edge:
         # Phase 0.3: Track consecutive thin scans for trailing stop
         return {"action": "REDUCE", "reason": f"Edge thinning: {edge:.3f}",
                 "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
-                "edge_thin": True}
+                "edge_thin": True, "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
     else:
         return {"action": "HOLD", "reason": f"Edge intact: {edge:.3f}",
-                "current_price": round(current_price, 4), "remaining_edge": round(edge, 4)}
+                "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
+                "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
 
 
 # ════════════════════════════════════════════════════════
@@ -540,9 +544,17 @@ class BeckerBot:
         }
         _cat_avg = BECKER_CAT_INEFFICIENCY.get(category, 0.03)
         _raw_edge = abs(est_prob - yes_price)
+        # Check if learner has high-confidence data for this category
+        _learner_cat = self.learner_state.get("category_corrections", {}).get(category, {})
+        _learner_conf = _learner_cat.get("confidence", 0)
+        _learner_n = _learner_cat.get("sample_size", 0)
         if _raw_edge > _cat_avg * 3:
-            log(f"SANITY: {question[:50]} edge {_raw_edge:.3f} > 3x category avg {_cat_avg:.3f} — skeptical")
-            est_prob = est_prob * 0.7 + yes_price * 0.3  # Shrink toward market
+            if _learner_n >= 15 and _learner_conf >= 0.4:
+                # Learner has enough evidence — trust it over static heuristic
+                log(f"SANITY OVERRIDE: {question[:50]} edge {_raw_edge:.3f} > 3x avg, but learner has n={_learner_n} conf={_learner_conf:.2f} — trusting learner")
+            else:
+                log(f"SANITY: {question[:50]} edge {_raw_edge:.3f} > 3x category avg {_cat_avg:.3f} — skeptical (learner n={_learner_n})")
+                est_prob = est_prob * 0.7 + yes_price * 0.3  # Shrink toward market
 
         edge_check = edge_is_real(yes_price, est_prob, cfg["MIN_EDGE_POINTS"])
         if not edge_check["passed"]:
@@ -692,6 +704,9 @@ class BeckerBot:
                     log(f"WARN: {pos['question'][:60]} — {reeval['reason']} ({pos['edge_thin_count']}/3)")
             else:
                 pos["edge_thin_count"] = 0  # Reset counter if edge recovers
+            # Fix 2: Persist Bayesian-blended estimate so next scan builds on it
+            if pos.get("status") == "open" and reeval.get("bayesian_updated"):
+                pos["estimated_prob"] = reeval["new_est_prob"]
             # Phase 1.4: Persist live price + unrealised P&L for dashboard
             if pos.get("status") == "open" and reeval.get("current_price"):
                 pos["current_price"] = reeval["current_price"]

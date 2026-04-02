@@ -1,5 +1,20 @@
 # Changelog — Becker Bot
 
+## v4.1.5 — Conflict Fixes: Sanity Filter + Bayesian Persistence (2026-04-02)
+
+### Fixed
+- Sanity filter now respects learner corrections when learner has strong data (n>=15, conf>=0.4)
+- Previously: learner pushed estimate up, sanity filter pulled it back — directly contradicting each other
+- Now: learner wins when it has evidence, sanity filter only applies for low-data categories
+- Bayesian re-estimation now persists blended estimate back to position (estimated_prob updated)
+- Previously: each scan re-blended from the original stale estimate, never learning from price moves
+- Now: estimates evolve scan-over-scan as market prices change
+
+### Notes
+- Both fixes activate when bot has open capacity and positions experience >3pp price moves
+- Currently at 60/60 — fixes will be visible when slots open and new trades enter
+- These are prerequisite fixes for the unified scoring system (post-gate)
+
 ## v4.1.4 — Phase 1.9: Category Performance Panel (2026-04-02)
 
 ### Added
