@@ -1040,10 +1040,14 @@ class BeckerBot:
         deployed = sum(p.get("cost", 0) for p in open_pos)
         # Always compute from actual positions — single source of truth
         _closed = [p for p in self.positions if p.get("status") == "closed"]
-        _wins = sum(1 for p in _closed if float(p.get("pnl", 0)) > 0)
-        _total = len(_closed)
+        _real = [p for p in _closed if p.get("close_reason") != "cluster_prune"]
+        _pruned = [p for p in _closed if p.get("close_reason") == "cluster_prune"]
+        _wins = sum(1 for p in _real if float(p.get("pnl", 0)) > 0)
+        _total = len(_real)
         win_rate = f"{_wins/_total*100:.1f}%" if _total > 0 else "N/A"
-        self.total_trades = _total  # keep counters in sync
+        if _pruned:
+            win_rate += f" +{len(_pruned)}p"
+        self.total_trades = _total
         self.winning_trades = _wins
 
         log("\n" + "=" * 65)

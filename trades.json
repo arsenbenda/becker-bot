@@ -2524,5 +2524,15 @@
     "reason": "HARD STOP: unrealised -36% (>-30%)",
     "pnl": -2.93,
     "timestamp": "2026-04-02T15:45:38.013232+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "540819",
+    "question": "Will Jesus Christ return before GTA VI?",
+    "reason": "3x edge thinning",
+    "pnl": 1.11,
+    "net_pnl": 0.32,
+    "fees": 0.79376,
+    "timestamp": "2026-04-02T15:51:48.375995+00:00"
   }
 ]
