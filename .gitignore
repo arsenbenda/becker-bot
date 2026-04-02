@@ -5,3 +5,4 @@ __pycache__/
 .env
 becker_bot.log
 *.log
+*.bak
