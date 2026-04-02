@@ -1,5 +1,43 @@
 # Changelog — Becker Bot
 
+## v4.1.1 — Phase 1.4: Live Unrealised P&L (2026-04-02)
+
+### Added
+- Live CLOB mid-price fetched per open position every scan
+- Unrealised P&L computed and persisted to positions.json (current_price, unrealised_pnl, price_updated_at)
+- Mark-to-market total_value in scan_record (equity curve reflects real portfolio value)
+- Unrealised P&L line in CLI log summary
+- Unrealised metric card on dashboard (with priced/total count)
+- Curr Price and Unrl P&L columns in Positions table
+
+### Changed
+- Total Value now reflects bankroll + deployed + unrealised (was bankroll + deployed)
+- scan_history records include unrealised_pnl field
+
+### Performance
+- 60/60 positions priced via CLOB on first scan
+- Unrealised: -$11.98 (1.6% of deployed — normal for hold period)
+- No additional API cost (CLOB price endpoint is free)
+
+## v4.1.1 — Phase 1.4: Live Unrealised P&L (2026-04-02)
+
+### Added
+- Live CLOB mid-price fetched per open position every scan
+- Unrealised P&L computed and persisted to positions.json (current_price, unrealised_pnl, price_updated_at)
+- Mark-to-market total_value in scan_record (equity curve reflects real portfolio value)
+- Unrealised P&L line in CLI log summary
+- Unrealised metric card on dashboard (with priced/total count)
+- Curr Price and Unrl P&L columns in Positions table
+
+### Changed
+- Total Value now reflects bankroll + deployed + unrealised (was bankroll + deployed)
+- scan_history records include unrealised_pnl field
+
+### Performance
+- 60/60 positions priced via CLOB on first scan
+- Unrealised: -$11.98 (1.6% of deployed — normal for hold period)
+- No additional API cost (CLOB price endpoint is free)
+
 ## v4.1 — Phase 0 Complete (2026-04-01)
 
 ### Added
