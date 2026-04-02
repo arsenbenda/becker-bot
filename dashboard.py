@@ -261,8 +261,10 @@ paper_bankroll = float(cfg.get("PAPER_BANKROLL", 500))
 deployed = sum(float(p.get("cost", 0)) for p in open_pos)
 total_value = bankroll + deployed
 realized_pnl = sum(float(p.get("pnl", 0)) for p in closed_pos)
-total_trades = len(closed_pos)
-winning = sum(1 for p in closed_pos if float(p.get("pnl", 0)) > 0)
+_real_closed = [p for p in closed_pos if p.get("close_reason") != "cluster_prune"]
+_prune_closed = [p for p in closed_pos if p.get("close_reason") == "cluster_prune"]
+total_trades = len(_real_closed)
+winning = sum(1 for p in _real_closed if float(p.get("pnl", 0)) > 0)
 win_rate = (winning / total_trades * 100) if total_trades > 0 else 0.0
 pnl_pct = ((total_value - paper_bankroll) / paper_bankroll * 100) if paper_bankroll > 0 else 0
 scan_count = int(status.get("scan_count", 0))
@@ -387,11 +389,15 @@ if "Dashboard" in page:
     with cols[0]:
         bottom = st.container(border=True, height="stretch")
         with bottom:
-            rpnl_dc = "normal" if realized_pnl >= 0 else "inverse"
-            wr_str = f"{winning}W / {total_trades - winning}L" if total_trades > 0 else "—"
-            _total_fees_closed = sum(float(p.get("total_fees", 0)) for p in closed_pos)
-            _net_pnl = realized_pnl - _total_fees_closed
-            st.metric("P&L", f"${_net_pnl:,.2f}", f"gross ${realized_pnl:,.2f} · fees -${_total_fees_closed:,.2f}", delta_color=rpnl_dc if _net_pnl != 0 else "off")
+            _total_fees_closed = sum(float(p.get("total_fees", 0)) for p in _real_closed)
+            _net_pnl = sum(float(p.get("net_pnl", p.get("pnl", 0))) for p in _real_closed)
+            _prune_pnl = sum(float(p.get("pnl", 0)) for p in _prune_closed)
+            rpnl_dc = "normal" if _net_pnl >= 0 else "inverse"
+            _losses = total_trades - winning
+            wr_str = f"{winning}W / {_losses}L" if total_trades > 0 else "—"
+            if _prune_closed:
+                wr_str += f" +{len(_prune_closed)} pruned"
+            st.metric("P&L", f"${_net_pnl:,.2f}", f"gross {realized_pnl:,.2f} · fees {_total_fees_closed:,.2f}", delta_color=rpnl_dc if _net_pnl != 0 else "off")
             st.metric("Win Rate", f"{win_rate:.0f}%", wr_str, delta_color="off")
 
     with cols[1]:
