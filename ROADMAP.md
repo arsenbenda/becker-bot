@@ -68,7 +68,13 @@
 - [ ] 3.4 Mean-reversion signals (>10pp without news)
 - [ ] 3.5 15-min crypto binaries — DEPRIORITISED (Moltbook: -8.4%)
 - [ ] 3.6 Bayesian probability pipeline
-- [ ] 3.8 Geopolitics deep mode (majorexploiter study, satellite watchlist)
+- [ ] 3.8 Geopolitics deep mode (alternative data fusion)
+      - NASA FIRMS thermal anomaly feed (fire detection → conflict escalation)
+      - OpenSky aircraft transponder data (military flight patterns)
+      - USGS seismic feed (nuclear test detection)
+      - OSINT proxy signals (PizzINT-style behavioral anomalies)
+      - Planet Labs / Maxar commercial satellite integration (Phase 5+)
+      - All feeds score into unified scoring system, not standalone triggers
 
 ## Phase 4 — ML & Quantitative (after 500+ trades)
 

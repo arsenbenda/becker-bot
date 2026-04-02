@@ -52,6 +52,33 @@ It contains project conventions, rules, and habits that must be followed.
 - ROADMAP.md — phased upgrade plan with checkboxes and evaluation gate
 - CHANGELOG.md — version history with dates
 
+## Hard Design Rule — No Standalone Tools
+
+**Every new data source, signal, or filter MUST feed into the unified scoring system.**
+No tool operates independently. No standalone triggers. No isolated blockers.
+
+The bot balances all inputs into one composite score per opportunity:
+- EV (from estimator)
+- Fee drag (from category fee model)
+- Category historical return (from learner)
+- Momentum z-scores (from Layer 2)
+- Correlation with existing book (from correlation filter)
+- Alternative data signals (from satellite/OSINT/tremor feeds)
+- Options-chain cross-reference (from CME/CBOE implied probabilities)
+
+Each input has a weight. Weights are learned from outcomes, not hardcoded.
+The system self-balances: if satellite data consistently improves geopolitics returns,
+its weight increases automatically. If momentum z-scores add noise, their weight decays.
+
+**Implementation order:**
+1. Cross gate (50 trades) — validate base system
+2. Build unified scoring framework (50-100 trades) — single composite score
+3. Plug in new data sources one at a time (100+ trades) — each becomes a scoring input
+4. Adaptive weight learning (200+ trades) — system learns which inputs matter
+
+This rule applies to: Tremor.live (1.11), correlation filter (1.2), geopolitics mode (1.8),
+satellite feeds (3.8), options cross-ref (2.7), mean-reversion (3.4), and all future additions.
+
 ## Pending Design Decision — Unified Scoring System (Post-Gate)
 
 **Context (2026-04-02):** Current systems conflict with each other:
