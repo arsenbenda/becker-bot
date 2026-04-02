@@ -813,24 +813,34 @@ if "Dashboard" in page:
     # ── ROW 4: Recent activity ──
     with st.container(border=True):
         st.caption("RECENT ACTIVITY")
-        recent = sorted(trades, key=lambda t: t.get("timestamp", ""), reverse=True)[:8]
+        recent = sorted(trades, key=lambda t: t.get("timestamp", ""), reverse=True)[:12]
         if recent:
             rows = []
             for t in recent:
-                rows.append({
-                    "Side": t.get("side", "?").upper(),
-                    "Question": t.get("question", "?")[:60],
-                    "Cost": float(t.get("cost", 0)),
-                    "EV": float(t.get("ev", 0)),
-                    "Source": t.get("source", "").replace("layer1_ai", "AI").replace("layer2_quantitative", "Quant").replace("layer3_becker", "Becker"),
-                    "When": time_ago(t.get("timestamp")),
-                })
-            st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True,
-                         column_config={
-                             "Cost": st.column_config.NumberColumn(format="$%.2f"),
-                             "Fee": st.column_config.NumberColumn(format="$%.4f"),
-                             "EV": st.column_config.NumberColumn(format="$%.4f"),
-                         })
+                action = t.get("action", "OPEN").upper()
+                if action in ("CLOSE", "TRAILING_STOP"):
+                    _pnl = float(t.get("pnl", t.get("net_pnl", 0)))
+                    _pnl_str = f"${_pnl:+.2f}"
+                    _icon = "🟢" if _pnl > 0 else "🔴" if _pnl < 0 else "⚪"
+                    _reason = t.get("reason", "closed")[:25]
+                    rows.append({
+                        "Action": f"{_icon} EXIT",
+                        "Question": t.get("question", "?")[:55],
+                        "P&L": _pnl_str,
+                        "Detail": _reason,
+                        "Source": "Trailing Stop" if action == "TRAILING_STOP" else "Exit",
+                        "When": time_ago(t.get("timestamp")),
+                    })
+                else:
+                    rows.append({
+                        "Action": "🔵 OPEN",
+                        "Question": t.get("question", "?")[:55],
+                        "P&L": f"${float(t.get('cost', 0)):.2f}",
+                        "Detail": f"EV ${float(t.get('ev', 0)):.4f}",
+                        "Source": t.get("source", "").replace("layer1_ai", "AI").replace("layer2_quantitative", "Quant").replace("layer3_becker", "Becker"),
+                        "When": time_ago(t.get("timestamp")),
+                    })
+            st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True)
         else:
             st.info("No trades yet — bot is scanning", icon=":material/hourglass_empty:")
 

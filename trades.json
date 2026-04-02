@@ -2097,5 +2097,55 @@
     "confidence": 0.7,
     "category": "sports",
     "timestamp": "2026-04-02T07:00:08.137402+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "553827",
+    "question": "Will the Dallas Stars win the 2026 NHL Stanley Cup?",
+    "reason": "Edge collapsed: 0.009",
+    "pnl": 9.44,
+    "timestamp": "2026-04-02T13:28:32.028073+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "553851",
+    "question": "Will the Buffalo Sabres win the 2026 NHL Stanley Cup?",
+    "reason": "Edge collapsed: 0.009",
+    "pnl": 6.51,
+    "timestamp": "2026-04-02T13:28:32.891535+00:00"
+  },
+  {
+    "action": "OPEN",
+    "market_id": "1048199",
+    "question": "Taylor Swift pregnant before 2027?",
+    "side": "YES",
+    "price": 0.235,
+    "contracts": 104.26,
+    "cost": 24.5,
+    "ev": 0.1325,
+    "kelly_pct": 6.0,
+    "maker_score": 3.25,
+    "vol_scalar": 1.0,
+    "source": "layer1_ai",
+    "confidence": 0.85,
+    "category": "default",
+    "timestamp": "2026-04-02T13:29:00.920350+00:00"
+  },
+  {
+    "action": "OPEN",
+    "market_id": "558938",
+    "question": "Will Argentina win the 2026 FIFA World Cup?",
+    "side": "YES",
+    "price": 0.0925,
+    "contracts": 248.97,
+    "cost": 23.03,
+    "ev": 0.4047,
+    "kelly_pct": 6.0,
+    "maker_score": 5.62,
+    "vol_scalar": 1.0,
+    "source": "layer1_ai",
+    "confidence": 0.75,
+    "category": "sports",
+    "timestamp": "2026-04-02T13:29:18.821199+00:00"
   }
 ]

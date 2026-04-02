@@ -1,5 +1,13 @@
 # Changelog — Becker Bot
 
+## v4.1.6 — Dashboard: Recent Activity formatting fix (2026-04-02)
+
+### Fixed
+- Recent Activity table now distinguishes OPEN and EXIT trades
+- OPEN trades show: blue icon, cost, EV, estimator source
+- EXIT trades show: green/red icon based on P&L, exit reason, P&L amount
+- Previously: EXIT trades showed ? side, $0 cost, no source — confusing
+
 ## v4.1.5 — Conflict Fixes: Sanity Filter + Bayesian Persistence (2026-04-02)
 
 ### Fixed
