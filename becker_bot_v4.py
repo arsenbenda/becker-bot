@@ -166,6 +166,57 @@ def parse_market(raw: dict) -> dict | None:
         return None
 
 
+
+
+# ── Phase 1.2: Correlation / Cluster Detection ──
+CLUSTER_KEYWORDS = {
+    "russia_ukraine": ["russia", "ukraine", "ceasefire", "crimea", "donbas", "kostyantynivka", "zelensky", "putin war", "russian invasion"],
+    "china_taiwan": ["china", "taiwan", "invade", "strait", "pla", "xi jinping military"],
+    "trump_politics": ["trump", "impeach", "president removed", "25th amendment"],
+    "israel_palestine": ["israel", "gaza", "hamas", "palestine", "netanyahu war", "ceasefire middle east"],
+    "bitcoin_crypto": ["bitcoin", "btc", "microstrategy", "crypto crash", "crypto bull"],
+    "megaeth": ["megaeth", "mega eth"],
+    "nhl_hockey": ["stanley cup", "nhl", "hockey"],
+    "nba_basketball": ["nba", "basketball"],
+    "mlb_baseball": ["mlb", "baseball", "world series"],
+    "la_sports": ["los angeles", "lakers", "dodgers", "rams", "chargers", "la clippers"],
+    "ny_sports": ["new york", "yankees", "mets", "knicks", "rangers", "nets", "giants jets"],
+    "ai_tech": ["gpt", "openai", "anthropic", "google ai", "artificial intelligence release"],
+    "gta_vi": ["gta vi", "gta 6", "grand theft auto"],
+    "taylor_swift": ["taylor swift"],
+    "starmer_uk": ["starmer", "uk prime minister"],
+}
+
+MAX_POSITIONS_PER_CLUSTER = 3
+MAX_CLUSTER_BANKROLL_PCT = 0.15
+
+def detect_clusters(question: str) -> list:
+    """Return list of cluster IDs this question belongs to."""
+    q_lower = question.lower()
+    matched = []
+    for cluster_id, keywords in CLUSTER_KEYWORDS.items():
+        for kw in keywords:
+            if kw in q_lower:
+                matched.append(cluster_id)
+                break
+    return matched
+
+def cluster_exposure(positions: list, cluster_id: str) -> dict:
+    """Count open positions and total cost in a given cluster."""
+    count = 0
+    cost = 0.0
+    for p in positions:
+        if p.get("status") != "open":
+            continue
+        q = p.get("question", "").lower()
+        keywords = CLUSTER_KEYWORDS.get(cluster_id, [])
+        for kw in keywords:
+            if kw in q:
+                count += 1
+                cost += float(p.get("cost", 0))
+                break
+    return {"count": count, "cost": cost}
+
 def infer_category(market: dict) -> str:
     tags = market.get("tags", [])
     question = market.get("question", "").lower()
@@ -514,6 +565,20 @@ class BeckerBot:
         # Step 0b: Category avoidance check
         if should_avoid_category(self.learner_state, category):
             return None
+
+        # Step 0c: Cluster correlation filter (Phase 1.2)
+        _clusters = detect_clusters(question)
+        if _clusters:
+            _positions = load_positions()
+            for _cid in _clusters:
+                _exp = cluster_exposure(_positions, _cid)
+                if _exp["count"] >= MAX_POSITIONS_PER_CLUSTER:
+                    log(f"CLUSTER CAP: {question[:50]} — cluster '{_cid}' has {_exp['count']} positions (max {MAX_POSITIONS_PER_CLUSTER})")
+                    return None
+                _max_cost = self.bankroll * MAX_CLUSTER_BANKROLL_PCT
+                if _exp["cost"] >= _max_cost:
+                    log(f"CLUSTER $CAP: {question[:50]} — cluster '{_cid}' cost ${_exp['cost']:.2f} >= ${_max_cost:.2f} (15% bankroll)")
+                    return None
 
         # Step 1: Smart probability estimation
         est = estimate_probability(

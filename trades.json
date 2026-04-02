@@ -2255,5 +2255,90 @@
     "confidence": 0.8,
     "category": "crypto",
     "timestamp": "2026-04-02T13:35:32.155462+00:00"
+  },
+  {
+    "action": "OPEN",
+    "market_id": "558943",
+    "question": "Will USA win the 2026 FIFA World Cup?",
+    "side": "YES",
+    "price": 0.0155,
+    "contracts": 1393.55,
+    "cost": 21.6,
+    "ev": 0.449,
+    "kelly_pct": 6.0,
+    "maker_score": 5.62,
+    "vol_scalar": 1.0,
+    "source": "layer1_ai",
+    "confidence": 0.8,
+    "category": "sports",
+    "timestamp": "2026-04-02T13:35:41.274163+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "666655",
+    "question": "Starmer out by December 31, 2026?",
+    "reason": "Edge collapsed: 0.006",
+    "pnl": -15.18,
+    "timestamp": "2026-04-02T13:40:42.189508+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "677366",
+    "question": "Will Russia capture Kostyantynivka by December 31, 2026?",
+    "reason": "Edge collapsed: 0.008",
+    "pnl": -36.08,
+    "timestamp": "2026-04-02T13:40:44.827957+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "540818",
+    "question": "New Playboi Carti Album before GTA VI?",
+    "reason": "Edge collapsed: 0.009",
+    "pnl": -1.86,
+    "timestamp": "2026-04-02T13:43:56.383770+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "691547",
+    "question": "Kraken IPO by December 31, 2026?",
+    "reason": "Edge collapsed: 0.010",
+    "pnl": -2.42,
+    "timestamp": "2026-04-02T13:47:16.798563+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "597967",
+    "question": "Starmer out by June 30, 2026?",
+    "reason": "Edge collapsed: 0.008",
+    "pnl": -8.79,
+    "timestamp": "2026-04-02T13:50:21.106808+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "540817",
+    "question": "New Rihanna Album before GTA VI?",
+    "reason": "Edge collapsed: 0.010",
+    "pnl": -2.25,
+    "timestamp": "2026-04-02T13:50:21.940118+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "1117522",
+    "question": "Will Drake release Iceman before GTA VI?",
+    "reason": "3x edge thinning",
+    "pnl": -2.03,
+    "net_pnl": -2.27,
+    "fees": 0.24214,
+    "timestamp": "2026-04-02T13:56:47.028195+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "1117522",
+    "question": "Will Drake release Iceman before GTA VI?",
+    "reason": "3x edge thinning",
+    "pnl": -2.03,
+    "net_pnl": -2.27,
+    "fees": 0.24214,
+    "timestamp": "2026-04-02T13:56:55.899401+00:00"
   }
 ]

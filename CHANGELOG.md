@@ -8,6 +8,19 @@
 - EXIT trades show: green/red icon based on P&L, exit reason, P&L amount
 - Previously: EXIT trades showed ? side, $0 cost, no source — confusing
 
+## v4.1.6 — Phase 1.2: Correlation Filter (2026-04-02)
+
+### Added
+- Keyword-based cluster detection across 15 cluster groups
+- Hard cap: max 3 positions per cluster
+- Bankroll cap: max 15% of bankroll deployed per cluster
+- Cluster gate runs before API calls (Step 0c in evaluate pipeline)
+- CLUSTER CAP and CLUSTER $CAP log messages for rejected trades
+
+### Context
+- Russia/Kostyantynivka cluster caused -$36.08 loss (63% of daily losses on 2026-04-02)
+- Filter would have blocked the 3rd entry, limiting loss to ~$24
+
 ## v4.1.5 — Conflict Fixes: Sanity Filter + Bayesian Persistence (2026-04-02)
 
 ### Fixed

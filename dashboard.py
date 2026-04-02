@@ -75,24 +75,87 @@ def gauge_chart(title, pct, max_v=100):
 
 
 def bankroll_line(status, start_val):
+    """
+    Hybrid equity curve:
+    1. Historical: reconstruct from closed trades (step-function, accurate)
+    2. Live: append recent mark-to-market scans (smooth, real-time)
+    """
+    # ── Part 1: Historical equity from closed trades ──
+    closed = [p for p in positions if p.get("status") == "closed" and p.get("closed_at")]
+    closed_sorted = sorted(closed, key=lambda x: x.get("closed_at", ""))
+
+    hist_times = [pd.to_datetime(closed_sorted[0].get("opened_at", closed_sorted[0].get("closed_at"))).tz_localize(None) - pd.Timedelta(hours=1)] if closed_sorted else []
+    hist_vals = [start_val] if closed_sorted else []
+
+    running = start_val
+    for c in closed_sorted:
+        try:
+            ts = pd.to_datetime(c.get("closed_at")).tz_localize(None)
+            net_pnl = float(c.get("net_pnl", c.get("pnl", 0)))
+            running += net_pnl
+            hist_times.append(ts)
+            hist_vals.append(round(running, 2))
+        except Exception:
+            pass
+
+    # ── Part 2: Live mark-to-market from recent scans ──
     hist = status.get("scan_history", [])
-    times, vals = [], []
+    live_times, live_vals = [], []
     for s in hist:
-        ts = s.get("time") or s.get("timestamp") or s.get("ts")
+        if s.get("unrealised_pnl") is None:
+            continue
+        ts = s.get("time") or s.get("timestamp")
         if ts:
             try:
-                times.append(pd.to_datetime(ts))
-                vals.append(float(s.get("total_value", 0) or (s.get("bankroll", start_val) + s.get("deployed", 0)) or start_val))
-            except:
+                t = pd.to_datetime(ts).tz_localize(None)
+                v = float(s.get("total_value", 0))
+                if v > 0:
+                    live_times.append(t)
+                    live_vals.append(v)
+            except Exception:
                 pass
-    if len(times) < 2:
+
+    # ── Combine: historical + live ──
+    all_times = hist_times + live_times
+    all_vals = hist_vals + live_vals
+
+    if len(all_times) < 2:
         return None
-    df = pd.DataFrame({"t": times, "v": vals})
+
+    df = pd.DataFrame({"t": all_times, "v": all_vals})
+    df = df.sort_values("t").drop_duplicates(subset="t", keep="last").reset_index(drop=True)
+
     lc = GREEN if df["v"].iloc[-1] >= start_val else RED
     fc = "rgba(63,185,80,0.08)" if lc == GREEN else "rgba(248,81,73,0.08)"
-    fig = go.Figure(go.Scatter(x=df["t"], y=df["v"], mode="lines",
-                                line=dict(color=lc, width=2.5), fill="tozeroy", fillcolor=fc,
-                                hovertemplate="$%{y:,.2f}<extra></extra>"))
+
+    fig = go.Figure()
+
+    # Historical portion: step-line (reflects discrete trade closures)
+    hist_mask = df["t"] <= pd.to_datetime(live_times[0]) if live_times else pd.Series([True] * len(df))
+    df_hist = df[hist_mask]
+    if len(df_hist) >= 2:
+        fig.add_trace(go.Scatter(x=df_hist["t"], y=df_hist["v"], mode="lines",
+                                  line=dict(color=lc, width=2.5, shape="hv"),
+                                  fill="tozeroy", fillcolor=fc,
+                                  hovertemplate="$%{y:,.2f}<extra></extra>",
+                                  showlegend=False))
+
+    # Live portion: smooth line (mark-to-market)
+    df_live = df[~hist_mask] if live_times else pd.DataFrame()
+    if len(df_live) >= 2:
+        fig.add_trace(go.Scatter(x=df_live["t"], y=df_live["v"], mode="lines",
+                                  line=dict(color=lc, width=2.5),
+                                  fill="tozeroy", fillcolor=fc,
+                                  hovertemplate="$%{y:,.2f}<extra></extra>",
+                                  showlegend=False))
+    elif len(df_hist) < 2:
+        # Fallback: plot everything as one line
+        fig.add_trace(go.Scatter(x=df["t"], y=df["v"], mode="lines",
+                                  line=dict(color=lc, width=2.5),
+                                  fill="tozeroy", fillcolor=fc,
+                                  hovertemplate="$%{y:,.2f}<extra></extra>",
+                                  showlegend=False))
+
     fig.add_hline(y=start_val, line_dash="dot", line_color="rgba(128,128,128,0.35)",
                   annotation_text=f"Start ${start_val:,.0f}", annotation_font_color=MUTED, annotation_font_size=10)
     fig.update_layout(**_layout(height=340, showlegend=False, hovermode="x unified",
