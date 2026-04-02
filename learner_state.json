@@ -1,0 +1,1904 @@
+{
+  "calibration": {},
+  "category_corrections": {
+    "politics": {
+      "correction_pp": 0.9377,
+      "avg_prediction": 0.0623,
+      "actual_win_rate": 1.0,
+      "sample_size": 5,
+      "confidence": 0.16666666666666666
+    },
+    "geopolitics": {
+      "correction_pp": 0.8377,
+      "avg_prediction": 0.1623,
+      "actual_win_rate": 1.0,
+      "sample_size": 16,
+      "confidence": 0.5333333333333333
+    },
+    "sports": {
+      "correction_pp": 0.5864,
+      "avg_prediction": 0.2469,
+      "actual_win_rate": 0.8333,
+      "sample_size": 12,
+      "confidence": 0.4
+    },
+    "crypto": {
+      "correction_pp": 0.8584,
+      "avg_prediction": 0.1416,
+      "actual_win_rate": 1.0,
+      "sample_size": 8,
+      "confidence": 0.26666666666666666
+    }
+  },
+  "layer_corrections": {
+    "layer2_quantitative": {
+      "correction_pp": 0.8816,
+      "avg_prediction": 0.1184,
+      "actual_win_rate": 1.0,
+      "sample_size": 23
+    },
+    "layer1_ai": {
+      "correction_pp": 0.68,
+      "avg_prediction": 0.22,
+      "actual_win_rate": 0.9,
+      "sample_size": 20
+    }
+  },
+  "price_bucket_corrections": {
+    "0.91-0.99": {
+      "correction_pp": 0.9806,
+      "sample_size": 21
+    },
+    "0.81-0.90": {
+      "correction_pp": 0.8134,
+      "sample_size": 9
+    }
+  },
+  "adaptive_risk": {
+    "status": "active",
+    "window_size": 43,
+    "win_rate": 0.9535,
+    "profit_factor": 17.69,
+    "total_pnl": 388.32,
+    "avg_pnl": 9.0307,
+    "max_drawdown": 18.57,
+    "wins": 41,
+    "losses": 2,
+    "recommended_kelly": 0.4,
+    "kelly_reason": "Strong performance: 95% win, PF 17.7",
+    "recommended_edge": 0.016,
+    "edge_reason": "Lowering edge bar \u2014 winning consistently",
+    "recommended_max_bet": 0.06,
+    "bet_reason": "Drawdown acceptable",
+    "avoid_categories": [],
+    "category_performance": {
+      "politics": {
+        "wins": 5,
+        "losses": 0,
+        "pnl": 74.42999999999999
+      },
+      "geopolitics": {
+        "wins": 16,
+        "losses": 0,
+        "pnl": 189.09
+      },
+      "entertainment": {
+        "wins": 2,
+        "losses": 0,
+        "pnl": 23.77
+      },
+      "sports": {
+        "wins": 10,
+        "losses": 2,
+        "pnl": 22.769999999999996
+      },
+      "crypto": {
+        "wins": 8,
+        "losses": 0,
+        "pnl": 78.26
+      }
+    }
+  },
+  "market_memory": {
+    "597964": {
+      "question": "Macron out by June 30, 2026?",
+      "category": "politics",
+      "first_seen": "2026-03-29T15:17:20.809423+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9685,
+          "estimated_prob": 0.01,
+          "cost": 25.0,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:20.809423+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 13372.770000000164
+    },
+    "610236": {
+      "question": "NATO/EU troops fighting in Ukraine in June 30, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T15:17:21.999808+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9555,
+          "estimated_prob": 0.0121,
+          "cost": 23.75,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:21.999808+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 12540.7600000001
+    },
+    "610379": {
+      "question": "Ukraine recognizes Russian sovereignty over its territory by June 30, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T15:17:24.090853+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9585,
+          "estimated_prob": 0.01,
+          "cost": 22.56,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:24.090853+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 12017.309999999978
+    },
+    "610380": {
+      "question": "Ukraine election called by June 30, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T15:17:25.212241+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.89,
+          "estimated_prob": 0.0856,
+          "cost": 21.43,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:25.212241+00:00",
+          "status": "open"
+        },
+        {
+          "side": "NO",
+          "entry_price": 0.915,
+          "estimated_prob": 0.05,
+          "cost": 25.0,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-30T05:55:50.734520+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 32829.82999999992
+    },
+    "629267": {
+      "question": "Will any country leave NATO by June 30, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T15:17:25.891545+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9635,
+          "estimated_prob": 0.01,
+          "cost": 14.13,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:25.891545+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 14580.720000000183
+    },
+    "813505": {
+      "question": "Mike Johnson out as Speaker by June 30?",
+      "category": "politics",
+      "first_seen": "2026-03-29T15:17:27.851856+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9299999999999999,
+          "estimated_prob": 0.0344,
+          "cost": 19.66,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:27.851856+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 10132.890000000003
+    },
+    "540843": {
+      "question": "Will China invades Taiwan before GTA VI?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T15:17:30.628378+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.515,
+          "estimated_prob": 0.5417,
+          "cost": 5.14,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:30.628378+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "1117522": {
+      "question": "Will Drake release Iceman before GTA VI?",
+      "category": "entertainment",
+      "first_seen": "2026-03-29T15:17:32.053255+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.908,
+          "estimated_prob": 0.941,
+          "cost": 18.42,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:32.053255+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "544093": {
+      "question": "Will Harvey Weinstein be sentenced to less than 5 years in prison?",
+      "category": "entertainment",
+      "first_seen": "2026-03-29T15:17:33.003958+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9045,
+          "estimated_prob": 0.0685,
+          "cost": 16.52,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:33.003958+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 9523.379999999936
+    },
+    "677366": {
+      "question": "Will Russia capture Kostyantynivka by December 31, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T15:17:34.378358+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.875,
+          "estimated_prob": 0.9068,
+          "cost": 16.67,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:34.378358+00:00",
+          "status": "open"
+        },
+        {
+          "side": "NO",
+          "entry_price": 0.09499999999999997,
+          "estimated_prob": 0.65,
+          "cost": 4.66,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-30T05:56:24.005476+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 504.960000000007
+    },
+    "1397260": {
+      "question": "Will Russia capture Kostyantynivka by June 30?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T15:17:34.912959+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.605,
+          "estimated_prob": 0.6266,
+          "cost": 3.34,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:34.912959+00:00",
+          "status": "open"
+        },
+        {
+          "side": "NO",
+          "entry_price": 0.385,
+          "estimated_prob": 0.15,
+          "cost": 9.45,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-30T08:44:00.930898+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 79.91999999999865
+    },
+    "644510": {
+      "question": "Spain snap election called by June 30, 2026?",
+      "category": "politics",
+      "first_seen": "2026-03-29T15:17:36.034196+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.89,
+          "estimated_prob": 0.078,
+          "cost": 15.67,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:36.034196+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 7664.409999999947
+    },
+    "648872": {
+      "question": "US x Russia military clash by June 30, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T15:17:36.715418+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9505,
+          "estimated_prob": 0.0141,
+          "cost": 14.89,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:36.715418+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 7807.670000000033
+    },
+    "1124834": {
+      "question": "US x Russia military clash by December 31, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T15:17:37.440204+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.899,
+          "estimated_prob": 0.0753,
+          "cost": 14.14,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:37.440204+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 7047.289999999982
+    },
+    "1068702": {
+      "question": "Trump eliminates capital gains tax on crypto before 2027?",
+      "category": "politics",
+      "first_seen": "2026-03-29T15:17:38.570132+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.953,
+          "estimated_prob": 0.022,
+          "cost": 13.43,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:38.570132+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 12067.709999999834
+    },
+    "677274": {
+      "question": "Israel and Syria normalize relations by June 30, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T15:17:39.292831+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.935,
+          "estimated_prob": 0.0333,
+          "cost": 12.76,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:39.292831+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 6578.939999999933
+    },
+    "677273": {
+      "question": "Israel and Syria normalize relations by December 31, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T15:17:39.982781+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.84,
+          "estimated_prob": 0.1218,
+          "cost": 12.12,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:39.982781+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 5487.960000000017
+    },
+    "1007579": {
+      "question": "Will Russia capture Sumy by March 31, 2027?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T15:17:40.695106+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.81,
+          "estimated_prob": 0.1412,
+          "cost": 11.52,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:40.695106+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 1319.4999999999989
+    },
+    "553824": {
+      "question": "Will the Carolina Hurricanes win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-29T15:17:44.470395+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.885,
+          "estimated_prob": 0.0703,
+          "cost": 10.94,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:44.470395+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 3162.1999999999857
+    },
+    "553827": {
+      "question": "Will the Dallas Stars win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-29T15:17:44.940885+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.915,
+          "estimated_prob": 0.0426,
+          "cost": 10.4,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:44.940885+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553826": {
+      "question": "Will the Edmonton Oilers win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-29T15:17:45.801643+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.945,
+          "estimated_prob": 0.0176,
+          "cost": 9.88,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:45.801643+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553828": {
+      "question": "Will the Colorado Avalanche win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-29T15:17:47.157863+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.8029999999999999,
+          "estimated_prob": 0.1444,
+          "cost": 9.38,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:47.157863+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553829": {
+      "question": "Will the Vegas Golden Knights win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-29T15:17:47.634277+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.951,
+          "estimated_prob": 0.0122,
+          "cost": 8.91,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:47.634277+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 3599.759999999962
+    },
+    "553830": {
+      "question": "Will the Tampa Bay Lightning win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-29T15:17:48.147865+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.859,
+          "estimated_prob": 0.0928,
+          "cost": 8.47,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:48.147865+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553849": {
+      "question": "Will the Montreal Canadiens win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-29T15:17:48.613739+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9605,
+          "estimated_prob": 0.01,
+          "cost": 8.04,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:48.613739+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 4259.23
+    },
+    "553837": {
+      "question": "Will the Ottawa Senators win the 2026 NHL Stanley Cup?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T15:17:49.419982+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9695,
+          "estimated_prob": 0.01,
+          "cost": 7.64,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:49.419982+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 4099.440000000026
+    },
+    "553838": {
+      "question": "Will the Minnesota Wild win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-29T15:17:49.917954+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9525,
+          "estimated_prob": 0.01,
+          "cost": 7.26,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:49.917954+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 1808.7300000000039
+    },
+    "553851": {
+      "question": "Will the Buffalo Sabres win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-29T15:17:51.490230+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9475,
+          "estimated_prob": 0.0135,
+          "cost": 6.9,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:51.490230+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553856": {
+      "question": "Will the Oklahoma City Thunder win the 2026 NBA Finals?",
+      "category": "sports",
+      "first_seen": "2026-03-29T15:17:52.388582+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.625,
+          "estimated_prob": 0.3405,
+          "cost": 3.01,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:52.388582+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 677.7300000000052
+    },
+    "553857": {
+      "question": "Will the Cleveland Cavaliers win the 2026 NBA Finals?",
+      "category": "sports",
+      "first_seen": "2026-03-29T15:17:53.558996+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9535,
+          "estimated_prob": 0.0212,
+          "cost": 6.4,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-29T15:17:53.558996+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 3339.059999999975
+    },
+    "824952": {
+      "question": "MicroStrategy sells any Bitcoin by December 31, 2026?",
+      "category": "crypto",
+      "first_seen": "2026-03-29T16:53:49.347772+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.87,
+          "estimated_prob": 0.02,
+          "cost": 25.0,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:53:49.347772+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "677404": {
+      "question": "China x India military clash by December 31, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T16:54:07.617437+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.815,
+          "estimated_prob": 0.15,
+          "cost": 22.47,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:54:07.617437+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 4027.300000000024
+    },
+    "597967": {
+      "question": "Starmer out by June 30, 2026?",
+      "category": "politics",
+      "first_seen": "2026-03-29T16:54:15.734382+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.425,
+          "estimated_prob": 0.55,
+          "cost": 22.63,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:54:15.734382+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "666655": {
+      "question": "Starmer out by December 31, 2026?",
+      "category": "politics",
+      "first_seen": "2026-03-29T16:54:22.983704+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.33999999999999997,
+          "estimated_prob": 0.45,
+          "cost": 21.5,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:54:22.983704+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "1500922": {
+      "question": "Starmer out by April 30, 2026?",
+      "category": "politics",
+      "first_seen": "2026-03-29T16:54:31.799365+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.05,
+          "estimated_prob": 0.2,
+          "cost": 16.12,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:54:31.799365+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "1323364": {
+      "question": "Ukraine recognizes Russian sovereignty over its territory by December 31, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T16:54:41.755631+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.85,
+          "estimated_prob": 0.05,
+          "cost": 19.61,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:54:41.755631+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "610381": {
+      "question": "Ukraine election held by June 30, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T16:54:50.195484+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.029,
+          "estimated_prob": 0.15,
+          "cost": 11.61,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:54:50.195484+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "677358": {
+      "question": "Ukraine election held by December 31, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T16:54:58.744483+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.17,
+          "estimated_prob": 0.2,
+          "cost": 1.77,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:54:58.744483+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 64.48000000000017
+    },
+    "531202": {
+      "question": "BitBoy convicted?",
+      "category": "crypto",
+      "first_seen": "2026-03-29T16:55:05.110093+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9615,
+          "estimated_prob": 0.01,
+          "cost": 5.91,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:55:05.110093+00:00",
+          "status": "open"
+        },
+        {
+          "side": "NO",
+          "entry_price": 0.9145,
+          "estimated_prob": 0.02,
+          "cost": 8.58,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-30T05:56:08.874371+00:00",
+          "status": "open"
+        },
+        {
+          "side": "NO",
+          "entry_price": 0.9485,
+          "estimated_prob": 0.01,
+          "cost": 7.42,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-30T07:36:12.639459+00:00",
+          "status": "open"
+        },
+        {
+          "side": "NO",
+          "entry_price": 0.9405,
+          "estimated_prob": 0.01,
+          "cost": 7.42,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-30T12:26:12.895870+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 25130.70000000036
+    },
+    "540816": {
+      "question": "Russia-Ukraine Ceasefire before GTA VI?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T16:55:15.991009+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.46499999999999997,
+          "estimated_prob": 0.27,
+          "cost": 17.67,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:55:15.991009+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "540817": {
+      "question": "New Rihanna Album before GTA VI?",
+      "category": "entertainment",
+      "first_seen": "2026-03-29T16:55:25.362067+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.405,
+          "estimated_prob": 0.05,
+          "cost": 4.93,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:55:25.362067+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "540818": {
+      "question": "New Playboi Carti Album before GTA VI?",
+      "category": "entertainment",
+      "first_seen": "2026-03-29T16:55:34.058823+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.38,
+          "estimated_prob": 0.25,
+          "cost": 3.37,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:55:34.058823+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "540819": {
+      "question": "Will Jesus Christ return before GTA VI?",
+      "category": "entertainment",
+      "first_seen": "2026-03-29T16:55:43.663266+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.515,
+          "estimated_prob": 0.01,
+          "cost": 16.37,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:55:43.663266+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "540820": {
+      "question": "Trump out as President before GTA VI?",
+      "category": "politics",
+      "first_seen": "2026-03-29T16:55:51.711577+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.46499999999999997,
+          "estimated_prob": 0.01,
+          "cost": 15.55,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:55:51.711577+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "540844": {
+      "question": "Will bitcoin hit $1m before GTA VI?",
+      "category": "crypto",
+      "first_seen": "2026-03-29T16:56:00.424695+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.5115000000000001,
+          "estimated_prob": 0.05,
+          "cost": 14.77,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:56:00.424695+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "573647": {
+      "question": "Will GPT-6 be released before GTA VI?",
+      "category": "entertainment",
+      "first_seen": "2026-03-29T16:56:09.026669+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.59,
+          "estimated_prob": 0.75,
+          "cost": 14.04,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:56:09.026669+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "544097": {
+      "question": "Will Harvey Weinstein be sentenced to more than 30 years in prison?",
+      "category": "entertainment",
+      "first_seen": "2026-03-29T16:56:28.294405+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.8995,
+          "estimated_prob": 0.05,
+          "cost": 8.96,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:56:28.294405+00:00",
+          "status": "open"
+        },
+        {
+          "side": "YES",
+          "entry_price": 0.068,
+          "estimated_prob": 0.15,
+          "cost": 3.49,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-30T13:39:51.642031+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 7574.159999999884
+    },
+    "677361": {
+      "question": "Will Russia capture Kostyantynivka by March 31?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T16:56:37.236659+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.035,
+          "estimated_prob": 0.15,
+          "cost": 1.54,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:56:37.236659+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "1397301": {
+      "question": "Will Russia capture Kostyantynivka by April 30?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T16:56:44.720697+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.77,
+          "estimated_prob": 0.15,
+          "cost": 6.28,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:56:44.720697+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 1452.6199999999897
+    },
+    "610256": {
+      "question": "Will Russia invade a NATO country by June 30, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-29T16:56:54.668434+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.0465,
+          "estimated_prob": 0.1,
+          "cost": 1.86,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-29T16:56:54.668434+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "550694": {
+      "question": "Will Italy qualify for the 2026 FIFA World Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-30T05:56:30.983692+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.235,
+          "estimated_prob": 0.65,
+          "cost": 10.52,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-30T05:56:30.983692+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": -7836.539999999957
+    },
+    "550703": {
+      "question": "Will Sweden qualify for the 2026 FIFA World Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-30T08:05:12.967522+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.365,
+          "estimated_prob": 0.55,
+          "cost": 9.81,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-30T08:05:12.967522+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": -2025.7000000000137
+    },
+    "540881": {
+      "question": "GTA VI released before June 2026?",
+      "category": "entertainment",
+      "first_seen": "2026-03-31T04:59:09.749391+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.022,
+          "estimated_prob": 0.3449,
+          "cost": 5.24,
+          "source": "layer2_quantitative",
+          "timestamp": "2026-03-31T04:59:09.749391+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "813506": {
+      "question": "Mike Johnson out as Speaker by December 31?",
+      "category": "politics",
+      "first_seen": "2026-03-31T08:37:51.304729+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.56,
+          "estimated_prob": 0.167,
+          "cost": 7.58,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:37:51.304729+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 2152.539999999976
+    },
+    "550706": {
+      "question": "Will Poland qualify for the 2026 FIFA World Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-31T08:37:59.082228+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.375,
+          "estimated_prob": 0.4275,
+          "cost": 8.2,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:37:59.082228+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 515.9999999999967
+    },
+    "902014": {
+      "question": "Will Bosnia and Herzegovina qualify for the 2026 FIFA World Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-31T08:38:08.963804+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.205,
+          "estimated_prob": 0.27149999999999996,
+          "cost": 9.58,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:38:08.963804+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 1463.0
+    },
+    "902015": {
+      "question": "Will Czechia qualify for the 2026 FIFA World Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-31T08:38:18.288330+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.355,
+          "estimated_prob": 0.4,
+          "cost": 10.44,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:38:18.288330+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 438.7799999999954
+    },
+    "902020": {
+      "question": "Will Denmark qualify for the 2026 FIFA World Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-31T08:38:25.874411+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.645,
+          "estimated_prob": 0.7184999999999999,
+          "cost": 24.17,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:38:25.874411+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "902145": {
+      "question": "Will Kosovo qualify for the 2026 FIFA World Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-31T08:38:34.273479+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.325,
+          "estimated_prob": 0.4125,
+          "cost": 18.42,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:38:34.273479+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "902160": {
+      "question": "Will Turkey qualify for the 2026 FIFA World Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-31T08:38:42.132696+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.685,
+          "estimated_prob": 0.8005,
+          "cost": 22.04,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:38:42.132696+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553862": {
+      "question": "Will the Boston Celtics win the 2026 NBA Finals?",
+      "category": "sports",
+      "first_seen": "2026-03-31T08:40:23.984847+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.1145,
+          "estimated_prob": 0.15,
+          "cost": 5.56,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:40:23.984847+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553865": {
+      "question": "Will the Denver Nuggets win the 2026 NBA Finals?",
+      "category": "sports",
+      "first_seen": "2026-03-31T08:40:33.956200+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.085,
+          "estimated_prob": 0.15,
+          "cost": 14.59,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:40:33.956200+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553866": {
+      "question": "Will the San Antonio Spurs win the 2026 NBA Finals?",
+      "category": "sports",
+      "first_seen": "2026-03-31T08:40:42.228511+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.171,
+          "estimated_prob": 0.2,
+          "cost": 2.86,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:40:42.228511+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 52.360000000000355
+    },
+    "622738": {
+      "question": "Will Hyperliquid perform an airdrop by December 31, 2026? ",
+      "category": "crypto",
+      "first_seen": "2026-03-31T08:41:14.859790+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.365,
+          "estimated_prob": 0.5645,
+          "cost": 18.79,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:41:14.859790+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "556062": {
+      "question": "MegaETH market cap (FDV) >$2B one day after launch?",
+      "category": "crypto",
+      "first_seen": "2026-03-31T08:41:29.614796+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.105,
+          "estimated_prob": 0.15,
+          "cost": 2.05,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:41:29.614796+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "636111": {
+      "question": "MegaETH market cap (FDV) >$4B one day after launch?",
+      "category": "crypto",
+      "first_seen": "2026-03-31T08:41:36.918050+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9635,
+          "estimated_prob": 0.01,
+          "cost": 23.77,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:41:36.918050+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 12538.239999999882
+    },
+    "666614": {
+      "question": "MegaETH market cap (FDV) >$3B one day after launch?",
+      "category": "crypto",
+      "first_seen": "2026-03-31T08:41:47.904160+00:00",
+      "entries": [
+        {
+          "side": "NO",
+          "entry_price": 0.9465,
+          "estimated_prob": 0.02,
+          "cost": 22.58,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:41:47.904160+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 11694.320000000062
+    },
+    "692258": {
+      "question": "MicroStrategy sells any Bitcoin by June 30, 2026?",
+      "category": "crypto",
+      "first_seen": "2026-03-31T08:57:15.450527+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.031,
+          "estimated_prob": 0.36349999999999993,
+          "cost": 22.32,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:57:15.450527+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553844": {
+      "question": "Will the Columbus Blue Jackets win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-31T08:57:15.654058+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.024,
+          "estimated_prob": 0.36,
+          "cost": 7.07,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T08:57:15.654058+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553850": {
+      "question": "Will the Boston Bruins win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-31T17:58:04.439933+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.024,
+          "estimated_prob": 0.35223,
+          "cost": 9.82,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T17:58:04.439933+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "1807912": {
+      "question": "Will any country leave NATO by December 31, 2026?",
+      "category": "geopolitics",
+      "first_seen": "2026-03-31T18:54:54.117594+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.105,
+          "estimated_prob": 0.65716,
+          "cost": 29.87,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T18:54:54.117594+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553839": {
+      "question": "Will the Utah Mammoth win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-31T19:00:13.142074+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.0275,
+          "estimated_prob": 0.29189,
+          "cost": 7.44,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T19:00:13.142074+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553842": {
+      "question": "Will the New York Islanders win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-31T19:21:02.260363+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.016,
+          "estimated_prob": 0.34038,
+          "cost": 15.9,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T19:21:02.260363+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553848": {
+      "question": "Will the Anaheim Ducks win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-31T19:26:20.368286+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.0225,
+          "estimated_prob": 0.36374999999999996,
+          "cost": 6.21,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T19:26:20.368286+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553852": {
+      "question": "Will the Pittsburgh Penguins win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-03-31T19:31:41.979013+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.0265,
+          "estimated_prob": 0.37678,
+          "cost": 12.36,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T19:31:41.979013+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553860": {
+      "question": "Will the Houston Rockets win the 2026 NBA Finals?",
+      "category": "sports",
+      "first_seen": "2026-03-31T19:42:10.503168+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.0145,
+          "estimated_prob": 0.45081,
+          "cost": 21.75,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T19:42:10.503168+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553858": {
+      "question": "Will the New York Knicks win the 2026 NBA Finals?",
+      "category": "sports",
+      "first_seen": "2026-03-31T20:02:59.587767+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.044,
+          "estimated_prob": 0.35718,
+          "cost": 20.86,
+          "source": "layer1_ai",
+          "timestamp": "2026-03-31T20:02:59.587767+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553833": {
+      "question": "Will the Winnipeg Jets win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-04-01T03:57:14.954164+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.011,
+          "estimated_prob": 0.3393,
+          "cost": 5.54,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T03:57:14.954164+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553859": {
+      "question": "Will the Minnesota Timberwolves win the 2026 NBA Finals?",
+      "category": "sports",
+      "first_seen": "2026-04-01T05:24:58.402561+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.0155,
+          "estimated_prob": 0.37845,
+          "cost": 15.89,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T05:24:58.402561+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553868": {
+      "question": "Will the Los Angeles Clippers win the 2026 NBA Finals?",
+      "category": "sports",
+      "first_seen": "2026-04-01T05:25:08.165176+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.0185,
+          "estimated_prob": 0.38593,
+          "cost": 11.06,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T05:25:08.165176+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553871": {
+      "question": "Will the Detroit Pistons win the 2026 NBA Finals?",
+      "category": "sports",
+      "first_seen": "2026-04-01T05:25:16.693087+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.0425,
+          "estimated_prob": 0.39355,
+          "cost": 5.15,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T05:25:16.693087+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553863": {
+      "question": "Will the Los Angeles Lakers win the 2026 NBA Finals?",
+      "category": "sports",
+      "first_seen": "2026-04-01T05:25:25.102292+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.0375,
+          "estimated_prob": 0.47247999999999996,
+          "cost": 11.05,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T05:25:25.102292+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "556063": {
+      "question": "MegaETH market cap (FDV) >$6B one day after launch?",
+      "category": "crypto",
+      "first_seen": "2026-04-01T05:25:34.588266+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.0205,
+          "estimated_prob": 0.41313,
+          "cost": 4.96,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T05:25:34.588266+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "965261": {
+      "question": "MegaETH market cap (FDV) >$1B one day after launch?",
+      "category": "crypto",
+      "first_seen": "2026-04-01T05:30:59.547961+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.27,
+          "estimated_prob": 0.45998,
+          "cost": 4.94,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T05:30:59.547961+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "1299187": {
+      "question": "MegaETH market cap (FDV) >$1.5B one day after launch?",
+      "category": "crypto",
+      "first_seen": "2026-04-01T06:02:08.373872+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.105,
+          "estimated_prob": 0.44155999999999995,
+          "cost": 5.01,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T06:02:08.373872+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "691547": {
+      "question": "Kraken IPO by December 31, 2026?",
+      "category": "crypto",
+      "first_seen": "2026-04-01T09:23:48.798390+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.505,
+          "estimated_prob": 0.70534,
+          "cost": 6.6,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T09:23:48.798390+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "598936": {
+      "question": "Will the next UK election be called by June 30, 2026?",
+      "category": "politics",
+      "first_seen": "2026-04-01T09:23:56.800763+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.0345,
+          "estimated_prob": 0.39542000000000005,
+          "cost": 8.08,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T09:23:56.800763+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "1373744": {
+      "question": "MegaETH market cap (FDV) >$800M one day after launch?",
+      "category": "crypto",
+      "first_seen": "2026-04-01T09:24:05.080225+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.365,
+          "estimated_prob": 0.49534,
+          "cost": 12.25,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T09:24:05.080225+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 181.4200000000002
+    },
+    "1541748": {
+      "question": "MegaETH market cap (FDV) >$600M one day after launch?",
+      "category": "crypto",
+      "first_seen": "2026-04-01T09:24:14.238568+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.48,
+          "estimated_prob": 0.5578399999999999,
+          "cost": 11.57,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T09:24:14.238568+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": true,
+      "resolution_pnl": 298.69999999999885
+    },
+    "556108": {
+      "question": "Will MegaETH perform an airdrop by June 30? ",
+      "category": "crypto",
+      "first_seen": "2026-04-01T09:24:22.429194+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.456,
+          "estimated_prob": 0.69064,
+          "cost": 22.45,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T09:24:22.429194+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "558935": {
+      "question": "Will England win the 2026 FIFA World Cup?",
+      "category": "sports",
+      "first_seen": "2026-04-01T09:34:53.512110+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.1235,
+          "estimated_prob": 0.52383,
+          "cost": 21.95,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T09:34:53.512110+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "558934": {
+      "question": "Will Spain win the 2026 FIFA World Cup?",
+      "category": "sports",
+      "first_seen": "2026-04-01T12:16:00.684269+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.163,
+          "estimated_prob": 0.57978,
+          "cost": 23.03,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T12:16:00.684269+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "558974": {
+      "question": "Will Switzerland win the 2026 FIFA World Cup?",
+      "category": "sports",
+      "first_seen": "2026-04-01T14:10:09.182615+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.0115,
+          "estimated_prob": 0.41868999999999995,
+          "cost": 4.35,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T14:10:09.182615+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "558936": {
+      "question": "Will France win the 2026 FIFA World Cup?",
+      "category": "sports",
+      "first_seen": "2026-04-01T14:20:41.721644+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.1255,
+          "estimated_prob": 0.53192,
+          "cost": 5.4,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T14:20:41.721644+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "558937": {
+      "question": "Will Brazil win the 2026 FIFA World Cup?",
+      "category": "sports",
+      "first_seen": "2026-04-01T22:28:54.832452+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.086,
+          "estimated_prob": 0.50124,
+          "cost": 23.21,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-01T22:28:54.832452+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    },
+    "553831": {
+      "question": "Will the Los Angeles Kings win the 2026 NHL Stanley Cup?",
+      "category": "sports",
+      "first_seen": "2026-04-02T07:00:08.137402+00:00",
+      "entries": [
+        {
+          "side": "YES",
+          "entry_price": 0.0105,
+          "estimated_prob": 0.4400899999999999,
+          "cost": 4.56,
+          "source": "layer1_ai",
+          "timestamp": "2026-04-02T07:00:08.137402+00:00",
+          "status": "open"
+        }
+      ],
+      "resolved": false,
+      "resolution_pnl": 0
+    }
+  },
+  "trade_outcomes": [],
+  "last_update": "2026-04-02T10:59:59.019328+00:00",
+  "summary": {
+    "calibrated_categories": 4,
+    "adaptive_status": "active",
+    "markets_remembered": 96,
+    "avoid_categories": [],
+    "last_cycle": "2026-04-02T10:59:59.019312+00:00"
+  }
+}
