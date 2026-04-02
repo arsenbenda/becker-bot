@@ -37,7 +37,7 @@
 
 ## Phase 1 — Free Intelligence (zero API cost)
 
-- [ ] 1.1 Momentum z-scores (7/14/30-day via Gamma API)
+- [x] 1.1 Momentum z-scores (7/14/30-day via Gamma API)
 - [ ] 1.2 Correlation filter (max 2 per cluster, <=15% bankroll)
 - [ ] 1.3 Logical arbitrage scanner (nested market mispricing)
 - [x] 1.4 Live unrealised P&L (CLOB mid-price per position)

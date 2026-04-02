@@ -1,5 +1,24 @@
 # Changelog — Becker Bot
 
+## v4.1.3 — Phase 1.1: Momentum Z-Scores (2026-04-02)
+
+### Added
+- momentum_zscores() function: 7/14/30-day z-scores with composite signal
+- Three signal types: zscore_aligned (trend following), zscore_reversion (mean reversion), zscore_mixed
+- Trend alignment detection (all windows agree = strong signal)
+- Mean-reversion flag (short-term spike + long-term calm)
+- Hard cap +/-4pp on z-score adjustments
+- Confidence boost: +0.10 for aligned signals, +0.05 for mixed
+
+### Changed
+- layer2_estimate() upgraded: z-scores primary, legacy momentum as fallback
+- Volume signal now applies to both z-score and fallback paths
+
+### Notes
+- Z-scores activate when Layer 2 is used (currently 2/96 markets)
+- Will become primary signal when Layer 1 is retired (Phase 1.7)
+- Zero additional API cost — uses existing CLOB price history endpoint
+
 ## v4.1.2 — Phase 1.5: Category Auto-Block (2026-04-02)
 
 ### Changed

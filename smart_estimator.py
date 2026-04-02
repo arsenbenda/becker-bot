@@ -202,6 +202,89 @@ def price_momentum(history: list) -> dict:
     }
 
 
+def momentum_zscores(history: list) -> dict:
+    """
+    Phase 1.1: Compute z-scores across 7/14/30-day windows.
+    Z-score = (current_price - window_mean) / window_std
+    Positive z = price above average (trending up)
+    Negative z = price below average (trending down)
+    |z| > 2 = extreme move, potential mean-reversion
+    """
+    prices = []
+    for h in history:
+        p = h.get("p", h.get("price", None))
+        if p is not None:
+            prices.append(float(p))
+
+    if len(prices) < 7:
+        return {"available": False, "reason": "insufficient_data"}
+
+    arr = np.array(prices)
+    current = arr[-1]
+
+    windows = {"7d": 7, "14d": 14, "30d": 30}
+    zscores = {}
+    signals = {}
+
+    for label, w in windows.items():
+        if len(arr) < w:
+            continue
+        window = arr[-w:]
+        mean = float(np.mean(window))
+        std = float(np.std(window, ddof=1)) if len(window) > 1 else 0.001
+        std = max(std, 0.001)  # prevent division by zero
+        z = (current - mean) / std
+        zscores[label] = round(float(z), 3)
+
+        # Classify signal
+        if z > 2.0:
+            signals[label] = "overbought"
+        elif z > 1.0:
+            signals[label] = "bullish"
+        elif z < -2.0:
+            signals[label] = "oversold"
+        elif z < -1.0:
+            signals[label] = "bearish"
+        else:
+            signals[label] = "neutral"
+
+    if not zscores:
+        return {"available": False, "reason": "no_valid_windows"}
+
+    # Composite signal: weighted average (shorter = more weight)
+    weights = {"7d": 0.5, "14d": 0.3, "30d": 0.2}
+    weighted_z = 0.0
+    total_weight = 0.0
+    for label, z in zscores.items():
+        w = weights.get(label, 0.2)
+        weighted_z += z * w
+        total_weight += w
+    composite = weighted_z / total_weight if total_weight > 0 else 0.0
+
+    # Trend alignment: all windows agree = strong signal
+    z_vals = list(zscores.values())
+    all_positive = all(z > 0 for z in z_vals)
+    all_negative = all(z < 0 for z in z_vals)
+    aligned = all_positive or all_negative
+
+    # Mean-reversion flag: short-term extreme vs long-term calm
+    mean_reversion = False
+    if "7d" in zscores and "30d" in zscores:
+        if abs(zscores["7d"]) > 2.0 and abs(zscores["30d"]) < 1.0:
+            mean_reversion = True
+
+    return {
+        "available": True,
+        "zscores": zscores,
+        "signals": signals,
+        "composite_z": round(composite, 3),
+        "aligned": aligned,
+        "mean_reversion": mean_reversion,
+        "current_price": round(current, 4),
+        "points": len(prices),
+    }
+
+
 def volume_signal(history: list) -> float:
     """
     Detect unusual volume from price history timestamps.
@@ -263,25 +346,58 @@ def layer2_estimate(
             adjustments.append(f"orderbook_imbalance={imbalance:+.3f} → {adjustment:+.4f}")
             confidence += 0.05
 
-    # ── Price momentum ─────────────────────────────────
+    # ── Price momentum + z-scores (Phase 1.1) ─────────
     if yes_token_id:
         history = fetch_price_history(yes_token_id)
-        mom = price_momentum(history)
-        if mom["trend"] != "insufficient_data":
-            # Rising price with low vol = informed buying
-            # Falling price = informed selling
-            mom_adj = mom["signal"] * 0.02  # conservative: max ~2pp
-            base += mom_adj
-            adjustments.append(
-                f"momentum={mom['signal']:+.4f} ({mom['trend']}) → {mom_adj:+.4f}"
-            )
-            confidence += 0.05
 
-            # ── Volume signal ──────────────────────────
+        # Phase 1.1: Multi-timeframe z-scores
+        zs = momentum_zscores(history)
+        if zs.get("available"):
+            composite = zs["composite_z"]
+
+            # Z-score probability adjustment:
+            # Aligned trend = follow momentum (max +/-3pp)
+            # Mean-reversion signal = counter-momentum (max +/-2pp)
+            if zs["mean_reversion"]:
+                # Price spiked short-term but stable long-term → fade it
+                z_adj = -composite * 0.015  # counter-trend, conservative
+                adjustments.append(
+                    f"zscore_reversion z={composite:+.3f} {zs['zscores']} → {z_adj:+.4f}"
+                )
+            elif zs["aligned"]:
+                # All timeframes agree → strong trend, follow it
+                z_adj = composite * 0.02  # max ~4pp for extreme z
+                adjustments.append(
+                    f"zscore_aligned z={composite:+.3f} {zs['zscores']} → {z_adj:+.4f}"
+                )
+            else:
+                # Mixed signals → mild adjustment
+                z_adj = composite * 0.01
+                adjustments.append(
+                    f"zscore_mixed z={composite:+.3f} {zs['zscores']} → {z_adj:+.4f}"
+                )
+
+            z_adj = max(-0.04, min(0.04, z_adj))  # hard cap +/-4pp
+            base += z_adj
+            confidence += 0.10 if zs["aligned"] else 0.05
+
+        # Legacy momentum (fallback if z-scores unavailable)
+        elif history:
+            mom = price_momentum(history)
+            if mom["trend"] != "insufficient_data":
+                mom_adj = mom["signal"] * 0.02
+                base += mom_adj
+                adjustments.append(
+                    f"momentum={mom['signal']:+.4f} ({mom['trend']}) → {mom_adj:+.4f}"
+                )
+                confidence += 0.05
+
+        # ── Volume signal (applies to both paths) ─────
+        if history:
             vol_mult = volume_signal(history)
             if vol_mult > 1.5:
-                # High activity amplifies momentum signal
-                extra = mom_adj * (vol_mult - 1.0) * 0.5
+                last_adj = float(adjustments[-1].split("→")[-1]) if adjustments else 0.0
+                extra = last_adj * (vol_mult - 1.0) * 0.5
                 base += extra
                 adjustments.append(f"volume_spike={vol_mult:.1f}x → {extra:+.4f}")
                 confidence += 0.05
