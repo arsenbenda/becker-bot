@@ -450,45 +450,115 @@ def maker_edge_score(market_price, category):
 # ════════════════════════════════════════════════════════
 
 def reevaluate_position(pos, cfg):
-    market_price = pos.get("entry_price", 0.5)
+    """Hybrid exit system: hold-to-resolution bias for cheap contracts,
+    active trailing for mid-range, hard stop-loss for disasters."""
+    entry_price = pos.get("entry_price", 0.5)
     est_prob = pos.get("estimated_prob", 0.5)
     min_edge = cfg.get("MIN_EDGE_POINTS", 0.05)
+    side = pos.get("side", "YES")
 
     token_id = pos.get("yes_token_id", "")
-    current_price = market_price
+    current_price = entry_price
     if token_id:
         try:
             r = requests.get(f"{CLOB_API}/price",
                              params={"token_id": token_id, "side": "buy"}, timeout=5)
             if r.status_code == 200:
-                current_price = float(r.json().get("price", market_price))
+                current_price = float(r.json().get("price", entry_price))
         except Exception:
             pass
 
-    # Phase 0.5: Bayesian re-estimation — adjust probability toward market if price moved significantly
-    price_move = abs(current_price - market_price)
+    # Bayesian re-estimation — adjust probability toward market if price moved significantly
+    price_move = abs(current_price - entry_price)
     bayesian_updated = False
-    if price_move > 0.03:  # >3pp price movement = new information
-        # Bayesian blend: weight market signal by magnitude of move
-        blend_weight = min(price_move * 2, 0.4)  # max 40% market weight
+    if price_move > 0.03:
+        blend_weight = min(price_move * 2, 0.4)
         est_prob = est_prob * (1 - blend_weight) + current_price * blend_weight
         bayesian_updated = True
 
     edge = abs(est_prob - current_price)
 
-    if edge < min_edge * 0.5:
-        return {"action": "EXIT", "reason": f"Edge collapsed: {edge:.3f}",
-                "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
-                "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
-    elif edge < min_edge:
-        # Phase 0.3: Track consecutive thin scans for trailing stop
-        return {"action": "REDUCE", "reason": f"Edge thinning: {edge:.3f}",
-                "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
-                "edge_thin": True, "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
+    # Calculate unrealised P&L ratio
+    cost = float(pos.get("cost", entry_price))
+    if side == "YES":
+        _unreal = (current_price - entry_price) * pos.get("contracts", 1)
     else:
-        return {"action": "HOLD", "reason": f"Edge intact: {edge:.3f}",
+        _unreal = (entry_price - current_price) * pos.get("contracts", 1)
+    _unreal_pct = _unreal / cost if cost > 0 else 0
+
+    # Position age in hours
+    _opened = pos.get("opened_at", "")
+    _age_hours = 0
+    if _opened:
+        try:
+            from datetime import datetime, timezone
+            _dt = datetime.fromisoformat(_opened.replace("Z", "+00:00"))
+            _age_hours = (datetime.now(timezone.utc) - _dt).total_seconds() / 3600
+        except Exception:
+            pass
+
+    # ── RULE 1: Hard stop-loss at -30% of position cost ──
+    # Catches true disasters regardless of edge calculations
+    if _unreal_pct <= -0.30:
+        return {"action": "EXIT", "reason": f"HARD STOP: unrealised {_unreal_pct:+.0%} (>-30%)",
                 "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
                 "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
+
+    # ── RULE 2: Classify position by entry price tier ──
+    # Tier A: cheap contracts (<50c) — hold-to-resolution bias
+    # Tier B: mid-range (50-84c) — active trailing stop
+    # Tier C: expensive (>=85c) — tight trailing stop
+
+    if entry_price < 0.50:
+        # TIER A: Hold-to-resolution default
+        # Only exit on hard stop (above) or extreme edge collapse
+        # Rationale: 17c entry -> $1 resolution = 5.7x return
+        # Temporary dips are noise, not signal
+        if edge < min_edge * 0.3 and _age_hours > 48:
+            # Edge fully collapsed AND position is old — thesis likely dead
+            return {"action": "EXIT", "reason": f"Tier A stale exit: edge {edge:.3f}, age {_age_hours:.0f}h",
+                    "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
+                    "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
+        elif edge < min_edge * 0.3:
+            # Edge collapsed but position is young — warn but hold
+            return {"action": "REDUCE", "reason": f"Tier A watch: edge {edge:.3f}, age {_age_hours:.0f}h",
+                    "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
+                    "edge_thin": True, "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
+        else:
+            return {"action": "HOLD", "reason": f"Tier A hold: edge {edge:.3f}",
+                    "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
+                    "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
+
+    elif entry_price < 0.85:
+        # TIER B: Active trailing stop but with patience
+        # Require 5 consecutive thin scans (25 min at 300s, 15 min at 180s)
+        if edge < min_edge * 0.5:
+            return {"action": "EXIT", "reason": f"Tier B edge collapsed: {edge:.3f}",
+                    "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
+                    "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
+        elif edge < min_edge:
+            return {"action": "REDUCE", "reason": f"Tier B thinning: {edge:.3f}",
+                    "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
+                    "edge_thin": True, "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
+        else:
+            return {"action": "HOLD", "reason": f"Tier B hold: edge {edge:.3f}",
+                    "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
+                    "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
+
+    else:
+        # TIER C: Expensive contracts — original tight trailing (3 scans)
+        if edge < min_edge * 0.5:
+            return {"action": "EXIT", "reason": f"Tier C edge collapsed: {edge:.3f}",
+                    "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
+                    "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
+        elif edge < min_edge:
+            return {"action": "REDUCE", "reason": f"Tier C thinning: {edge:.3f}",
+                    "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
+                    "edge_thin": True, "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
+        else:
+            return {"action": "HOLD", "reason": f"Tier C hold: edge {edge:.3f}",
+                    "current_price": round(current_price, 4), "remaining_edge": round(edge, 4),
+                    "bayesian_updated": bayesian_updated, "new_est_prob": round(est_prob, 4)}
 
 
 # ════════════════════════════════════════════════════════
@@ -744,7 +814,10 @@ class BeckerBot:
             elif reeval["action"] == "REDUCE":
                 # Phase 0.3: Trailing stop — count consecutive thin scans
                 pos["edge_thin_count"] = pos.get("edge_thin_count", 0) + 1
-                if pos["edge_thin_count"] >= 3:
+                # Tier-aware trailing stop: Tier A=8 scans, Tier B=5 scans, Tier C=3 scans
+                _entry = float(pos.get("entry_price", 0.5))
+                _thin_limit = 8 if _entry < 0.50 else 5 if _entry < 0.85 else 3
+                if pos["edge_thin_count"] >= _thin_limit:
                     pos["status"] = "closed"
                     pos["close_price"] = reeval["current_price"]
                     pos["closed_at"] = datetime.now(timezone.utc).isoformat()

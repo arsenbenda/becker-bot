@@ -15,6 +15,26 @@
 - Freed 17 slots for better-diversified trades
 - Cost: ~$32 realized loss (correlated risk premium)
 
+## v4.1.8 — Hybrid Exit System (2026-04-02)
+
+### Changed
+- Replaced uniform 3-scan trailing stop with tier-aware hybrid exit system
+- Tier A (<50c entry): Hold-to-resolution bias, 8 scans for trailing stop, exit only after 48h with dead edge
+- Tier B (50-84c entry): Active trailing, 5 consecutive thin scans required (was 3)
+- Tier C (>=85c entry): Original tight trailing, 3 scans
+- Added hard stop-loss at -30% of position cost (catches disasters regardless of tier)
+- Position age calculated from opened_at timestamp
+
+### Context
+- 27 of 32 open positions are Tier A (<50c), avg entry 17.4c
+- Old system would exit on 9 min of noise; new Tier A requires 40+ min of sustained edge collapse
+- Research: profitable Polymarket bots hold cheap contracts to resolution, not trailing-stop on volatility
+- Asymmetry at 17c entry: 5.7x upside vs 1x downside favors holding
+
+### Performance
+- Hard stop immediately caught a -36% UK election position
+- Tier B correctly held Jesus Christ/GTA VI at 3/5 (old system would have exited at 3/3)
+
 ## v4.1.6 — Dashboard: Recent Activity formatting fix (2026-04-02)
 
 ### Fixed

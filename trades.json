@@ -2516,5 +2516,13 @@
     "net_pnl": -11.47,
     "fees": 0.82807,
     "timestamp": "2026-04-02T15:08:50.625414+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "598936",
+    "question": "Will the next UK election be called by June 30, 2026?",
+    "reason": "HARD STOP: unrealised -36% (>-30%)",
+    "pnl": -2.93,
+    "timestamp": "2026-04-02T15:45:38.013232+00:00"
   }
 ]
