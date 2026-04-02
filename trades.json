@@ -2147,5 +2147,113 @@
     "confidence": 0.75,
     "category": "sports",
     "timestamp": "2026-04-02T13:29:18.821199+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "553826",
+    "question": "Will the Edmonton Oilers win the 2026 NHL Stanley Cup?",
+    "reason": "Edge collapsed: 0.007",
+    "pnl": 9.15,
+    "timestamp": "2026-04-02T13:34:19.619986+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "553828",
+    "question": "Will the Colorado Avalanche win the 2026 NHL Stanley Cup?",
+    "reason": "Edge collapsed: 0.007",
+    "pnl": 7.08,
+    "timestamp": "2026-04-02T13:34:19.858797+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "553830",
+    "question": "Will the Tampa Bay Lightning win the 2026 NHL Stanley Cup?",
+    "reason": "Edge collapsed: 0.006",
+    "pnl": 7.09,
+    "timestamp": "2026-04-02T13:34:20.088092+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "1323364",
+    "question": "Ukraine recognizes Russian sovereignty over its territory by December 31, 2026?",
+    "reason": "Edge collapsed: 0.006",
+    "pnl": 17.3,
+    "timestamp": "2026-04-02T13:34:21.170374+00:00"
+  },
+  {
+    "action": "OPEN",
+    "market_id": "558939",
+    "question": "Will Germany win the 2026 FIFA World Cup?",
+    "side": "YES",
+    "price": 0.0535,
+    "contracts": 503.36,
+    "cost": 26.93,
+    "ev": 0.4563,
+    "kelly_pct": 6.0,
+    "maker_score": 5.62,
+    "vol_scalar": 1.0,
+    "source": "layer1_ai",
+    "confidence": 0.8,
+    "category": "sports",
+    "timestamp": "2026-04-02T13:34:42.008824+00:00"
+  },
+  {
+    "action": "OPEN",
+    "market_id": "558947",
+    "question": "Will Colombia win the 2026 FIFA World Cup?",
+    "side": "YES",
+    "price": 0.0165,
+    "contracts": 1533.94,
+    "cost": 25.31,
+    "ev": 0.4518,
+    "kelly_pct": 6.0,
+    "maker_score": 5.62,
+    "vol_scalar": 1.0,
+    "source": "layer1_ai",
+    "confidence": 0.8,
+    "category": "sports",
+    "timestamp": "2026-04-02T13:34:53.580821+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "824952",
+    "question": "MicroStrategy sells any Bitcoin by December 31, 2026?",
+    "reason": "Edge collapsed: 0.008",
+    "pnl": 21.55,
+    "timestamp": "2026-04-02T13:34:55.291565+00:00"
+  },
+  {
+    "action": "OPEN",
+    "market_id": "558940",
+    "question": "Will Portugal win the 2026 FIFA World Cup?",
+    "side": "YES",
+    "price": 0.0675,
+    "contracts": 362.07,
+    "cost": 24.44,
+    "ev": 0.453,
+    "kelly_pct": 6.0,
+    "maker_score": 5.62,
+    "vol_scalar": 1.0,
+    "source": "layer1_ai",
+    "confidence": 0.75,
+    "category": "sports",
+    "timestamp": "2026-04-02T13:35:22.179929+00:00"
+  },
+  {
+    "action": "OPEN",
+    "market_id": "558941",
+    "question": "Will Netherlands win the 2026 FIFA World Cup?",
+    "side": "YES",
+    "price": 0.0345,
+    "contracts": 666.09,
+    "cost": 22.98,
+    "ev": 0.4066,
+    "kelly_pct": 6.0,
+    "maker_score": 5.84,
+    "vol_scalar": 1.0,
+    "source": "layer1_ai",
+    "confidence": 0.8,
+    "category": "crypto",
+    "timestamp": "2026-04-02T13:35:32.155462+00:00"
   }
 ]
