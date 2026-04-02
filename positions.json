@@ -191,7 +191,10 @@
     "entry_fee": 0.0,
     "exit_fee": 0.0,
     "total_fees": 0.0,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.51,
+    "unrealised_pnl": -0.05,
+    "price_updated_at": "2026-04-02T11:59:45.842876+00:00"
   },
   {
     "market_id": "1117522",
@@ -219,7 +222,10 @@
     "entry_fee": 0.08475,
     "exit_fee": 0.0,
     "total_fees": 0.08475,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.805,
+    "unrealised_pnl": -2.09,
+    "price_updated_at": "2026-04-02T11:59:46.051013+00:00"
   },
   {
     "market_id": "544093",
@@ -550,7 +556,10 @@
     "entry_fee": 0.02653,
     "exit_fee": 0.0,
     "total_fees": 0.02653,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.086,
+    "unrealised_pnl": 9.43,
+    "price_updated_at": "2026-04-02T11:59:46.266752+00:00"
   },
   {
     "market_id": "553826",
@@ -578,7 +587,10 @@
     "entry_fee": 0.01631,
     "exit_fee": 0.0,
     "total_fees": 0.01631,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.07,
+    "unrealised_pnl": 9.15,
+    "price_updated_at": "2026-04-02T11:59:46.473083+00:00"
   },
   {
     "market_id": "553828",
@@ -606,7 +618,10 @@
     "entry_fee": 0.05543,
     "exit_fee": 0.0,
     "total_fees": 0.05543,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.196,
+    "unrealised_pnl": 7.09,
+    "price_updated_at": "2026-04-02T11:59:46.677748+00:00"
   },
   {
     "market_id": "553829",
@@ -662,7 +677,10 @@
     "entry_fee": 0.03583,
     "exit_fee": 0.0,
     "total_fees": 0.03583,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.14,
+    "unrealised_pnl": 7.09,
+    "price_updated_at": "2026-04-02T11:59:46.882045+00:00"
   },
   {
     "market_id": "553849",
@@ -773,7 +791,10 @@
     "entry_fee": 0.01086,
     "exit_fee": 0.0,
     "total_fees": 0.01086,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.052,
+    "unrealised_pnl": 6.52,
+    "price_updated_at": "2026-04-02T11:59:47.088852+00:00"
   },
   {
     "market_id": "553856",
@@ -857,7 +878,10 @@
     "entry_fee": 0.23404,
     "exit_fee": 0.0,
     "total_fees": 0.23404,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.12,
+    "unrealised_pnl": 21.55,
+    "price_updated_at": "2026-04-02T11:59:47.336411+00:00"
   },
   {
     "market_id": "677404",
@@ -913,7 +937,10 @@
     "entry_fee": 0.52052,
     "exit_fee": 0.0,
     "total_fees": 0.52052,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.26,
+    "unrealised_pnl": -8.79,
+    "price_updated_at": "2026-04-02T11:59:47.541905+00:00"
   },
   {
     "market_id": "666655",
@@ -941,7 +968,10 @@
     "entry_fee": 0.56764,
     "exit_fee": 0.0,
     "total_fees": 0.56764,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.58,
+    "unrealised_pnl": -15.18,
+    "price_updated_at": "2026-04-02T11:59:47.748962+00:00"
   },
   {
     "market_id": "1500922",
@@ -969,7 +999,10 @@
     "entry_fee": 0.61256,
     "exit_fee": 0.0,
     "total_fees": 0.61256,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.02,
+    "unrealised_pnl": -9.67,
+    "price_updated_at": "2026-04-02T11:59:47.948234+00:00"
   },
   {
     "market_id": "1323364",
@@ -997,7 +1030,10 @@
     "entry_fee": 0.0,
     "exit_fee": 0.0,
     "total_fees": 0.0,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.1,
+    "unrealised_pnl": 17.3,
+    "price_updated_at": "2026-04-02T11:59:48.163564+00:00"
   },
   {
     "market_id": "610381",
@@ -1025,7 +1061,10 @@
     "entry_fee": 0.0,
     "exit_fee": 0.0,
     "total_fees": 0.0,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.022,
+    "unrealised_pnl": -2.8,
+    "price_updated_at": "2026-04-02T11:59:48.372415+00:00"
   },
   {
     "market_id": "677358",
@@ -1108,7 +1147,10 @@
     "entry_fee": 0.0,
     "exit_fee": 0.0,
     "total_fees": 0.0,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.54,
+    "unrealised_pnl": -2.85,
+    "price_updated_at": "2026-04-02T11:59:48.577284+00:00"
   },
   {
     "market_id": "540817",
@@ -1136,7 +1178,10 @@
     "entry_fee": 0.14675,
     "exit_fee": 0.0,
     "total_fees": 0.14675,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.57,
+    "unrealised_pnl": -2.01,
+    "price_updated_at": "2026-04-02T11:59:48.780655+00:00"
   },
   {
     "market_id": "540818",
@@ -1164,7 +1209,10 @@
     "entry_fee": 0.10437,
     "exit_fee": 0.0,
     "total_fees": 0.10437,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.59,
+    "unrealised_pnl": -1.86,
+    "price_updated_at": "2026-04-02T11:59:49.006243+00:00"
   },
   {
     "market_id": "540819",
@@ -1192,7 +1240,10 @@
     "entry_fee": 0.39702,
     "exit_fee": 0.0,
     "total_fees": 0.39702,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.48,
+    "unrealised_pnl": 1.11,
+    "price_updated_at": "2026-04-02T11:59:49.213721+00:00"
   },
   {
     "market_id": "540820",
@@ -1220,7 +1271,10 @@
     "entry_fee": 0.33276,
     "exit_fee": 0.0,
     "total_fees": 0.33276,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.52,
+    "unrealised_pnl": -1.84,
+    "price_updated_at": "2026-04-02T11:59:49.416924+00:00"
   },
   {
     "market_id": "540844",
@@ -1248,7 +1302,10 @@
     "entry_fee": 0.51957,
     "exit_fee": 0.0,
     "total_fees": 0.51957,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.485,
+    "unrealised_pnl": 0.77,
+    "price_updated_at": "2026-04-02T11:59:49.619065+00:00"
   },
   {
     "market_id": "573647",
@@ -1276,7 +1333,10 @@
     "entry_fee": 0.28786,
     "exit_fee": 0.0,
     "total_fees": 0.28786,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.58,
+    "unrealised_pnl": -0.24,
+    "price_updated_at": "2026-04-02T11:59:49.828491+00:00"
   },
   {
     "market_id": "544097",
@@ -1331,7 +1391,10 @@
     "entry_fee": 0.0,
     "exit_fee": 0.0,
     "total_fees": 0.0,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.035,
+    "unrealised_pnl": 0.0,
+    "price_updated_at": "2026-04-02T11:59:50.031983+00:00"
   },
   {
     "market_id": "1397301",
@@ -1387,7 +1450,10 @@
     "entry_fee": 0.0,
     "exit_fee": 0.0,
     "total_fees": 0.0,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.04,
+    "unrealised_pnl": -0.26,
+    "price_updated_at": "2026-04-02T11:59:50.248336+00:00"
   },
   {
     "market_id": "610380",
@@ -1470,7 +1536,10 @@
     "entry_fee": 0.0,
     "exit_fee": 0.0,
     "total_fees": 0.0,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.84,
+    "unrealised_pnl": -36.57,
+    "price_updated_at": "2026-04-02T11:59:50.452392+00:00"
   },
   {
     "market_id": "550694",
@@ -1581,7 +1650,10 @@
     "entry_fee": 0.0,
     "exit_fee": 0.0,
     "total_fees": 0.0,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.48,
+    "unrealised_pnl": -2.33,
+    "price_updated_at": "2026-04-02T11:59:50.654458+00:00"
   },
   {
     "market_id": "531202",
@@ -1637,7 +1709,10 @@
     "entry_fee": 0.16262,
     "exit_fee": 0.0,
     "total_fees": 0.16262,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.076,
+    "unrealised_pnl": 0.41,
+    "price_updated_at": "2026-04-02T11:59:50.896564+00:00"
   },
   {
     "market_id": "540881",
@@ -1665,7 +1740,10 @@
     "entry_fee": 0.25643,
     "exit_fee": 0.0,
     "total_fees": 0.25643,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.015,
+    "unrealised_pnl": -1.67,
+    "price_updated_at": "2026-04-02T11:59:51.102096+00:00"
   },
   {
     "market_id": "813506",
@@ -1805,7 +1883,10 @@
     "entry_fee": 0.25739,
     "exit_fee": 0.0,
     "total_fees": 0.25739,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.645,
+    "unrealised_pnl": 0.0,
+    "price_updated_at": "2026-04-02T11:59:51.313517+00:00"
   },
   {
     "market_id": "902145",
@@ -1833,7 +1914,10 @@
     "entry_fee": 0.37296,
     "exit_fee": 0.0,
     "total_fees": 0.37296,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.325,
+    "unrealised_pnl": 0.0,
+    "price_updated_at": "2026-04-02T11:59:51.520076+00:00"
   },
   {
     "market_id": "902160",
@@ -1861,7 +1945,10 @@
     "entry_fee": 0.20831,
     "exit_fee": 0.0,
     "total_fees": 0.20831,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.685,
+    "unrealised_pnl": 0.0,
+    "price_updated_at": "2026-04-02T11:59:51.723386+00:00"
   },
   {
     "market_id": "553862",
@@ -1889,7 +1976,10 @@
     "entry_fee": 0.1477,
     "exit_fee": 0.0,
     "total_fees": 0.1477,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.116,
+    "unrealised_pnl": 0.07,
+    "price_updated_at": "2026-04-02T11:59:51.933473+00:00"
   },
   {
     "market_id": "553865",
@@ -1917,7 +2007,10 @@
     "entry_fee": 0.4005,
     "exit_fee": 0.0,
     "total_fees": 0.4005,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.08,
+    "unrealised_pnl": -0.86,
+    "price_updated_at": "2026-04-02T11:59:52.148764+00:00"
   },
   {
     "market_id": "553866",
@@ -1973,7 +2066,10 @@
     "entry_fee": 0.85892,
     "exit_fee": 0.0,
     "total_fees": 0.85892,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.35,
+    "unrealised_pnl": -0.77,
+    "price_updated_at": "2026-04-02T11:59:52.378552+00:00"
   },
   {
     "market_id": "556062",
@@ -2001,7 +2097,10 @@
     "entry_fee": 0.13235,
     "exit_fee": 0.0,
     "total_fees": 0.13235,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.09,
+    "unrealised_pnl": -0.29,
+    "price_updated_at": "2026-04-02T11:59:52.583030+00:00"
   },
   {
     "market_id": "636111",
@@ -2085,7 +2184,10 @@
     "entry_fee": 1.55718,
     "exit_fee": 0.0,
     "total_fees": 1.55718,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.031,
+    "unrealised_pnl": 0.0,
+    "price_updated_at": "2026-04-02T11:59:52.791310+00:00"
   },
   {
     "market_id": "553844",
@@ -2113,7 +2215,10 @@
     "entry_fee": 0.20714,
     "exit_fee": 0.0,
     "total_fees": 0.20714,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.022,
+    "unrealised_pnl": -0.59,
+    "price_updated_at": "2026-04-02T11:59:53.020848+00:00"
   },
   {
     "market_id": "553850",
@@ -2141,7 +2246,10 @@
     "entry_fee": 0.28746,
     "exit_fee": 0.0,
     "total_fees": 0.28746,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.019,
+    "unrealised_pnl": -2.05,
+    "price_updated_at": "2026-04-02T11:59:53.230921+00:00"
   },
   {
     "market_id": "1807912",
@@ -2169,7 +2277,10 @@
     "entry_fee": 0.0,
     "exit_fee": 0.0,
     "total_fees": 0.0,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.14,
+    "unrealised_pnl": 9.96,
+    "price_updated_at": "2026-04-02T11:59:53.440176+00:00"
   },
   {
     "market_id": "553839",
@@ -2197,7 +2308,10 @@
     "entry_fee": 0.21707,
     "exit_fee": 0.0,
     "total_fees": 0.21707,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.028,
+    "unrealised_pnl": 0.14,
+    "price_updated_at": "2026-04-02T11:59:53.644990+00:00"
   },
   {
     "market_id": "553842",
@@ -2225,7 +2339,10 @@
     "entry_fee": 0.46945,
     "exit_fee": 0.0,
     "total_fees": 0.46945,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.013,
+    "unrealised_pnl": -2.98,
+    "price_updated_at": "2026-04-02T11:59:53.857092+00:00"
   },
   {
     "market_id": "553848",
@@ -2253,7 +2370,10 @@
     "entry_fee": 0.182,
     "exit_fee": 0.0,
     "total_fees": 0.182,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.022,
+    "unrealised_pnl": -0.14,
+    "price_updated_at": "2026-04-02T11:59:54.073130+00:00"
   },
   {
     "market_id": "553852",
@@ -2281,7 +2401,10 @@
     "entry_fee": 0.36104,
     "exit_fee": 0.0,
     "total_fees": 0.36104,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.033,
+    "unrealised_pnl": 3.03,
+    "price_updated_at": "2026-04-02T11:59:54.279942+00:00"
   },
   {
     "market_id": "553860",
@@ -2309,7 +2432,10 @@
     "entry_fee": 0.64303,
     "exit_fee": 0.0,
     "total_fees": 0.64303,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.014,
+    "unrealised_pnl": -0.75,
+    "price_updated_at": "2026-04-02T11:59:54.480722+00:00"
   },
   {
     "market_id": "553858",
@@ -2337,7 +2463,10 @@
     "entry_fee": 0.59818,
     "exit_fee": 0.0,
     "total_fees": 0.59818,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.043,
+    "unrealised_pnl": -0.47,
+    "price_updated_at": "2026-04-02T11:59:54.676643+00:00"
   },
   {
     "market_id": "553833",
@@ -2365,7 +2494,10 @@
     "entry_fee": 0.16449,
     "exit_fee": 0.0,
     "total_fees": 0.16449,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.009,
+    "unrealised_pnl": -1.01,
+    "price_updated_at": "2026-04-02T11:59:54.898355+00:00"
   },
   {
     "market_id": "553859",
@@ -2393,7 +2525,10 @@
     "entry_fee": 0.46942,
     "exit_fee": 0.0,
     "total_fees": 0.46942,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.014,
+    "unrealised_pnl": -1.54,
+    "price_updated_at": "2026-04-02T11:59:55.105281+00:00"
   },
   {
     "market_id": "553868",
@@ -2421,7 +2556,10 @@
     "entry_fee": 0.32574,
     "exit_fee": 0.0,
     "total_fees": 0.32574,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.018,
+    "unrealised_pnl": -0.3,
+    "price_updated_at": "2026-04-02T11:59:55.308271+00:00"
   },
   {
     "market_id": "553871",
@@ -2449,7 +2587,10 @@
     "entry_fee": 0.14805,
     "exit_fee": 0.0,
     "total_fees": 0.14805,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.044,
+    "unrealised_pnl": 0.18,
+    "price_updated_at": "2026-04-02T11:59:55.532457+00:00"
   },
   {
     "market_id": "553863",
@@ -2477,7 +2618,10 @@
     "entry_fee": 0.31902,
     "exit_fee": 0.0,
     "total_fees": 0.31902,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.036,
+    "unrealised_pnl": -0.44,
+    "price_updated_at": "2026-04-02T11:59:55.745089+00:00"
   },
   {
     "market_id": "556063",
@@ -2505,7 +2649,10 @@
     "entry_fee": 0.3498,
     "exit_fee": 0.0,
     "total_fees": 0.3498,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.016,
+    "unrealised_pnl": -1.09,
+    "price_updated_at": "2026-04-02T11:59:55.941261+00:00"
   },
   {
     "market_id": "965261",
@@ -2533,7 +2680,10 @@
     "entry_fee": 0.25956,
     "exit_fee": 0.0,
     "total_fees": 0.25956,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.32,
+    "unrealised_pnl": 0.91,
+    "price_updated_at": "2026-04-02T11:59:56.148688+00:00"
   },
   {
     "market_id": "1299187",
@@ -2561,7 +2711,10 @@
     "entry_fee": 0.32295,
     "exit_fee": 0.0,
     "total_fees": 0.32295,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.11,
+    "unrealised_pnl": 0.24,
+    "price_updated_at": "2026-04-02T11:59:56.358287+00:00"
   },
   {
     "market_id": "691547",
@@ -2589,7 +2742,10 @@
     "entry_fee": 0.23506,
     "exit_fee": 0.0,
     "total_fees": 0.23506,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.32,
+    "unrealised_pnl": -2.42,
+    "price_updated_at": "2026-04-02T11:59:56.562073+00:00"
   },
   {
     "market_id": "598936",
@@ -2617,7 +2773,10 @@
     "entry_fee": 0.31193,
     "exit_fee": 0.0,
     "total_fees": 0.31193,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.022,
+    "unrealised_pnl": -2.93,
+    "price_updated_at": "2026-04-02T11:59:56.797451+00:00"
   },
   {
     "market_id": "1373744",
@@ -2701,7 +2860,10 @@
     "entry_fee": 0.87928,
     "exit_fee": 0.0,
     "total_fees": 0.87928,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.492,
+    "unrealised_pnl": 1.77,
+    "price_updated_at": "2026-04-02T11:59:57.033277+00:00"
   },
   {
     "market_id": "558935",
@@ -2729,7 +2891,10 @@
     "entry_fee": 0.57717,
     "exit_fee": 0.0,
     "total_fees": 0.57717,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.12,
+    "unrealised_pnl": -0.62,
+    "price_updated_at": "2026-04-02T11:59:57.237874+00:00"
   },
   {
     "market_id": "558934",
@@ -2757,7 +2922,10 @@
     "entry_fee": 0.57829,
     "exit_fee": 0.0,
     "total_fees": 0.57829,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.158,
+    "unrealised_pnl": -0.71,
+    "price_updated_at": "2026-04-02T11:59:57.436722+00:00"
   },
   {
     "market_id": "558974",
@@ -2785,7 +2953,10 @@
     "entry_fee": 0.12912,
     "exit_fee": 0.0,
     "total_fees": 0.12912,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.011,
+    "unrealised_pnl": -0.19,
+    "price_updated_at": "2026-04-02T11:59:57.659468+00:00"
   },
   {
     "market_id": "558936",
@@ -2813,7 +2984,10 @@
     "entry_fee": 0.14161,
     "exit_fee": 0.0,
     "total_fees": 0.14161,
-    "net_pnl": 0.0
+    "net_pnl": 0.0,
+    "current_price": 0.129,
+    "unrealised_pnl": 0.15,
+    "price_updated_at": "2026-04-02T11:59:57.864072+00:00"
   },
   {
     "market_id": "558937",
@@ -2841,7 +3015,10 @@
     "exit_fee": 0.0,
     "total_fees": 0.63641,
     "net_pnl": 0.0,
-    "edge_thin_count": 0
+    "edge_thin_count": 0,
+    "current_price": 0.085,
+    "unrealised_pnl": -0.27,
+    "price_updated_at": "2026-04-02T11:59:58.072166+00:00"
   },
   {
     "market_id": "553831",
@@ -2869,6 +3046,9 @@
     "exit_fee": 0.0,
     "total_fees": 0.13524,
     "net_pnl": 0.0,
-    "edge_thin_count": 0
+    "edge_thin_count": 0,
+    "current_price": 0.01,
+    "unrealised_pnl": -0.22,
+    "price_updated_at": "2026-04-02T11:59:58.276764+00:00"
   }
 ]

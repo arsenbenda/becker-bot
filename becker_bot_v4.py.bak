@@ -692,16 +692,6 @@ class BeckerBot:
                     log(f"WARN: {pos['question'][:60]} — {reeval['reason']} ({pos['edge_thin_count']}/3)")
             else:
                 pos["edge_thin_count"] = 0  # Reset counter if edge recovers
-            # Phase 1.4: Persist live price + unrealised P&L for dashboard
-            if pos.get("status") == "open" and reeval.get("current_price"):
-                pos["current_price"] = reeval["current_price"]
-                if pos["side"] == "YES":
-                    pos["unrealised_pnl"] = round(
-                        (reeval["current_price"] - pos["entry_price"]) * pos["contracts"], 2)
-                else:
-                    pos["unrealised_pnl"] = round(
-                        (pos["entry_price"] - reeval["current_price"]) * pos["contracts"], 2)
-                pos["price_updated_at"] = datetime.now(timezone.utc).isoformat()
             updated.append(pos)
 
         self.positions = updated
@@ -772,8 +762,7 @@ class BeckerBot:
             "eligible": len(parsed),
             "new_trades": new_trades,
             "deployed": round(sum(p.get("cost", 0) for p in self.positions if p.get("status") == "open"), 2),
-            "total_value": round(self.bankroll + sum(p.get("cost", 0) for p in self.positions if p.get("status") == "open") + sum(float(p.get("unrealised_pnl", 0)) for p in self.positions if p.get("status") == "open"), 2),
-            "unrealised_pnl": round(sum(float(p.get("unrealised_pnl", 0)) for p in self.positions if p.get("status") == "open"), 2),
+            "total_value": round(self.bankroll + sum(p.get("cost", 0) for p in self.positions if p.get("status") == "open"), 2),
         }
         self.scan_history.append(scan_record)
         if len(self.scan_history) > 500:
@@ -839,9 +828,7 @@ class BeckerBot:
         log("=" * 65)
         log(f"  Bankroll:  ${self.bankroll:>10.2f}")
         log(f"  Deployed:  ${deployed:>10.2f}")
-        _unrealised = sum(float(p.get("unrealised_pnl", 0)) for p in open_pos)
-        log(f"  Unreal:    ${_unrealised:>+10.2f}")
-        log(f"  Total:     ${self.bankroll + deployed + _unrealised:>10.2f}")
+        log(f"  Total:     ${self.bankroll + deployed:>10.2f}")
         log(f"  P&L Gross: ${self.realized_pnl:>+10.2f}")
         log(f"  P&L Net:   ${getattr(self, 'realized_pnl_net', self.realized_pnl):>+10.2f}  (fees: ${getattr(self, 'total_fees', 0):.4f})")
         log(f"  Trades:    {self.total_trades} (win rate: {win_rate})")

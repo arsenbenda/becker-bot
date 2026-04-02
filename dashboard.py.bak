@@ -292,9 +292,6 @@ if "Dashboard" in page:
             st.metric("Total Value", f"${total_value:,.2f}", f"{pnl_sign}{pnl_pct:.1f}%", width="content")
             st.metric("Cash", f"${bankroll:,.2f}", width="content")
             st.metric("Deployed", f"${deployed:,.2f}", f"{len(open_pos)} positions", delta_color="off", width="content")
-            _unrealised = sum(float(p.get("unrealised_pnl", 0)) for p in open_pos)
-            _priced = len([p for p in open_pos if p.get("current_price")])
-            st.metric("Unrealised", f"${_unrealised:+,.2f}", f"{_priced}/{len(open_pos)} priced", delta_color="off", width="content")
 
     with cols[1]:
         chart_box = st.container(border=True, height="stretch")
@@ -791,8 +788,6 @@ elif "Positions" in page:
                 "Contracts": float(p.get("contracts", 0)),
                 "Cost": float(p.get("cost", 0)),
                 "Est Prob": float(p.get("estimated_prob", 0) or p.get("estimated_probability", 0)),
-                "Curr": float(p.get("current_price", p.get("entry_price", 0))),
-                "Unrl P&L": float(p.get("unrealised_pnl", 0)),
                 "EV": float(p.get("ev", 0) or p.get("net_ev", 0)),
                 "Category": p.get("category", "?"),
                 "Source": (p.get("estimator_source") or p.get("source", "?")).replace("layer1_ai", "AI").replace("layer2_quantitative", "Quant").replace("layer3_becker", "Becker"),
