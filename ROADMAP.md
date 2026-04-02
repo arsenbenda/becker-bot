@@ -4,15 +4,15 @@
 
 | Metric | Target | Current (2026-04-02) |
 |---|---|---|
-| Closed trades | >= 50 | 43 |
-| Win rate | >= 54% | 95.3% |
-| Net P&L | Positive after fees | +$382.53 |
-| Profit factor | > 1.5 | 17.13 |
-| Max drawdown | < 20% | 3.7% |
-| Learner markets | >= 50 | 96 |
+| Closed trades | >= 50 | 63 (PASSED) |
+| Win rate | >= 54% | 79.4% (PASSED) |
+| Net P&L | Positive after fees | +$334.03 (PASSED) |
+| Profit factor | > 1.5 | ~5.2 (PASSED) |
+| Max drawdown | < 20% | ~11% (PASSED) |
+| Learner markets | >= 50 | 103+ (PASSED) |
 | Profitable categories | >= 3 | 5 |
-| Score-card confidence | >= 25% | 21.5% |
-| Fee-adjusted expectancy | > $0/trade | +$9.04 |
+| Score-card confidence | >= 25% | ~30% (PASSED) |
+| Fee-adjusted expectancy | > $0/trade | +$5.30 (PASSED) |
 
 ---
 
@@ -41,9 +41,9 @@
 - [x] 1.2 Correlation filter (max 3 per cluster, <=15% bankroll)
 - [ ] 1.3 Logical arbitrage scanner (nested market mispricing)
 - [x] 1.4 Live unrealised P&L (CLOB mid-price per position)
-- [x] 1.5 Category auto-block
+- [x] 1.5 Category auto-block (<40% win rate over 20+ trades)
 - [x] 1.12 Hybrid exit system
-- [x] 1.13 AI prompt overhaul (anti-hedging rules, hard data requests) (3 tiers + hard stop-loss, replaces uniform trailing stop) (<40% win rate over 20+ trades)
+- [x] 1.13 AI prompt overhaul (anti-hedging rules, hard data requests)
 - [ ] 1.6 Adaptive scan intervals (120s volatile / 600s calm)
 - [ ] 1.7 Auto-retire Layer 1 (when L2 outperforms by >2pp MAE)
 - [ ] 1.8 Geopolitics priority mode (25% bankroll, zero fees)

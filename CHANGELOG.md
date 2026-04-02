@@ -56,7 +56,7 @@
 - Hard stop immediately caught a -36% UK election position
 - Tier B correctly held Jesus Christ/GTA VI at 3/5 (old system would have exited at 3/3)
 
-## v4.1.6 — Dashboard: Recent Activity formatting fix (2026-04-02)
+## v4.1.6a — Dashboard: Recent Activity formatting fix (2026-04-02)
 
 ### Fixed
 - Recent Activity table now distinguishes OPEN and EXIT trades
@@ -134,25 +134,6 @@
 ### Notes
 - No categories currently blocked (all above 40% WR)
 - Safety net activates automatically as trade count grows per category
-
-## v4.1.1 — Phase 1.4: Live Unrealised P&L (2026-04-02)
-
-### Added
-- Live CLOB mid-price fetched per open position every scan
-- Unrealised P&L computed and persisted to positions.json (current_price, unrealised_pnl, price_updated_at)
-- Mark-to-market total_value in scan_record (equity curve reflects real portfolio value)
-- Unrealised P&L line in CLI log summary
-- Unrealised metric card on dashboard (with priced/total count)
-- Curr Price and Unrl P&L columns in Positions table
-
-### Changed
-- Total Value now reflects bankroll + deployed + unrealised (was bankroll + deployed)
-- scan_history records include unrealised_pnl field
-
-### Performance
-- 60/60 positions priced via CLOB on first scan
-- Unrealised: -$11.98 (1.6% of deployed — normal for hold period)
-- No additional API cost (CLOB price endpoint is free)
 
 ## v4.1.1 — Phase 1.4: Live Unrealised P&L (2026-04-02)
 

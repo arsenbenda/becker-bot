@@ -41,7 +41,7 @@ It contains project conventions, rules, and habits that must be followed.
   positions.json on startup, not from bot_state.json (which may have stale values).
 - The reevaluate_positions() function has two exit paths (market resolution and
   trailing stop — replaced by hybrid exit system v4.1.8).
-  not outside it.
+  Fee calculations must be inside the exit block where pnl is defined, not outside it.
 - Dashboard indentation must be consistent (12 spaces inside column blocks).
   Mixed indentation causes silent Streamlit crashes.
 

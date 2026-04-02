@@ -21,12 +21,6 @@
     scan()
     |-- fetch_markets()            # Gamma API: binary, open, volume > min
     |-- filter_eligible()          # Price range, not held, not avoided
-    |-- evaluate_markets()         # For each eligible:
-    |   |-- estimate_probability()   # smart_estimator: Layer 1/2/3
-    |   |-- compute_ev()             # EV = P_true*(1-P_market) - (1-P_true)*P_market
-    |   |-- kelly_size()             # Kelly fraction * bankroll, cap 6%
-    |   +-- apply_filters()          # Min edge 2pp, min EV $0.02
-    |-- execute_trades()           # Record positions, deduct bankroll
     |-- evaluate()                   # Full decision pipeline
     |   |-- AI Estimation (v4.1.9)
     |   |   |-- Perplexity Sonar: web search for hard data (odds, polls, prices)
@@ -40,7 +34,7 @@
     |   |-- Tier B (50-84c entry): Active trailing, 5-scan threshold
     |   |-- Tier C (>=85c entry): Tight trailing, 3-scan threshold
     |   |-- Cluster over-exposure pruning (max 3 per cluster, 15% bankroll)
-    |   |-- if edge < threshold 3x --> TRAILING STOP (close)
+
     |   |-- if price moved >3pp    --> Bayesian re-estimation
     |   +-- spread alerts for correlated positions
     |-- run_learning_cycle()       # Calibrate, adapt, remember
@@ -51,7 +45,7 @@
     SCAN -> ELIGIBLE -> EVALUATED -> OPENED -> MONITORING -> CLOSED
                                                   |
                                                   |-- Market resolves -> P&L
-                                                  |-- Edge thins 3x   -> Trailing stop
+                                                  |-- Hybrid exit     -> Tier A/B/C trailing or hard stop
                                                   +-- Drawdown breaker -> Halt new trades
 
 ## Estimation Pipeline (smart_estimator.py)
@@ -82,7 +76,7 @@
     }
     fee = contracts * rate * price * (1 - price)
 
-Bell-curved: max at 50c, minimal at extremes. Bot trades mostly 90c+ so fees ~1.5%.
+Bell-curved: max at 50c, minimal at extremes. Bot trades mostly <50c so fees are moderate.
 
 ## Self-Learner (self_learner.py)
 
@@ -118,7 +112,7 @@ Dashboard reads JSON files directly (no DB, no API between bot and dashboard).
 
 - Paper trading only: assumes perfect fills at displayed prices
 - No slippage model: real execution faces 0.5-2% slippage
-- Layer 1 dominance: 94/96 evaluations use paid AI calls
-- No real-time prices: positions valued at entry until resolution
+- Layer 1 dominance: ~95% of evaluations use paid AI calls (Layer 2 activates at API cap)
+- Positions now priced via CLOB mid-price every scan (Phase 1.4)
 - Scan history unbounded: bot_state.json grows (cap at 200 in Phase 5.6)
 - Single-threaded scan: sequential evaluation
