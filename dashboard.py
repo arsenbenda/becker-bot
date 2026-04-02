@@ -717,10 +717,14 @@ if "Dashboard" in page:
     ## Score Card
     """
 
-    _cl = closed_pos
+    _cl_real = [c for c in closed_pos if c.get("close_reason") != "cluster_prune"]
+    _cl_prune = [c for c in closed_pos if c.get("close_reason") == "cluster_prune"]
+    _cl = _cl_real
     _pnls = [float(c.get("pnl", 0)) for c in _cl]
     _n = len(_pnls)
     _conf_badge = ":material/check_circle:" if _n >= 50 else ":material/warning:"
+    _prune_count = len(_cl_prune)
+    _prune_pnl = sum(float(c.get("pnl", 0)) for c in _cl_prune)
     _conf_text = "Statistically significant" if _n >= 50 else f"Low confidence ({_n}/50 trades)"
 
     sc_cols = st.columns(3)

@@ -96,7 +96,7 @@ def update_calibration(state: dict, positions: list) -> dict:
     Analyze closed trades to build calibration curves.
     Compares estimated probability vs actual win/loss.
     """
-    closed = [p for p in positions if p.get("status") == "closed"]
+    closed = [p for p in positions if p.get("status") == "closed" and p.get("close_reason") != "cluster_prune"]
 
     if len(closed) < MIN_TRADES_FOR_CALIBRATION:
         return state
@@ -201,7 +201,7 @@ def update_adaptive_risk(state: dict, positions: list) -> dict:
     Adjust risk parameters based on recent performance.
     Uses rolling window of last N closed trades.
     """
-    closed = [p for p in positions if p.get("status") == "closed"]
+    closed = [p for p in positions if p.get("status") == "closed" and p.get("close_reason") != "cluster_prune"]
 
     if len(closed) < MIN_TRADES_FOR_CALIBRATION:
         state["adaptive_risk"] = {

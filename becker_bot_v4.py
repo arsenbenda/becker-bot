@@ -736,6 +736,7 @@ class BeckerBot:
                 self.bankroll += pos["cost"] + pnl
                 if pnl > 0:
                     self.winning_trades += 1
+                pos["close_reason"] = "exit"
                 log(f"EXIT: {pos['question'][:60]} — {reeval['reason']} — Gross: ${pnl:+.2f} Net: ${pos['net_pnl']:+.2f} (fees: ${pos['total_fees']:.4f})")
                 append_trade({"action": "CLOSE", "market_id": pos["market_id"],
                               "question": pos["question"], "reason": reeval["reason"],
@@ -763,6 +764,7 @@ class BeckerBot:
                     self.bankroll += pos["cost"] + pnl
                     if pnl > 0:
                         self.winning_trades += 1
+                    pos["close_reason"] = "trailing_stop"
                     log(f"TRAILING STOP: {pos['question'][:60]} — 3 scans — Gross: ${pnl:+.2f} Net: ${pos['net_pnl']:+.2f} (fees: ${pos['total_fees']:.4f})")
                     append_trade({"action": "TRAILING_STOP", "market_id": pos["market_id"],
                                   "question": pos["question"], "reason": "3x edge thinning",
@@ -832,6 +834,7 @@ class BeckerBot:
                 self.bankroll += p["cost"] + pnl
                 if pnl > 0:
                     self.winning_trades += 1
+                p["close_reason"] = "cluster_prune"
                 self.total_trades += 1
                 log(f"CLUSTER PRUNE: {p['question'][:55]} — cluster '{cid}' over-exposed ({exp['count']} > {MAX_POSITIONS_PER_CLUSTER}) — P&L ${pnl:+.2f}")
                 append_trade({"action": "CLUSTER_PRUNE", "market_id": p["market_id"],

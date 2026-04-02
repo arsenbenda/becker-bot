@@ -2476,5 +2476,45 @@
     "reason": "cluster 'gta_vi' pruned",
     "pnl": -0.05,
     "timestamp": "2026-04-02T14:15:44.938884+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "1397260",
+    "question": "Will Russia capture Kostyantynivka by June 30?",
+    "reason": "3x edge thinning",
+    "pnl": -1.6,
+    "net_pnl": -1.6,
+    "fees": 0.0,
+    "timestamp": "2026-04-02T14:31:19.512699+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "965261",
+    "question": "MegaETH market cap (FDV) >$1B one day after launch?",
+    "reason": "3x edge thinning",
+    "pnl": 0.73,
+    "net_pnl": 0.19,
+    "fees": 0.54124,
+    "timestamp": "2026-04-02T14:43:53.866982+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "1048199",
+    "question": "Taylor Swift pregnant before 2027?",
+    "reason": "3x edge thinning",
+    "pnl": -4.69,
+    "net_pnl": -6.43,
+    "fees": 1.73945,
+    "timestamp": "2026-04-02T14:53:18.853263+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "1500922",
+    "question": "Starmer out by April 30, 2026?",
+    "reason": "3x edge thinning",
+    "pnl": -10.64,
+    "net_pnl": -11.47,
+    "fees": 0.82807,
+    "timestamp": "2026-04-02T15:08:50.625414+00:00"
   }
 ]
