@@ -15,6 +15,27 @@
 - Freed 17 slots for better-diversified trades
 - Cost: ~$32 realized loss (correlated risk premium)
 
+## v4.1.9 — AI Prompt Overhaul + Circuit Breaker Fix (2026-04-02)
+
+### Changed
+- GPT-4o-mini probability prompt: added CRITICAL RULES forcing extreme probabilities
+  for supernatural events (0.01-0.02), tournament winners (real odds), political events
+  (base rates). Explicitly bans hedging toward 0.50.
+- Perplexity research prompt: now requests HARD DATA (rankings, betting odds, polling,
+  prices) instead of vague "factual analysis". Asks for specifics per category.
+- Circuit breaker: excludes cluster_prune exits from daily loss calculation
+
+### Context
+- 53% of Layer 1 positions had estimates in 0.35-0.65 hedging zone
+- AI estimated 50% for Jesus Christ returning, 50% for Argentina winning World Cup
+- Colombia World Cup: AI said 47%, real probability ~1.7%
+- Caused systematic undersizing via Kelly on high-conviction trades
+- This was the single biggest performance leak in the system
+
+### Fixed
+- Cleared all cached estimates to force re-evaluation with new prompts
+- Circuit breaker no longer blocked by prune rebalancing costs
+
 ## v4.1.8 — Hybrid Exit System (2026-04-02)
 
 ### Changed

@@ -42,7 +42,8 @@
 - [ ] 1.3 Logical arbitrage scanner (nested market mispricing)
 - [x] 1.4 Live unrealised P&L (CLOB mid-price per position)
 - [x] 1.5 Category auto-block
-- [x] 1.12 Hybrid exit system (3 tiers + hard stop-loss, replaces uniform trailing stop) (<40% win rate over 20+ trades)
+- [x] 1.12 Hybrid exit system
+- [x] 1.13 AI prompt overhaul (anti-hedging rules, hard data requests) (3 tiers + hard stop-loss, replaces uniform trailing stop) (<40% win rate over 20+ trades)
 - [ ] 1.6 Adaptive scan intervals (120s volatile / 600s calm)
 - [ ] 1.7 Auto-retire Layer 1 (when L2 outperforms by >2pp MAE)
 - [ ] 1.8 Geopolitics priority mode (25% bankroll, zero fees)

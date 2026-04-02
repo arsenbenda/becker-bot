@@ -79,6 +79,14 @@ its weight increases automatically. If momentum z-scores add noise, their weight
 This rule applies to: Tremor.live (1.11), correlation filter (1.2), geopolitics mode (1.8),
 satellite feeds (3.8), options cross-ref (2.7), mean-reversion (3.4), and all future additions.
 
+## AI Estimation Rules (v4.1.9)
+- GPT prompt includes CRITICAL RULES: supernatural=0.01-0.02, tournaments=real odds,
+  politics=base rates, no 0.50 hedging default
+- Perplexity prompt requests hard data per category (odds, polls, prices)
+- 53% of positions were in 0.35-0.65 hedging zone before fix
+- Cache must be cleared after any prompt change: rm -f /opt/becker-bot/cache/*.json
+- This is the #1 performance lever — all downstream systems depend on accurate estimates
+
 ## Pending Design Decision — Unified Scoring System (Post-Gate)
 
 **Context (2026-04-02):** Current systems conflict with each other:

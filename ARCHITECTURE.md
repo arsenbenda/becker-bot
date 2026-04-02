@@ -27,6 +27,13 @@
     |   |-- kelly_size()             # Kelly fraction * bankroll, cap 6%
     |   +-- apply_filters()          # Min edge 2pp, min EV $0.02
     |-- execute_trades()           # Record positions, deduct bankroll
+    |-- evaluate()                   # Full decision pipeline
+    |   |-- AI Estimation (v4.1.9)
+    |   |   |-- Perplexity Sonar: web search for hard data (odds, polls, prices)
+    |   |   |-- GPT-4o-mini: calibrated probability with anti-hedging rules
+    |   |   |-- Rules: supernatural=0.01, tournaments=real odds, no 0.50 default
+    |   |   |-- Cache: per-market in /opt/becker-bot/cache/
+    |   |-- Learner corrections, sanity filter, edge/EV calc, Kelly sizing
     |-- reevaluate_positions()     # Hybrid exit system (v4.1.8)
     |   |-- Hard stop-loss (-30% of position cost)
     |   |-- Tier A (<50c entry): Hold-to-resolution, 8-scan trailing, 48h stale exit

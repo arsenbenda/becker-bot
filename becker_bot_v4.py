@@ -951,7 +951,8 @@ class BeckerBot:
 
         # Phase 0.4: Daily drawdown circuit breaker
         _today_closed = [p for p in self.positions if p.get("status") == "closed"
-                         and p.get("closed_at", "")[:10] == datetime.now(timezone.utc).strftime("%Y-%m-%d")]
+                         and p.get("closed_at", "")[:10] == datetime.now(timezone.utc).strftime("%Y-%m-%d")
+                         and p.get("close_reason") != "cluster_prune"]
         _today_losses = sum(float(p.get("pnl", 0)) for p in _today_closed if float(p.get("pnl", 0)) < 0)
         _drawdown_limit = self.cfg["PAPER_BANKROLL"] * 0.05
         _circuit_breaker = abs(_today_losses) >= _drawdown_limit

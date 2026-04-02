@@ -424,9 +424,14 @@ def call_perplexity(question: str, context: str = "") -> str | None:
         return None
 
     prompt = (
-        f"Research this prediction market question and provide factual analysis "
-        f"of how likely it is to resolve YES. Include recent news, data, and "
-        f"expert opinions. Be specific with numbers and dates.\n\n"
+        f"Research this prediction market question. I need HARD DATA to estimate probability:\n"
+        f"- For sports: current rankings, betting odds, historical win rates, team form\n"
+        f"- For politics: polling data, approval ratings, precedent for similar events\n"
+        f"- For crypto/finance: current prices, analyst targets, market cap data\n"
+        f"- For world events: expert assessments, intelligence reports, timeline feasibility\n"
+        f"- For impossible/supernatural events: state clearly if there is zero evidence\n\n"
+        f"Be specific with numbers, dates, and sources. Do NOT hedge — if something is "
+        f"extremely unlikely, say so with data.\n\n"
         f"Market question: {question}\n"
     )
     if context:
@@ -477,16 +482,29 @@ def extract_probability_gpt(question: str, research: str, market_price: float) -
         return None
 
     prompt = (
-        f"You are a calibrated probability estimator for prediction markets.\n\n"
+        f"You are a calibrated probability estimator for prediction markets.\n"
+        f"CRITICAL RULES — you MUST follow these:\n"
+        f"- Supernatural, physically impossible, or absurd events (religious prophecies, "
+        f"alien contact, laws of physics violated): probability 0.01-0.02\n"
+        f"- Single team winning a 20+ team tournament: use real odds. "
+        f"Favorites max 0.20-0.25, mid-tier 0.05-0.15, longshots 0.01-0.05\n"
+        f"- Political removal/resignation with no active proceedings: 0.02-0.10\n"
+        f"- Events with strong consensus evidence: 0.85-0.99\n"
+        f"- A coin-flip estimate (0.40-0.60) is ONLY for genuinely uncertain events "
+        f"where evidence is balanced on both sides\n"
+        f"- NEVER default to 0.50 out of uncertainty. If you lack info, use base rates\n"
+        f"- For sports: check actual betting odds, team rankings, historical win rates\n"
+        f"- For crypto/finance: check current prices, trends, analyst consensus\n\n"
         f"Market question: {question}\n"
         f"Current market price (implied probability): {market_price:.2f}\n\n"
         f"Research from web search:\n{research}\n\n"
         f"Based on this research, estimate the TRUE probability that this market "
-        f"resolves YES. Consider:\n"
-        f"1. Base rates for similar events\n"
-        f"2. Specific evidence for/against\n"
+        f"resolves YES. You MUST commit to a specific number — do not hedge.\n"
+        f"Consider:\n"
+        f"1. Base rates for similar events (use actual statistics, not intuition)\n"
+        f"2. Specific evidence for/against from the research above\n"
         f"3. Time remaining and conditions needed\n"
-        f"4. Potential for surprise outcomes\n\n"
+        f"4. Whether this event has ANY realistic path to YES\n\n"
         f"Respond ONLY with valid JSON (no markdown):\n"
         f'{{"probability": 0.XX, "confidence": 0.X, "reasoning": "brief explanation"}}'
     )
