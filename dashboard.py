@@ -1019,22 +1019,35 @@ elif "Trades" in page:
 
     if filtered:
         with st.container(border=True):
-            rows = [{
-                "Time": time_ago(t.get("timestamp")),
-                "Action": t.get("action", "?"),
-                "Question": t.get("question", "")[:50],
-                "Side": t.get("side", "?"),
-                "Cost": float(t.get("cost", 0)),
-                "EV": float(t.get("ev", 0)),
-                "Kelly %": float(t.get("kelly_pct", 0)),
-                "Source": t.get("source", "?").replace("layer", "L").replace("_", " "),
-                "Category": t.get("category", "?"),
-            } for t in filtered]
+            rows = []
+            for t in filtered:
+                _action = t.get("action", "?")
+                _is_exit = _action in ("CLOSE", "CLUSTER_PRUNE", "TRAILING_STOP")
+                if _is_exit:
+                    _pnl = float(t.get("pnl", 0))
+                    _icon = "\u2705" if _pnl > 0 else "\u274c" if _pnl < 0 else "\u2796"
+                    rows.append({
+                        "Time": time_ago(t.get("timestamp")),
+                        "Action": f"{_icon} {_action}",
+                        "Question": t.get("question", "")[:50],
+                        "Side": t.get("side", "-"),
+                        "P&L": _pnl,
+                        "Reason": t.get("reason", "")[:30],
+                        "Category": t.get("category", "?"),
+                    })
+                else:
+                    rows.append({
+                        "Time": time_ago(t.get("timestamp")),
+                        "Action": f"\U0001f535 {_action}",
+                        "Question": t.get("question", "")[:50],
+                        "Side": t.get("side", "?"),
+                        "P&L": float(t.get("cost", 0)),
+                        "Reason": t.get("source", "").replace("layer1_ai", "AI").replace("layer2_quantitative", "Quant").replace("layer3_becker", "Becker"),
+                        "Category": t.get("category", "?"),
+                    })
             st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True,
                          column_config={
-                             "Cost": st.column_config.NumberColumn(format="$%.2f"),
-                             "EV": st.column_config.NumberColumn(format="$%.4f"),
-                             "Kelly %": st.column_config.NumberColumn(format="%.1f%%"),
+                             "P&L": st.column_config.NumberColumn(format="$%.2f"),
                          }, height=min(len(rows) * 38 + 40, 700))
     else:
         st.info("No trades match filters", icon=":material/filter_list:")
