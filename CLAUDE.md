@@ -40,7 +40,7 @@ It contains project conventions, rules, and habits that must be followed.
 - Fee/P&L variables (realized_pnl_net, total_fees) must be restored from
   positions.json on startup, not from bot_state.json (which may have stale values).
 - The reevaluate_positions() function has two exit paths (market resolution and
-  trailing stop). Fee calculations must be inside the exit block where pnl is defined,
+  trailing stop — replaced by hybrid exit system v4.1.8).
   not outside it.
 - Dashboard indentation must be consistent (12 spaces inside column blocks).
   Mixed indentation causes silent Streamlit crashes.

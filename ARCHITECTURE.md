@@ -27,7 +27,12 @@
     |   |-- kelly_size()             # Kelly fraction * bankroll, cap 6%
     |   +-- apply_filters()          # Min edge 2pp, min EV $0.02
     |-- execute_trades()           # Record positions, deduct bankroll
-    |-- reevaluate_positions()     # Check edge thinning, trailing stops
+    |-- reevaluate_positions()     # Hybrid exit system (v4.1.8)
+    |   |-- Hard stop-loss (-30% of position cost)
+    |   |-- Tier A (<50c entry): Hold-to-resolution, 8-scan trailing, 48h stale exit
+    |   |-- Tier B (50-84c entry): Active trailing, 5-scan threshold
+    |   |-- Tier C (>=85c entry): Tight trailing, 3-scan threshold
+    |   |-- Cluster over-exposure pruning (max 3 per cluster, 15% bankroll)
     |   |-- if edge < threshold 3x --> TRAILING STOP (close)
     |   |-- if price moved >3pp    --> Bayesian re-estimation
     |   +-- spread alerts for correlated positions
