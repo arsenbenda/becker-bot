@@ -1,4 +1,4 @@
-# Becker Bot v4.1 -- Polymarket Paper-Trading Bot
+# Becker Bot v4.3 -- Polymarket Paper-Trading Bot
 
 Autonomous prediction-market trading bot targeting Polymarket. Currently in **paper-trading mode** validating edge before live deployment. Named after the Becker study (72.1M trades analysis of prediction market inefficiencies).
 
@@ -12,20 +12,23 @@ SSH into the VPS, then:
     systemctl restart becker-bot        # restart bot
     systemctl restart becker-dashboard  # restart dashboard
 
-## Current Performance (as of 2026-04-02 evening)
+## Current Performance (as of 2026-04-03, v4.3.0)
 
 | Metric | Value |
-|--------|-------|
+| --- | --- |
 | Mode | Paper Trading |
-| Scan count | 1,130+ |
-| Open positions | 30/60 |
-| Closed trades | 63 real + 17 pruned |
-| Win rate | 79.4% (50W / 13L) |
-| Net P&L (after fees) | +$334.03 |
-| Total fees | $23.30 |
+| Scan count | 1,475+ |
+| Open positions | 29/60 |
+| Closed trades | 89 real + 75 pruned/longshot |
+| Win rate (overall) | 68.5% |
+| Win rate (resolved) | 85% (28/33) |
+| Net P&L (after fees) | +$279.40 |
+| Total fees | $84.37 |
 | Starting bankroll | $500.00 |
-| Current total value | $1,053.26 (+75.1%) |
+| Current bankroll | $755.57 |
+| Total value | $1,073.83 (+114.8%) |
 | API cost | ~$0.69/day |
+| Brier score | Bot 0.019, Market 0.006 (n=33) |
 | Categories | geopolitics, sports, crypto, politics, entertainment |
 
 ## How It Works
@@ -85,7 +88,7 @@ Exact Polymarket taker fee formula: fee = contracts x feeRate x price x (1 - pri
 
 **Level 1 - Calibration:** Tracks predicted vs actual per category. After 20+ trades, applies corrections. Excludes cluster prunes from calculations.
 
-**Level 2 - Adaptive risk:** Adjusts Kelly fraction (started 25%, now 40%) based on rolling 50-trade window.
+**Level 2 - Adaptive risk:** Adjusts Kelly fraction based on rolling 50-trade window. Currently at 15% (absolute tiers).
 
 **Level 3 - Market memory:** Remembers 96+ markets. Prevents re-entry at worse prices.
 
@@ -125,6 +128,8 @@ Available at http://<VPS_IP>:8501 with pages:
     |-- positions.json          # All positions (open + closed) with full trade data
     |-- bot_state.json          # Runtime state (bankroll, scans, layers, history)
     |-- learner_state.json      # Learner calibration data and market memory
+|-- calibrator.py           # Brier-based calibration corrections (sole correction source)
+|-- backtest_data.db        # SQLite: 11.4k resolved markets for backtesting
     |-- trades.json             # Append-only trade log (entries + exits)
     |-- api_usage.json          # API call tracking for cost monitoring
     |-- cache/                  # Per-market probability cache (cleared on prompt changes)
@@ -180,12 +185,12 @@ See [ROADMAP.md](ROADMAP.md) for full phased plan (Phases 0-5).
 
 When starting a new AI development session, paste:
 
-    Project: Becker Bot v4.1 -- Polymarket paper-trading bot
+    Project: Becker Bot v4.3 -- Polymarket paper-trading bot
     Repo: https://github.com/arsenbenda/becker-bot (public)
     VPS: /opt/becker-bot, systemd services: becker-bot, becker-dashboard
     Stack: Python 3.11, Streamlit, systemd, Gamma API, Perplexity/OpenAI APIs
     Key files: becker_bot_v4.py, dashboard.py, shared_state.py, smart_estimator.py, self_learner.py
     Data: positions.json, bot_state.json, learner_state.json, trades.json
-    Status: Phase 1 in progress, 50-trade gate passed (63 real trades, 79.4% WR)
+    Status: v4.3.0, 164 closed trades (85% resolved WR), bankroll $755, P&L +$279
     Read CLAUDE.md, README.md, ARCHITECTURE.md, ROADMAP.md, CHANGELOG.md
     Latest log: tail -30 /opt/becker-bot/becker_bot.log

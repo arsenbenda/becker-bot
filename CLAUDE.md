@@ -70,7 +70,7 @@ Skip: poly-maker (Phase 3+), Polymarket/agents, arb-bot
 - RL (PPO): DEFERRED — needs 10k+ trades, dedicated infra
 
 ## Session Startup
-Human provides: Project: Becker Bot v4.1 / Repo: github.com/arsenbenda/becker-bot
+Human provides: Project: Becker Bot v4.3 / Repo: github.com/arsenbenda/becker-bot
 Assistant requests: tail -30 becker_bot.log + position summary one-liner
 
 ## Current Status (2026-04-03, v4.3.0)

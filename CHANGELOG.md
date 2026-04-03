@@ -1,5 +1,25 @@
 # Changelog — Becker Bot
 
+## v4.3.0 NO-Side Integrity Audit + Calibration Fix (2026-04-03)
+
+### Fixed
+- P5: Post-calibration direction guard (line ~763) + hard guard before PaperPosition creation (line ~862). Prevents calibration from flipping trade side. Fixed 11.4% of trades entering against bot's own estimate (-$31.12).
+- P6: Reevaluation NO-side fix (line ~497). API returns YES price; now flipped to 1-price for NO positions. Unified P&L formula.
+- P7: Self-learner NO-side prediction fix (self_learner.py lines ~113, ~148, ~179). All 3 calibration loops now use side_conf = 1.0-est_prob for NO trades. Corrections dropped from +40-80pp to +0.5-9pp.
+- P8: Circuit breaker now uses self.bankroll instead of self.cfg["PAPER_BANKROLL"] (was triggering 20% too early).
+- P9: Dual calibration fix — self_learner corrections now diagnostic-only (LEARNER_DIAG logs). calibrator.py is sole correction source (Brier-proper, ±8pp cap). Both systems were correcting on same 3 axes with same trade data.
+- P10: Win rate display now shows both overall WR and resolved WR (e.g., "68.5% (resolved: 28/33 85%)").
+
+### Analysis
+- Issue 5 (Brier gap): Bot Brier 0.019 vs Market 0.006 — 84% of gap from 3 pre-filter longshot YES trades. Not a calculation bug; historical artifact. Price-tier filter prevents recurrence.
+- Issue 4 (L2/L3 dead): Working as designed (fallback chain). L2 enhancement deferred to 300+ trades.
+
+### Impact
+- NO-side positions now correctly handled across entire codebase (evaluate, reevaluate, self_learner)
+- Single calibration path eliminates double-correction stacking
+- Dashboard win rate no longer misleading
+- Bankroll ~$755, Net P&L +$279, 29/60 open, 164 closed (resolved WR 85%)
+
 ## v4.2.2 — Calibration + Robustness Patches (2026-04-03)
 
 ### Fixed
