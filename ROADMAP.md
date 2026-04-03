@@ -2,17 +2,19 @@
 
 ## Evaluation Gate (must pass before Phase 2)
 
-| Metric | Target | Current (2026-04-02) |
-|---|---|---|
-| Closed trades | >= 50 | 63 (PASSED) |
-| Win rate | >= 54% | 79.4% (PASSED) |
-| Net P&L | Positive after fees | +$334.03 (PASSED) |
-| Profit factor | > 1.5 | ~5.2 (PASSED) |
-| Max drawdown | < 20% | ~11% (PASSED) |
-| Learner markets | >= 50 | 103+ (PASSED) |
-| Profitable categories | >= 3 | 5 |
-| Score-card confidence | >= 25% | ~30% (PASSED) |
-| Fee-adjusted expectancy | > $0/trade | +$5.30 (PASSED) |
+| Metric                  | Target               | Current (2026-04-03)     |
+|-------------------------|----------------------|--------------------------|
+| Closed trades (real)    | >= 50                | 67 (51W / 16L)           |
+| Win rate (excl. prunes) | >= 54%               | 76.1%                    |
+| Net P&L                 | Positive after fees   | +$244.22                 |
+| Profit factor           | > 1.5                | ~4.0                     |
+| Max drawdown            | < 20%                | ~14%                     |
+| Learner markets         | >= 50                | 130+                     |
+| Profitable categories   | >= 3                 | 5                        |
+| Score-card confidence   | >= 25%               | ~30%                     |
+| Fee-adjusted expectancy | > $0/trade           | +$3.64                   |
+
+**Gate status: PASSED (2026-04-02).** All metrics exceed thresholds.
 
 ---
 
@@ -20,89 +22,82 @@
 
 - [x] Duplicate-position guard
 - [x] Dynamic scan intervals (300s full / 180s open-only)
-- [x] Trailing-stop thinning (3-scan exit)
-- [x] 5% daily drawdown breaker
+- [x] 5% daily drawdown breaker (excludes prune + longshot_filter exits)
 - [x] Bayesian re-estimation on >3pp moves
 - [x] Cross-market spread alerts
-- [x] Becker edge sanity filter
-- [x] Dashboard reads from positions.json
-- [x] Bankroll persistence across restarts
-- [x] Counter sync fix
-- [x] Market Radar panels
-- [x] Risk Monitor panels
-- [x] Score Card panels
-- [x] Phase 0.12: Polymarket fee model (category-based taker fees)
-- [x] Net P&L display (primary), gross + fees subtitle
-- [x] Fee data persisted per position, restored on restart
+- [x] Becker edge sanity filter (with learner override when n>=15, conf>=0.4)
+- [x] Dashboard, bankroll persistence, fee model, net P&L display
 
-## Phase 1 — Free Intelligence (zero API cost)
+## Phase 1 — Free Intelligence
 
 - [x] 1.1 Momentum z-scores (7/14/30-day via Gamma API)
 - [x] 1.2 Correlation filter (max 3 per cluster, <=15% bankroll)
+- [x] 1.2b Cluster over-exposure pruning (force-exit weakest when cluster > 3)
 - [ ] 1.3 Logical arbitrage scanner (nested market mispricing)
 - [x] 1.4 Live unrealised P&L (CLOB mid-price per position)
 - [x] 1.5 Category auto-block (<40% win rate over 20+ trades)
-- [x] 1.12 Hybrid exit system
-- [x] 1.13 AI prompt overhaul (anti-hedging rules, hard data requests)
 - [ ] 1.6 Adaptive scan intervals (120s volatile / 600s calm)
 - [ ] 1.7 Auto-retire Layer 1 (when L2 outperforms by >2pp MAE)
-- [ ] 1.8 Geopolitics priority mode (25% bankroll, zero fees)
+- [ ] 1.8 Geopolitics priority mode — DEFERRED to unified scoring system
 - [x] 1.9 Category performance dashboard panel
-- [ ] 1.10 Install pmxt library (Polymarket/Kalshi/Limitless API)
-- [ ] 1.11 Tremor.live webhook (anomaly alerts)
+- [ ] 1.10 Install pmxt library
+- [ ] 1.11 Tremor.live webhook
+- [x] 1.12 Hybrid exit system (3 tiers + hard stop-loss at -30%)
+- [x] 1.13 AI prompt overhaul (anti-hedging rules, extreme probabilities)
+- [x] 1.14 Prune separation (close_reason tagging, WR/learner exclude prunes)
+- [x] 1.15 CLI win-rate fix (excludes prunes, shows +Xp suffix)
+- [x] 1.16 Circuit breaker excludes prune + longshot_filter exits
+- [x] 1.17 Dashboard trade log fix (OPEN vs EXIT/PRUNE distinction)
+- [x] 1.18 Dashboard Score Card formatting fix
+- [x] 1.19 Price-tier filter (Becker longshot bias protection)
+      - Sub-15c: blocked (YES and NO) — structural negative EV per 72.1M trade study
+      - 15-30c: caution zone — requires confidence >0.6 and edge >10pp
+      - 30-80c: unrestricted — bot's sweet spot, minimal structural bias
+      - 80-95c: half-Kelly — steamroller risk reduction
+- [x] 1.20 Cluster keywords expanded (dem_2028, rep_2028, fifa_wc_2026, us_presidential_2028)
+- [x] 1.21 Longshot position cleanup (50 sub-15c YES positions force-closed)
 
-## Phase 2 — Execution & Data (new deps, free-tier infra)
+**Phase 1 status:** 17/21 complete. Remaining: 1.3, 1.6, 1.7, 1.10, 1.11 (1.8 deferred).
 
-- [ ] 2.1 py-clob-client integration (real-time order book)
+## Phase 2 — Execution & Data
+
+- [ ] 2.1 py-clob-client (official SDK, WebSocket streams) — 947 stars
 - [ ] 2.2 Maker limit orders (zero fees + rebates)
-- [ ] 2.3 Insider-tracker integration (flag opposing wallets)
-- [ ] 2.4 Backtesting framework (pmxt archive + poly_data)
+- [ ] 2.3 Insider-tracker (pselamy, 63 stars) + polyterm (32 stars)
+- [ ] 2.4 Backtesting framework — poly_data (warproxxx, 646 stars, 86M+ trades)
 - [ ] 2.5 Slippage model (reject if slippage >50% of edge)
-- [ ] 2.6 Polygon wallet setup (USDC + MATIC, free RPC)
-- [ ] 2.7 Options-chain cross-reference (CME/CBOE vs Polymarket)
-- [ ] 2.8 Self-learning exit thresholds (adaptive trailing-stop)
+- [ ] 2.6 Polygon wallet setup
+- [ ] 2.7 Options-chain cross-reference
+- [ ] 2.8 Self-learning exit thresholds
+- [ ] 2.9 Security audit (.env never committed)
 
 ## Phase 3 — Advanced Strategies (after 200+ live trades)
 
-- [ ] 3.1 Market-making exploration (poly-maker)
-- [ ] 3.2 News-speed triggers (RSS keyword, no LLM)
-- [ ] 3.3 Cross-platform arbitrage (via pmxt)
-- [ ] 3.4 Mean-reversion signals (>10pp without news)
-- [ ] 3.5 15-min crypto binaries — DEPRIORITISED (Moltbook: -8.4%)
+- [ ] 3.1 Market-making (poly-maker)
+- [ ] 3.2 News-speed triggers (RSS, no LLM)
+- [ ] 3.3 Cross-platform arbitrage (pmxt)
+- [ ] 3.4 Mean-reversion signals
+- [ ] 3.5 15-min crypto binaries — DEPRIORITISED
 - [ ] 3.6 Bayesian probability pipeline
-- [ ] 3.8 Geopolitics deep mode (alternative data fusion)
-      - NASA FIRMS thermal anomaly feed (fire detection → conflict escalation)
-      - OpenSky aircraft transponder data (military flight patterns)
-      - USGS seismic feed (nuclear test detection)
-      - OSINT proxy signals (PizzINT-style behavioral anomalies)
-      - Planet Labs / Maxar commercial satellite integration (Phase 5+)
-      - All feeds score into unified scoring system, not standalone triggers
+- [ ] 3.8 Geopolitics deep mode (NASA FIRMS, OpenSky, USGS, OSINT)
 
 ## Phase 4 — ML & Quantitative (after 500+ trades)
 
-- [ ] 4.1 ML probability model (XGBoost/LightGBM on poly_data)
-- [ ] 4.2 NLP sentiment scoring (local TF-IDF)
-- [ ] 4.3 Adaptive Kelly recalibration (rolling 50-trade window)
-- [ ] 4.4 Monte Carlo equity curves (10k simulations)
+- [ ] 4.1 ML model (XGBoost/LightGBM on poly_data, walk-forward validation)
+- [ ] 4.2 NLP sentiment (local TF-IDF)
+- [ ] 4.3 Adaptive Kelly (rolling 50-trade window)
+- [ ] 4.4 Monte Carlo equity curves (10k simulations, 95% CI)
 - [ ] 4.5 Portfolio correlation-aware sizing
+- [ ] 4.6 Reinforcement learning — DEFERRED INDEFINITELY (needs 10k+ trades)
 
 ## Phase 5 — Dashboard & UX
 
-- [ ] 5.1 TradingView-style equity curve
-- [ ] 5.2 Scrolling ticker tape
-- [ ] 5.3 Expandable position cards
-- [ ] 5.4 Push/Telegram notifications
-- [ ] 5.5 Performance comparison (bot vs benchmarks)
-- [ ] 5.6 RAM optimisation (cap history, lazy-load)
+- [ ] 5.1-5.6 TradingView charts, ticker, notifications, RAM optimisation
 
 ## Security Checklist
 
-- [ ] Dedicated wallet only
-- [ ] Audit pip dependencies
-- [ ] Limit token approvals
-- [ ] Start live with $100-300
-- [ ] Kill switch: systemctl stop becker-bot
-- [ ] 5% daily loss breaker always active
-- [ ] Rotate API keys monthly
-- [ ] Private keys in .env only
-- [ ] Verify GitHub repos (Dec 2025 incident)
+- [x] .env in .gitignore
+- [x] Kill switch: systemctl stop becker-bot
+- [x] 5% daily loss breaker (excludes prune/longshot exits)
+- [ ] Verify .env never in git history
+- [ ] Dedicated wallet, pip audit, token limits, key rotation

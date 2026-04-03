@@ -185,6 +185,10 @@ CLUSTER_KEYWORDS = {
     "gta_vi": ["gta vi", "gta 6", "grand theft auto", "before gta"],
     "taylor_swift": ["taylor swift"],
     "starmer_uk": ["starmer", "uk prime minister"],
+    "dem_2028_primary": ["2028 democratic", "democratic presidential", "democratic nomination"],
+    "rep_2028_primary": ["2028 republican", "republican presidential", "republican nomination"],
+    "fifa_wc_2026": ["world cup", "fifa", "qualify for the 2026"],
+    "us_presidential_2028": ["2028 us presidential", "win the 2028"],
 }
 
 MAX_POSITIONS_PER_CLUSTER = 3
@@ -650,6 +654,23 @@ class BeckerBot:
                     log(f"CLUSTER $CAP: {question[:50]} — cluster '{_cid}' cost ${_exp['cost']:.2f} >= ${_max_cost:.2f} (15% bankroll)")
                     return None
 
+        # Step 0d: Price-tier filter (Becker longshot bias protection)
+        # Data: 72.1M trades show YES contracts below 15c have -41% to -16% expected value
+        # Takers buying YES at 1-10c win only 0.43-4.18% vs implied 1-10%
+        _yes_price = yes_price
+        _no_price = 1.0 - yes_price
+        if _yes_price < 0.15:
+            # Sub-15c: longshot zone. Skip entirely — structural negative EV per Becker study
+            log(f"PRICE FILTER: {question[:50]} — YES at {_yes_price:.3f} is sub-15c longshot, skipping (Becker: negative EV)")
+            return None
+        elif _no_price < 0.15:
+            # YES is >85c, NO is the cheap side — also skip NO longshots
+            log(f"PRICE FILTER: {question[:50]} — NO at {_no_price:.3f} is sub-15c longshot, skipping")
+            return None
+        
+        # 15-30c zone: require higher confidence threshold
+        _in_caution_zone = (_yes_price < 0.30) or (_no_price < 0.30)
+
         # Step 1: Smart probability estimation
         est = estimate_probability(
             question=question, market_price=yes_price, category=category,
@@ -694,6 +715,15 @@ class BeckerBot:
                 log(f"SANITY: {question[:50]} edge {_raw_edge:.3f} > 3x category avg {_cat_avg:.3f} — skeptical (learner n={_learner_n})")
                 est_prob = est_prob * 0.7 + yes_price * 0.3  # Shrink toward market
 
+        # Phase 1.x: Caution zone gate (15-30c) — require high AI confidence and large edge
+        if _in_caution_zone:
+            if confidence < 0.6:
+                log(f"CAUTION ZONE: {question[:50]} — price in 15-30c zone but confidence {confidence:.2f} < 0.60, skipping")
+                return None
+            if _raw_edge < 0.10:
+                log(f"CAUTION ZONE: {question[:50]} — price in 15-30c zone but edge {_raw_edge:.3f} < 0.10, skipping")
+                return None
+
         edge_check = edge_is_real(yes_price, est_prob, cfg["MIN_EDGE_POINTS"])
         if not edge_check["passed"]:
             return None
@@ -707,8 +737,16 @@ class BeckerBot:
         m_score = maker_edge_score(yes_price, category)
 
         # Step 5: Kelly sizing
+        # Reduce Kelly for expensive contracts (80-95c) — steamroller risk
+        _kelly_frac = cfg["KELLY_FRACTION"]
+        _max_bet = cfg["MAX_BET_PCT"]
+        _entry = yes_price if ev["best_side"] == "YES" else (1.0 - yes_price)
+        if _entry >= 0.80:
+            _kelly_frac *= 0.5  # half-Kelly for expensive contracts
+            _max_bet *= 0.5
+            log(f"KELLY REDUCE: {question[:50]} — entry {_entry:.3f} >= 0.80, using half-Kelly")
         k = kelly_size(self.bankroll, yes_price, est_prob,
-                       ev["best_side"], cfg["KELLY_FRACTION"], cfg["MAX_BET_PCT"])
+                       ev["best_side"], _kelly_frac, _max_bet)
         if k["bet"] <= 0 or k["contracts"] <= 0:
             return None
 
@@ -952,7 +990,7 @@ class BeckerBot:
         # Phase 0.4: Daily drawdown circuit breaker
         _today_closed = [p for p in self.positions if p.get("status") == "closed"
                          and p.get("closed_at", "")[:10] == datetime.now(timezone.utc).strftime("%Y-%m-%d")
-                         and p.get("close_reason") != "cluster_prune"]
+                         and p.get("close_reason") not in ("cluster_prune", "longshot_filter")]
         _today_losses = sum(float(p.get("pnl", 0)) for p in _today_closed if float(p.get("pnl", 0)) < 0)
         _drawdown_limit = self.cfg["PAPER_BANKROLL"] * 0.05
         _circuit_breaker = abs(_today_losses) >= _drawdown_limit
