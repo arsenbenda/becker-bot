@@ -66,11 +66,16 @@ Skip: poly-maker (Phase 3+), Polymarket/agents, arb-bot
 Human provides: Project: Becker Bot v4.1 / Repo: github.com/arsenbenda/becker-bot
 Assistant requests: tail -30 becker_bot.log + position summary one-liner
 
-## Current Status (2026-04-03, post v4.2.2)
+## Current Status (2026-04-03, v4.3.0)
 
-- 40 open (all >15c), 142 real closed (49.6% WR, PF 1.8), bankroll $736
-- Kelly 15%, min edge 10pp, max bet 6%
+- 29 open, 164 closed (84.8% resolved WR, 48.9% overall incl. early exits), bankroll $755
+- Net P&L +$279, 139 trades, Kelly 15%, min edge 10pp, max bet 6%
 - All filters active: price-tier, cluster (31), hybrid exit, deviation cap, spread gate
-- v4.2.2 fixes: trailing stop logs show actual tier (8/5/3 not hardcoded 3), duplicate mutex removed, cluster coverage 100%, bid-ask spread gate added
-- Learner: decontaminated, absolute Kelly tiers, auto-persist active
-- Gate: PASSED (142 trades). Next: unified scoring system
+- v4.3.0 fixes (P5-P9): NO-side corrections across codebase, circuit breaker bankroll fix
+- P9: Self-learner corrections now diagnostic-only; calibrator.py is sole correction source
+- Brier: bot=0.019 mkt=0.006 — gap is 84% from 3 pre-filter longshot YES trades (historical)
+- Learner corrections sane: sports +0.005, crypto +0.089, L2 +0.031, L1 -0.026
+- Gate: PASSED (164 trades). Next: unified scoring system
+
+## Key Gotcha — Calibration (v4.3.0)
+- Only calibrator.py modifies est_prob (Brier-proper, ±8pp cap). self_learner logs only (LEARNER_DIAG).
