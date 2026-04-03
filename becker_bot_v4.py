@@ -955,8 +955,10 @@ class BeckerBot:
                 self.bankroll += pos["cost"] + pnl
                 if pnl > 0:
                     self.winning_trades += 1
-                pos["close_reason"] = "exit"
-                log(f"EXIT: {pos['question'][:60]} — {reeval['reason']} — Gross: ${pnl:+.2f} Net: ${pos['net_pnl']:+.2f} (fees: ${pos['total_fees']:.4f})")
+                # A1: Distinguish resolved markets from early exits
+                _cp = float(pos.get("close_price", 0.5))
+                pos["close_reason"] = "resolved" if (_cp > 0.90 or _cp < 0.10) else "exit"
+                log(f"{'RESOLVED' if pos['close_reason'] == 'resolved' else 'EXIT'}: {pos['question'][:60]} — {reeval['reason']} — Gross: ${pnl:+.2f} Net: ${pos['net_pnl']:+.2f} (fees: ${pos['total_fees']:.4f})")
                 append_trade({"action": "CLOSE", "market_id": pos["market_id"],
                               "question": pos["question"], "reason": reeval["reason"],
                               "pnl": pos["pnl"], "timestamp": pos["closed_at"]})
@@ -965,7 +967,7 @@ class BeckerBot:
                 pos["edge_thin_count"] = pos.get("edge_thin_count", 0) + 1
                 # Tier-aware trailing stop: Tier A=8 scans, Tier B=5 scans, Tier C=3 scans
                 _entry = float(pos.get("entry_price", 0.5))
-                _thin_limit = 8 if _entry < 0.50 else 5 if _entry < 0.85 else 3
+                _thin_limit = 8 if _entry < 0.50 else 6 if _entry < 0.85 else 3
                 if pos["edge_thin_count"] >= _thin_limit:
                     pos["status"] = "closed"
                     pos["close_price"] = reeval["current_price"]
@@ -986,7 +988,9 @@ class BeckerBot:
                     self.bankroll += pos["cost"] + pnl
                     if pnl > 0:
                         self.winning_trades += 1
-                    pos["close_reason"] = "trailing_stop"
+                    # A1: Distinguish resolved from trailing stop
+                    _cp_t = float(pos.get("close_price", 0.5))
+                    pos["close_reason"] = "resolved" if (_cp_t > 0.90 or _cp_t < 0.10) else "trailing_stop"
                     log(f"TRAILING STOP: {pos['question'][:60]} — {_thin_limit} scans (Tier {"A" if _entry < 0.50 else "B" if _entry < 0.85 else "C"}) — Gross: ${pnl:+.2f} Net: ${pos['net_pnl']:+.2f} (fees: ${pos['total_fees']:.4f})")
                     append_trade({"action": "TRAILING_STOP", "market_id": pos["market_id"],
                                   "question": pos["question"], "reason": f"{_thin_limit}x edge thinning (Tier {"A" if _entry < 0.50 else "B" if _entry < 0.85 else "C"})",

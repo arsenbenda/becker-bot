@@ -4233,5 +4233,13 @@
     "net_pnl": -0.51,
     "fees": 0.11706,
     "timestamp": "2026-04-03T12:19:59.803426+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "1294921",
+    "question": "Will Hamas agree to disarm by June 30?",
+    "reason": "HARD STOP: unrealised -33% (>-30%)",
+    "pnl": -1.28,
+    "timestamp": "2026-04-03T13:49:20.908549+00:00"
   }
 ]
