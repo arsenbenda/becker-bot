@@ -960,7 +960,7 @@ elif "Positions" in page:
                     "Entry": float(p.get("entry_price", 0) or (p.get("cost", 0) / max(p.get("contracts", 1), 0.01))),
                     "Qty": float(p.get("contracts", 0)),
                     "Cost": float(p.get("cost", 0)),
-                    "Est": float(p.get("estimated_prob", 0) or p.get("estimated_probability", 0)),
+                    "Est": float(p.get("estimated_prob", 0) or p.get("estimated_probability", 0)) * 100,
                     "Curr": float(p.get("current_price", p.get("entry_price", 0))),
                     "P&L": _unrl,
                     "EV": float(p.get("ev", 0) or p.get("net_ev", 0)),
