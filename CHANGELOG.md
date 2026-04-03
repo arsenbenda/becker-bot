@@ -1,5 +1,36 @@
 # Changelog — Becker Bot
 
+## v4.2.2 — Calibration + Robustness Patches (2026-04-03)
+
+### Fixed
+- P0: Trailing stop logs now show actual tier limits (A=8, B=5, C=3) instead of hardcoded "3"
+- P1: Removed duplicate 28-line mutual-exclusion filter block in evaluate()
+
+### Added
+- P3: Cluster keywords expanded 19→31 (champions_league, europa_league, la_liga, serie_a, epl, epl_relegation, epl_top4, ai_models, hyperliquid, us_midterms_2026, colombia_2026, hungary_politics, james_bond, gta_vi)
+- P4: Bid-ask spread gate — rejects entry when spread > 50% of edge magnitude
+- Backtester v2: data collector (11.4k resolved markets in SQLite), CLOB history backtest, Brier calibration analysis
+- Calibrator: Brier-based dynamic calibration runs every scan cycle, computes correction curves by category/layer/price bucket, feeds adjustments into evaluate()
+
+### Analysis
+- Layer 3 (Becker bias) alone yields zero tradeable opportunities at any edge threshold
+- Layer 1 (AI) is the sole profit engine: 280 L1 calls vs 6 L2, 0 L3
+- Brier scores (33 resolved): Bot 0.0190, Market 0.0060 (bot less calibrated but 84.8% WR)
+- Geopolitics + crypto: 100% WR on resolved trades
+- 10/88 closed trades entered against bot's own estimate (negative-edge bug) — fix pending
+
+### Known Issues
+- Negative-edge entry bug: evaluate() allows YES entry when est_prob < entry_price (11.4% of trades, -$31.12 losses)
+- 1 suspicious open position (GPT-6 release: YES entry=0.235, est=0.216)
+- L1 confidence clustering at 0.80-0.90 provides low discriminative power
+
+### Impact
+- 100% cluster coverage (was 37%)
+- Misleading trailing-stop logs corrected for learner accuracy
+- Dynamic calibration strengthens with each resolved trade
+- Bankroll ~$754, Net P&L +$280, 142 trades
+
+
 ## v4.2.1 — AI Calibration + Learner Decontamination (2026-04-03)
 
 ### Fixed
