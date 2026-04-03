@@ -109,8 +109,10 @@ def update_calibration(state: dict, positions: list) -> dict:
             cat_stats[cat] = {"predictions": [], "outcomes": [], "count": 0}
 
         est = p.get("estimated_prob", 0.5)
+        # P7: Convert to side-confidence (NO trades: confidence = 1 - est_prob)
+        side_conf = est if p.get("side", "YES") == "YES" else 1.0 - est
         won = 1 if p.get("pnl", 0) > 0 else 0
-        cat_stats[cat]["predictions"].append(est)
+        cat_stats[cat]["predictions"].append(side_conf)
         cat_stats[cat]["outcomes"].append(won)
         cat_stats[cat]["count"] += 1
 
@@ -142,8 +144,10 @@ def update_calibration(state: dict, positions: list) -> dict:
         if src not in layer_stats:
             layer_stats[src] = {"predictions": [], "outcomes": [], "count": 0}
         est = p.get("estimated_prob", 0.5)
+        # P7: Convert to side-confidence (NO trades: confidence = 1 - est_prob)
+        side_conf = est if p.get("side", "YES") == "YES" else 1.0 - est
         won = 1 if p.get("pnl", 0) > 0 else 0
-        layer_stats[src]["predictions"].append(est)
+        layer_stats[src]["predictions"].append(side_conf)
         layer_stats[src]["outcomes"].append(won)
         layer_stats[src]["count"] += 1
 
@@ -171,8 +175,10 @@ def update_calibration(state: dict, positions: list) -> dict:
         if bucket not in bucket_stats:
             bucket_stats[bucket] = {"predictions": [], "outcomes": [], "count": 0}
         est = p.get("estimated_prob", 0.5)
+        # P7: Convert to side-confidence (NO trades: confidence = 1 - est_prob)
+        side_conf = est if p.get("side", "YES") == "YES" else 1.0 - est
         won = 1 if p.get("pnl", 0) > 0 else 0
-        bucket_stats[bucket]["predictions"].append(est)
+        bucket_stats[bucket]["predictions"].append(side_conf)
         bucket_stats[bucket]["outcomes"].append(won)
         bucket_stats[bucket]["count"] += 1
 
