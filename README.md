@@ -57,7 +57,7 @@ Replaced uniform 3-scan trailing stop with tier-aware exits:
 
 **Tier A (entry < 50c):** Hold-to-resolution bias. 8 consecutive thin scans required for trailing stop. Exit only after 48h with collapsed edge. Covers 90% of positions (avg entry 17c).
 
-**Tier B (entry 50-84c):** Active trailing stop, 5 consecutive thin scans.
+**Tier B (entry 50-84c):** Active trailing stop, 6 consecutive thin scans.
 
 **Tier C (entry >= 85c):** Tight trailing stop, 3 consecutive thin scans.
 

@@ -14,11 +14,16 @@
 - Issue 5 (Brier gap): Bot Brier 0.019 vs Market 0.006 — 84% of gap from 3 pre-filter longshot YES trades. Not a calculation bug; historical artifact. Price-tier filter prevents recurrence.
 - Issue 4 (L2/L3 dead): Working as designed (fallback chain). L2 enhancement deferred to 300+ trades.
 
+### Tuning
+- A1: close_reason now tags "resolved" (close_price >0.90 or <0.10) vs "exit". Backfilled 66 historical trades.
+- A2: Tier B trailing stop increased from 5→6 consecutive thin scans (was cutting winners too early, 22% WR on trailing stops).
+
 ### Impact
 - NO-side positions now correctly handled across entire codebase (evaluate, reevaluate, self_learner)
 - Single calibration path eliminates double-correction stacking
 - Dashboard win rate no longer misleading
-- Bankroll ~$755, Net P&L +$279, 29/60 open, 164 closed (resolved WR 85%)
+- Clean close_reason taxonomy: resolved (33), exit (48), trailing_stop (9), cluster_prune (25), longshot_filter (50)
+- Bankroll ~$755, Net P&L +$279, 28/60 open, 165 closed (resolved WR 85%)
 
 ## v4.2.2 — Calibration + Robustness Patches (2026-04-03)
 
@@ -103,7 +108,7 @@
 
 ### Changed
 - Tier A (<50c): hold-to-resolution, 8-scan trailing, 48h stale exit
-- Tier B (50-84c): active trailing, 5 scans
+- Tier B (50-84c): active trailing, 6 scans
 - Tier C (>=85c): tight trailing, 3 scans
 - Hard stop-loss at -30% of position cost
 

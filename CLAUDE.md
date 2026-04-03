@@ -33,7 +33,7 @@
 
 ## Hybrid Exit System (v4.1.8)
 - Tier A (<50c): hold-to-resolution, 8-scan trailing, 48h stale exit
-- Tier B (50-84c): active trailing, 5 scans
+- Tier B (50-84c): active trailing, 6 scans
 - Tier C (>=85c): tight trailing, 3 scans
 - Hard stop-loss: -30% of position cost (all tiers)
 
