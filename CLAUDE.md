@@ -58,6 +58,13 @@ Implementation: gate (50 trades) -> unified scoring (50-100) -> add sources (100
 3. py-clob-client (947 stars) — Phase 2.1: WebSocket streams
 Skip: poly-maker (Phase 3+), Polymarket/agents, arb-bot
 
+## L2 Enhancement (TODO — target: 300+ trades)
+- Goal: Promote L2 from fallback to parallel signal, enabling L1 reduction/removal
+- Current: L2 replaces L1 (fallback chain). Starts from Becker baseline, discards AI estimate.
+- Plan: Run L2 alongside L1, blend orderbook/momentum into L1 output (or standalone)
+- Signals: orderbook imbalance (±3pp), z-score momentum (±4pp), volume spikes
+- Prerequisite: validate L2 alpha with backtest_data.db before going live
+
 ## ML Notes (Phase 4)
 - Backtest WR (89.6%) likely overfit; live WR (76.1%) is ground truth
 - RL (PPO): DEFERRED — needs 10k+ trades, dedicated infra
