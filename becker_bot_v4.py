@@ -1101,7 +1101,7 @@ class BeckerBot:
                          and p.get("closed_at", "")[:10] == datetime.now(timezone.utc).strftime("%Y-%m-%d")
                          and p.get("close_reason") not in ("cluster_prune", "longshot_filter", "contradiction_filter")]
         _today_losses = sum(float(p.get("pnl", 0)) for p in _today_closed if float(p.get("pnl", 0)) < 0)
-        _drawdown_limit = self.cfg["PAPER_BANKROLL"] * 0.05
+        _drawdown_limit = self.bankroll * 0.05  # P8: use current bankroll, not initial seed
         _circuit_breaker = abs(_today_losses) >= _drawdown_limit
         if _circuit_breaker:
             log(f"CIRCUIT BREAKER: Daily loss ${_today_losses:.2f} exceeds 5% limit (${_drawdown_limit:.2f}). Pausing new trades.")
