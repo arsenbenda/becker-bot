@@ -1,36 +1,23 @@
 {
   "status": {
-    "scan_count": 1377,
-    "last_scan": "2026-04-03T08:43:49.807541+00:00",
-    "bankroll": 598.14,
+    "scan_count": 1378,
+    "last_scan": "2026-04-03T08:47:06.447371+00:00",
+    "bankroll": 585.97,
     "open_positions": 38,
-    "total_trades": 146,
+    "total_trades": 118,
     "winning_trades": 58,
-    "realized_pnl": 302.95,
+    "realized_pnl": 298.75,
     "markets_fetched": 835,
-    "markets_eligible": 191,
-    "markets_evaluated": 191,
-    "markets_scanned_total": 53775,
-    "new_trades": 29,
+    "markets_eligible": 164,
+    "markets_evaluated": 164,
+    "markets_scanned_total": 53939,
+    "new_trades": 1,
     "layer_stats": {
-      "layer1_ai": 169,
+      "layer1_ai": 178,
       "layer2_quantitative": 5,
       "layer3_becker": 0
     },
     "scan_history": [
-      {
-        "scan": 1278,
-        "time": "2026-04-03T00:13:17.425455+00:00",
-        "bankroll": 123.11,
-        "open": 60,
-        "pnl": 311.64,
-        "fetched": 835,
-        "eligible": 196,
-        "new_trades": 1,
-        "deployed": 920.69,
-        "total_value": 1024.73,
-        "unrealised_pnl": -19.07
-      },
       {
         "scan": 1279,
         "time": "2026-04-03T00:18:30.428119+00:00",
@@ -1317,16 +1304,29 @@
         "deployed": 415.26,
         "total_value": 1013.27,
         "unrealised_pnl": -0.13
+      },
+      {
+        "scan": 1378,
+        "time": "2026-04-03T08:47:06.432643+00:00",
+        "bankroll": 585.97,
+        "open": 38,
+        "pnl": 298.75,
+        "fetched": 835,
+        "eligible": 164,
+        "new_trades": 1,
+        "deployed": 423.23,
+        "total_value": 1028.51,
+        "unrealised_pnl": 19.31
       }
     ],
     "learner": {
       "calibrated_categories": 5,
       "adaptive_status": "active",
-      "markets_remembered": 166,
+      "markets_remembered": 167,
       "avoid_categories": [
         "politics"
       ],
-      "last_cycle": "2026-04-03T08:43:49.799266+00:00"
+      "last_cycle": "2026-04-03T08:47:06.441412+00:00"
     }
   },
   "config": {

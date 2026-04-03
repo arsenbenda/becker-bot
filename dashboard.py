@@ -941,29 +941,45 @@ elif "Positions" in page:
     ""
 
     if open_pos:
+        # Legend
         with st.container(border=True):
-            rows = [{
-                "Question": p.get("question", "")[:55],
-                "Side": p.get("side", "?"),
-                "Price": float(p.get("entry_price", 0) or (p.get("cost", 0) / max(p.get("contracts", 1), 0.01))),
-                "Contracts": float(p.get("contracts", 0)),
-                "Cost": float(p.get("cost", 0)),
-                "Est Prob": float(p.get("estimated_prob", 0) or p.get("estimated_probability", 0)),
-                "Curr": float(p.get("current_price", p.get("entry_price", 0))),
-                "Unrl P&L": float(p.get("unrealised_pnl", 0)),
-                "EV": float(p.get("ev", 0) or p.get("net_ev", 0)),
-                "Category": p.get("category", "?"),
-                "Source": (p.get("estimator_source") or p.get("source", "?")).replace("layer1_ai", "AI").replace("layer2_quantitative", "Quant").replace("layer3_becker", "Becker"),
-                "Opened": time_ago(p.get("opened_at") or p.get("timestamp")),
-            } for p in open_pos]
-            st.dataframe(pd.DataFrame(rows), use_container_width=True, hide_index=True,
+            st.caption("**Column Guide:** Question = market title · Side = YES/NO bet direction · Entry = price paid per contract · Qty = number of contracts · Cost = total deployed · Est = AI estimated probability · Curr = live market price · P&L = unrealised profit/loss · EV = expected value at entry · Cat = market category · Src = estimation layer · Age = time since opened")
+
+        # Sort by opened (newest first)
+        _sorted = sorted(open_pos, key=lambda p: p.get("opened_at", ""), reverse=True)
+
+        with st.container(border=True):
+            rows = []
+            for p in _sorted:
+                _unrl = float(p.get("unrealised_pnl", 0))
+                _status = "🟢" if _unrl > 0 else "🔴" if _unrl < -1.0 else "⚪"
+                rows.append({
+                    "": _status,
+                    "Question": p.get("question", "")[:50],
+                    "Side": p.get("side", "?"),
+                    "Entry": float(p.get("entry_price", 0) or (p.get("cost", 0) / max(p.get("contracts", 1), 0.01))),
+                    "Qty": float(p.get("contracts", 0)),
+                    "Cost": float(p.get("cost", 0)),
+                    "Est": float(p.get("estimated_prob", 0) or p.get("estimated_probability", 0)),
+                    "Curr": float(p.get("current_price", p.get("entry_price", 0))),
+                    "P&L": _unrl,
+                    "EV": float(p.get("ev", 0) or p.get("net_ev", 0)),
+                    "Cat": p.get("category", "?"),
+                    "Src": (p.get("estimator_source") or p.get("source", "?")).replace("layer1_ai", "AI").replace("layer2_quantitative", "Quant").replace("layer3_becker", "Becker"),
+                    "Age": time_ago(p.get("opened_at") or p.get("timestamp")),
+                })
+            df = pd.DataFrame(rows)
+            st.dataframe(df, use_container_width=True, hide_index=True,
                          column_config={
-                             "Price": st.column_config.NumberColumn(format="$%.3f"),
+                             "": st.column_config.TextColumn(width="small"),
+                             "Entry": st.column_config.NumberColumn(format="$%.3f"),
+                             "Qty": st.column_config.NumberColumn(format="%.0f"),
                              "Cost": st.column_config.NumberColumn(format="$%.2f"),
+                             "Est": st.column_config.NumberColumn(format="%.1f%%", help="AI estimated probability"),
+                             "Curr": st.column_config.NumberColumn(format="$%.3f"),
+                             "P&L": st.column_config.NumberColumn(format="$%+.2f"),
                              "EV": st.column_config.NumberColumn(format="$%.4f"),
-                             "Est Prob": st.column_config.NumberColumn(format="%.3f"),
-                             "Contracts": st.column_config.NumberColumn(format="%.1f"),
-                         }, height=min(len(rows) * 38 + 40, 600))
+                         }, height=min(len(rows) * 38 + 40, 700))
     else:
         st.info("No open positions", icon=":material/info:")
 

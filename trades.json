@@ -3647,5 +3647,30 @@
     "confidence": 0.85,
     "category": "sports",
     "timestamp": "2026-04-03T08:43:39.849081+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "582139",
+    "question": "Will Aston Villa finish in the top 4 of the EPL 2025\u201326 standings?",
+    "reason": "HARD STOP: unrealised -67% (>-30%)",
+    "pnl": -4.2,
+    "timestamp": "2026-04-03T08:46:57.775922+00:00"
+  },
+  {
+    "action": "OPEN",
+    "market_id": "572734",
+    "question": "Will Manchester City finish in 2nd place in the 2025-26 English Premier League?",
+    "side": "YES",
+    "price": 0.81,
+    "contracts": 17.54,
+    "cost": 14.21,
+    "ev": 0.1743,
+    "kelly_pct": 2.37,
+    "maker_score": 3.62,
+    "vol_scalar": 1.0,
+    "source": "layer1_ai",
+    "confidence": 0.9,
+    "category": "sports",
+    "timestamp": "2026-04-03T08:47:06.386309+00:00"
   }
 ]
