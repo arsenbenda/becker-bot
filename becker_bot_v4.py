@@ -734,7 +734,9 @@ class BeckerBot:
         confidence = est["confidence"]
         self.layer_stats[source] = self.layer_stats.get(source, 0) + 1
 
-        # Step 1b: Apply learned calibration corrections
+        # Step 1b: Self-learner corrections (DIAGNOSTIC ONLY — v4.3.0)
+        # Disabled: calibrator.py (Step 1c) covers same axes with Brier-proper math.
+        # Keeping computation for logging/diagnostics; not modifying est_prob.
         corrected = apply_learned_corrections(
             raw_probability=est_prob,
             category=category,
@@ -743,7 +745,7 @@ class BeckerBot:
             state=self.learner_state,
         )
         if corrected["corrections_applied"] > 0:
-            est_prob = corrected["adjusted_probability"]
+            log(f"LEARNER_DIAG: {question[:40]} would adjust {est_prob:.4f}→{corrected['adjusted_probability']:.4f} ({', '.join(corrected['adjustments'])})")
 
         # Step 1c: Apply Brier-based calibration corrections (v4.2.2)
         _cal_state = getattr(self, 'calibration_state', None) or load_calibration()
