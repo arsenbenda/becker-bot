@@ -7,3 +7,4 @@ becker_bot.log
 *.log
 *.bak
 cache/
+*.bak.*
