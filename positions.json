@@ -1310,7 +1310,7 @@
     "net_pnl": 0.0,
     "current_price": 0.486,
     "unrealised_pnl": 0.74,
-    "price_updated_at": "2026-04-03T12:11:03.367185+00:00"
+    "price_updated_at": "2026-04-03T12:17:16.894527+00:00"
   },
   {
     "market_id": "573647",
@@ -1928,7 +1928,7 @@
     "net_pnl": 0.0,
     "current_price": 0.325,
     "unrealised_pnl": 0.0,
-    "price_updated_at": "2026-04-03T12:11:03.564142+00:00"
+    "price_updated_at": "2026-04-03T12:17:17.096181+00:00"
   },
   {
     "market_id": "902160",
@@ -1959,7 +1959,7 @@
     "net_pnl": 0.0,
     "current_price": 0.685,
     "unrealised_pnl": 0.0,
-    "price_updated_at": "2026-04-03T12:11:03.777157+00:00"
+    "price_updated_at": "2026-04-03T12:17:17.326806+00:00"
   },
   {
     "market_id": "553862",
@@ -2082,7 +2082,7 @@
     "net_pnl": 0.0,
     "current_price": 0.34,
     "unrealised_pnl": -1.29,
-    "price_updated_at": "2026-04-03T12:11:04.001358+00:00"
+    "price_updated_at": "2026-04-03T12:17:17.557811+00:00"
   },
   {
     "market_id": "556062",
@@ -4298,7 +4298,7 @@
     "edge_thin_count": 0,
     "current_price": 0.245,
     "unrealised_pnl": -0.02,
-    "price_updated_at": "2026-04-03T12:11:04.212690+00:00"
+    "price_updated_at": "2026-04-03T12:17:17.786120+00:00"
   },
   {
     "market_id": "560317",
@@ -4361,7 +4361,7 @@
     "edge_thin_count": 0,
     "current_price": 0.176,
     "unrealised_pnl": -0.02,
-    "price_updated_at": "2026-04-03T12:11:04.428118+00:00"
+    "price_updated_at": "2026-04-03T12:17:18.012039+00:00"
   },
   {
     "market_id": "561230",
@@ -4392,7 +4392,7 @@
     "edge_thin_count": 0,
     "current_price": 0.162,
     "unrealised_pnl": -0.02,
-    "price_updated_at": "2026-04-03T12:11:04.630946+00:00"
+    "price_updated_at": "2026-04-03T12:17:18.235927+00:00"
   },
   {
     "market_id": "561365",
@@ -4487,7 +4487,7 @@
     "edge_thin_count": 0,
     "current_price": 0.85,
     "unrealised_pnl": 0.03,
-    "price_updated_at": "2026-04-03T12:11:04.829447+00:00"
+    "price_updated_at": "2026-04-03T12:17:18.447147+00:00"
   },
   {
     "market_id": "566140",
@@ -4518,7 +4518,7 @@
     "edge_thin_count": 0,
     "current_price": 0.25,
     "unrealised_pnl": -0.36,
-    "price_updated_at": "2026-04-03T12:11:05.034888+00:00"
+    "price_updated_at": "2026-04-03T12:17:18.652175+00:00"
   },
   {
     "market_id": "566142",
@@ -4549,7 +4549,7 @@
     "edge_thin_count": 0,
     "current_price": 0.21,
     "unrealised_pnl": -0.19,
-    "price_updated_at": "2026-04-03T12:11:05.238912+00:00"
+    "price_updated_at": "2026-04-03T12:17:18.857236+00:00"
   },
   {
     "market_id": "566227",
@@ -4580,7 +4580,7 @@
     "edge_thin_count": 0,
     "current_price": 0.24,
     "unrealised_pnl": -0.12,
-    "price_updated_at": "2026-04-03T12:11:05.447193+00:00"
+    "price_updated_at": "2026-04-03T12:17:19.096023+00:00"
   },
   {
     "market_id": "566228",
@@ -4611,7 +4611,7 @@
     "edge_thin_count": 0,
     "current_price": 0.75,
     "unrealised_pnl": -0.27,
-    "price_updated_at": "2026-04-03T12:11:05.659250+00:00"
+    "price_updated_at": "2026-04-03T12:17:19.313431+00:00"
   },
   {
     "market_id": "1397269",
@@ -4674,7 +4674,7 @@
     "edge_thin_count": 0,
     "current_price": 0.82,
     "unrealised_pnl": -0.11,
-    "price_updated_at": "2026-04-03T12:11:05.862973+00:00"
+    "price_updated_at": "2026-04-03T12:17:19.525218+00:00"
   },
   {
     "market_id": "567687",
@@ -4801,7 +4801,7 @@
     "edge_thin_count": 0,
     "current_price": 0.15,
     "unrealised_pnl": -0.64,
-    "price_updated_at": "2026-04-03T12:11:06.067015+00:00"
+    "price_updated_at": "2026-04-03T12:17:19.733131+00:00"
   },
   {
     "market_id": "572133",
@@ -4832,7 +4832,7 @@
     "edge_thin_count": 0,
     "current_price": 0.68,
     "unrealised_pnl": -0.33,
-    "price_updated_at": "2026-04-03T12:11:06.274446+00:00"
+    "price_updated_at": "2026-04-03T12:17:19.968873+00:00"
   },
   {
     "market_id": "572121",
@@ -4927,7 +4927,7 @@
     "edge_thin_count": 0,
     "current_price": 0.32,
     "unrealised_pnl": -0.1,
-    "price_updated_at": "2026-04-03T12:11:06.475149+00:00"
+    "price_updated_at": "2026-04-03T12:17:20.172865+00:00"
   },
   {
     "market_id": "572849",
@@ -4990,7 +4990,7 @@
     "edge_thin_count": 0,
     "current_price": 0.45,
     "unrealised_pnl": 0.0,
-    "price_updated_at": "2026-04-03T12:11:06.679712+00:00"
+    "price_updated_at": "2026-04-03T12:17:20.383684+00:00"
   },
   {
     "market_id": "676829",
@@ -5021,7 +5021,7 @@
     "edge_thin_count": 0,
     "current_price": 0.82,
     "unrealised_pnl": -0.14,
-    "price_updated_at": "2026-04-03T12:11:06.887075+00:00"
+    "price_updated_at": "2026-04-03T12:17:20.584855+00:00"
   },
   {
     "market_id": "1363116",
@@ -5116,7 +5116,7 @@
     "edge_thin_count": 0,
     "current_price": 0.54,
     "unrealised_pnl": -0.14,
-    "price_updated_at": "2026-04-03T12:11:07.098570+00:00"
+    "price_updated_at": "2026-04-03T12:17:20.806634+00:00"
   },
   {
     "market_id": "577160",
@@ -5211,7 +5211,7 @@
     "edge_thin_count": 0,
     "current_price": 0.15,
     "unrealised_pnl": -0.13,
-    "price_updated_at": "2026-04-03T12:11:07.309306+00:00"
+    "price_updated_at": "2026-04-03T12:17:21.018858+00:00"
   },
   {
     "market_id": "578537",
@@ -5242,7 +5242,7 @@
     "edge_thin_count": 0,
     "current_price": 0.15,
     "unrealised_pnl": -0.18,
-    "price_updated_at": "2026-04-03T12:11:07.514482+00:00"
+    "price_updated_at": "2026-04-03T12:17:21.242192+00:00"
   },
   {
     "market_id": "582139",
@@ -5301,7 +5301,7 @@
     "edge_thin_count": 0,
     "current_price": 0.32,
     "unrealised_pnl": 0.12,
-    "price_updated_at": "2026-04-03T12:11:07.718961+00:00"
+    "price_updated_at": "2026-04-03T12:17:21.452041+00:00"
   },
   {
     "market_id": "572734",
@@ -5552,7 +5552,7 @@
     "edge_thin_count": 0,
     "current_price": 0.16,
     "unrealised_pnl": -0.13,
-    "price_updated_at": "2026-04-03T12:11:07.921764+00:00"
+    "price_updated_at": "2026-04-03T12:17:21.689331+00:00"
   },
   {
     "market_id": "582136",
@@ -5653,7 +5653,7 @@
     "entry_price": 0.235,
     "contracts": 8.77,
     "cost": 2.06,
-    "estimated_prob": 0.2095,
+    "estimated_prob": 0.2061,
     "category": "tech",
     "ev": 0.2178,
     "kelly_pct": 1.49,
@@ -5672,10 +5672,10 @@
     "exit_fee": 0.0,
     "total_fees": 0.06307,
     "net_pnl": 0.0,
-    "edge_thin_count": 5,
+    "edge_thin_count": 7,
     "current_price": 0.19,
     "unrealised_pnl": -0.39,
-    "price_updated_at": "2026-04-03T12:11:08.154357+00:00"
+    "price_updated_at": "2026-04-03T12:17:21.921830+00:00"
   },
   {
     "market_id": "562186",
@@ -5706,7 +5706,7 @@
     "edge_thin_count": 0,
     "current_price": 0.64,
     "unrealised_pnl": -0.08,
-    "price_updated_at": "2026-04-03T12:11:08.359248+00:00"
+    "price_updated_at": "2026-04-03T12:17:22.125189+00:00"
   },
   {
     "market_id": "562793",
@@ -5737,7 +5737,7 @@
     "edge_thin_count": 0,
     "current_price": 0.51,
     "unrealised_pnl": -0.11,
-    "price_updated_at": "2026-04-03T12:11:08.561373+00:00"
+    "price_updated_at": "2026-04-03T12:17:22.342157+00:00"
   },
   {
     "market_id": "562794",
@@ -5800,7 +5800,7 @@
     "edge_thin_count": 0,
     "current_price": 0.66,
     "unrealised_pnl": -0.07,
-    "price_updated_at": "2026-04-03T12:11:08.788248+00:00"
+    "price_updated_at": "2026-04-03T12:17:22.550351+00:00"
   },
   {
     "market_id": "562828",
@@ -5831,7 +5831,7 @@
     "edge_thin_count": 0,
     "current_price": 0.5,
     "unrealised_pnl": -0.11,
-    "price_updated_at": "2026-04-03T12:11:08.999298+00:00"
+    "price_updated_at": "2026-04-03T12:17:22.774954+00:00"
   },
   {
     "market_id": "562830",
@@ -5894,7 +5894,7 @@
     "edge_thin_count": 0,
     "current_price": 0.44,
     "unrealised_pnl": -0.07,
-    "price_updated_at": "2026-04-03T12:11:09.231694+00:00"
+    "price_updated_at": "2026-04-03T12:17:23.006567+00:00"
   },
   {
     "market_id": "569373",
@@ -5925,6 +5925,6 @@
     "edge_thin_count": 0,
     "current_price": 0.37,
     "unrealised_pnl": -0.09,
-    "price_updated_at": "2026-04-03T12:11:09.430567+00:00"
+    "price_updated_at": "2026-04-03T12:17:23.218830+00:00"
   }
 ]

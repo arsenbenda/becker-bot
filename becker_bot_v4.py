@@ -760,6 +760,15 @@ class BeckerBot:
                 if abs(est_prob - _old_est) > 0.001:
                     log(f"CALIBRATE: {question[:40]} {_old_est:.3f}→{est_prob:.3f} ({', '.join(_cal_notes)})")
 
+                # P5: Post-calibration direction guard
+                # Prevent calibration from flipping est_prob across yes_price boundary
+                if _likely_side == "YES" and est_prob < yes_price:
+                    log(f"CAL_CLAMP: {question[:40]} calibration flipped YES→NO (est={est_prob:.3f} < price={yes_price:.3f}), clamping to {yes_price + 0.005:.3f}")
+                    est_prob = yes_price + 0.005
+                elif _likely_side == "NO" and est_prob > yes_price:
+                    log(f"CAL_CLAMP: {question[:40]} calibration flipped NO→YES (est={est_prob:.3f} > price={yes_price:.3f}), clamping to {yes_price - 0.005:.3f}")
+                    est_prob = yes_price - 0.005
+
         # Step 2: Edge filter
         # Phase 0.7: Category edge sanity filter (Becker study averages)
         BECKER_CAT_INEFFICIENCY = {
@@ -849,6 +858,14 @@ class BeckerBot:
 
         entry_price = yes_price if ev["best_side"] == "YES" else (1.0 - yes_price)
 
+
+        # P5b: HARD GUARD — never enter against our own estimate
+        if ev["best_side"] == "YES" and est_prob < entry_price:
+            log(f"HARD_GUARD: {question[:50]} — YES but est={est_prob:.3f} < entry={entry_price:.3f}, BLOCKED")
+            return None
+        if ev["best_side"] == "NO" and est_prob > (1.0 - entry_price):
+            log(f"HARD_GUARD: {question[:50]} — NO but est={est_prob:.3f} > 1-entry={1.0 - entry_price:.3f}, BLOCKED")
+            return None
         return PaperPosition(
             market_id=market["id"], question=question[:120], side=ev["best_side"],
             entry_price=entry_price, contracts=va["contracts"], cost=va["bet"],
