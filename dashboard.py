@@ -261,7 +261,7 @@ paper_bankroll = float(cfg.get("PAPER_BANKROLL", 500))
 deployed = sum(float(p.get("cost", 0)) for p in open_pos)
 total_value = bankroll + deployed
 realized_pnl = sum(float(p.get("pnl", 0)) for p in closed_pos)
-_real_closed = [p for p in closed_pos if p.get("close_reason") != "cluster_prune"]
+_real_closed = [p for p in closed_pos if p.get("close_reason") not in ("cluster_prune", "longshot_filter", "contradiction_filter")]
 _prune_closed = [p for p in closed_pos if p.get("close_reason") == "cluster_prune"]
 total_trades = len(_real_closed)
 winning = sum(1 for p in _real_closed if float(p.get("pnl", 0)) > 0)
@@ -723,7 +723,7 @@ if "Dashboard" in page:
     ## Score Card
     """
 
-    _cl_real = [c for c in closed_pos if c.get("close_reason") != "cluster_prune"]
+    _cl_real = [c for c in closed_pos if c.get("close_reason") not in ("cluster_prune", "longshot_filter", "contradiction_filter")]
     _cl_prune = [c for c in closed_pos if c.get("close_reason") == "cluster_prune"]
     _cl = _cl_real
     _pnls = [float(c.get("pnl", 0)) for c in _cl]
