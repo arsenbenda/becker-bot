@@ -170,25 +170,45 @@ def parse_market(raw: dict) -> dict | None:
 
 # ── Phase 1.2: Correlation / Cluster Detection ──
 CLUSTER_KEYWORDS = {
+    # ── Geopolitics ──
     "russia_ukraine": ["russia", "ukraine", "ceasefire", "crimea", "donbas", "kostyantynivka", "zelensky", "putin war", "russian invasion"],
     "china_taiwan": ["china", "taiwan", "invade", "strait", "pla", "xi jinping military"],
-    "trump_politics": ["trump", "impeach", "president removed", "25th amendment"],
     "israel_palestine": ["israel", "gaza", "hamas", "palestine", "netanyahu war", "ceasefire middle east"],
-    "bitcoin_crypto": ["bitcoin", "btc", "microstrategy", "crypto crash", "crypto bull"],
-    "megaeth": ["megaeth", "mega eth"],
+    # ── US Politics ──
+    "trump_politics": ["trump", "impeach", "president removed", "25th amendment"],
+    "us_midterms_2026": ["2026 midterm", "control the senate after the 2026", "control the house after the 2026", "balance of power", "2026 texas", "paxton"],
+    "dem_2028_primary": ["2028 democratic", "democratic presidential", "democratic nomination"],
+    "rep_2028_primary": ["2028 republican", "republican presidential", "republican nomination"],
+    "us_presidential_2028": ["2028 us presidential", "win the 2028"],
+    # ── International Politics ──
+    "colombia_2026": ["2026 colombian", "colombia presidential", "cepeda", "paloma valencia"],
+    "hungary_politics": ["hungary", "magyar", "orban"],
+    "starmer_uk": ["starmer", "uk prime minister"],
+    # ── European Football ──
+    "champions_league": ["champions league"],
+    "europa_league": ["europa league"],
+    "la_liga": ["la liga"],
+    "serie_a": ["serie a"],
+    "epl": ["premier league", "epl", "english premier"],
+    "epl_relegation": ["relegated from the english", "relegation"],
+    "epl_top4": ["finish in the top 4 of the epl", "top 4 of the epl"],
+    # ── US Sports ──
     "nhl_hockey": ["stanley cup", "nhl", "hockey"],
     "nba_basketball": ["nba", "basketball"],
     "mlb_baseball": ["mlb", "baseball", "world series"],
     "la_sports": ["los angeles", "lakers", "dodgers", "rams", "chargers", "la clippers"],
     "ny_sports": ["new york", "yankees", "mets", "knicks", "rangers", "nets", "giants jets"],
-    "ai_tech": ["gpt", "openai", "anthropic", "google ai", "artificial intelligence release"],
-    "gta_vi": ["gta vi", "gta 6", "grand theft auto", "before gta"],
-    "taylor_swift": ["taylor swift"],
-    "starmer_uk": ["starmer", "uk prime minister"],
-    "dem_2028_primary": ["2028 democratic", "democratic presidential", "democratic nomination"],
-    "rep_2028_primary": ["2028 republican", "republican presidential", "republican nomination"],
     "fifa_wc_2026": ["world cup", "fifa", "qualify for the 2026"],
-    "us_presidential_2028": ["2028 us presidential", "win the 2028"],
+    # ── Crypto ──
+    "bitcoin_crypto": ["bitcoin", "btc", "microstrategy", "crypto crash", "crypto bull"],
+    "megaeth": ["megaeth", "mega eth"],
+    "hyperliquid": ["hyperliquid"],
+    # ── Tech / AI ──
+    "ai_models": ["gpt", "openai", "anthropic", "google ai", "artificial intelligence release", "claude 5", "grok 5", "gemini 2", "llama 4"],
+    "gta_vi": ["gta vi", "gta 6", "grand theft auto", "before gta"],
+    # ── Entertainment ──
+    "taylor_swift": ["taylor swift"],
+    "james_bond": ["james bond"],
 }
 
 MAX_POSITIONS_PER_CLUSTER = 3
