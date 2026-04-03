@@ -4213,5 +4213,15 @@
     "reason": "Tier B edge collapsed: 0.047",
     "pnl": 1.1,
     "timestamp": "2026-04-03T11:13:48.984688+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "1397269",
+    "question": "Will Russia capture Lyman by June 30, 2026?",
+    "reason": "8x edge thinning (Tier A)",
+    "pnl": -0.51,
+    "net_pnl": -0.51,
+    "fees": 0.0,
+    "timestamp": "2026-04-03T11:35:39.101148+00:00"
   }
 ]

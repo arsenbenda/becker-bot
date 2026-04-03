@@ -22,6 +22,7 @@ from self_learner import (
     should_trade_market, should_avoid_category,
     load_learner_state
 )
+from calibrator import compute_calibration, apply_calibration_correction, load_calibration, save_calibration
 
 
 def log(msg: str):
@@ -631,7 +632,8 @@ class BeckerBot:
             except:
                 self.scan_history = []
         self.learner_state = load_learner_state()
-        log("BeckerBot v4.1 initialized — self-learner loaded")
+        self.calibration_state = load_calibration()
+        log("BeckerBot v4.1 initialized — self-learner + calibrator loaded")
         log(f"  Mode: {'LIVE' if self.cfg['LIVE_MODE'] else 'PAPER'}")
         log(f"  Bankroll: ${self.bankroll:.2f}")
         log(f"  Kelly: {self.cfg['KELLY_FRACTION']*100:.0f}% | "
@@ -740,6 +742,23 @@ class BeckerBot:
         )
         if corrected["corrections_applied"] > 0:
             est_prob = corrected["adjusted_probability"]
+
+        # Step 1c: Apply Brier-based calibration corrections (v4.2.2)
+        _cal_state = getattr(self, 'calibration_state', None) or load_calibration()
+        if _cal_state and _cal_state.get("status") == "active":
+            # Determine bot confidence for the likely trade side
+            _likely_side = "YES" if est_prob > yes_price else "NO"
+            _bot_conf = est_prob if _likely_side == "YES" else 1.0 - est_prob
+            _entry_for_cal = yes_price if _likely_side == "YES" else 1.0 - yes_price
+            _adj_conf, _cal_notes = apply_calibration_correction(
+                _bot_conf, _likely_side, category, source,
+                _entry_for_cal, _cal_state)
+            if _cal_notes:
+                _old_est = est_prob
+                est_prob = _adj_conf if _likely_side == "YES" else 1.0 - _adj_conf
+                est_prob = max(0.01, min(0.99, est_prob))
+                if abs(est_prob - _old_est) > 0.001:
+                    log(f"CALIBRATE: {question[:40]} {_old_est:.3f}→{est_prob:.3f} ({', '.join(_cal_notes)})")
 
         # Step 2: Edge filter
         # Phase 0.7: Category edge sanity filter (Becker study averages)
@@ -1103,6 +1122,21 @@ class BeckerBot:
 
         # Run self-learning cycle
         self.learner_state = run_learning_cycle(self.positions)
+
+        # Run Brier-based calibrator (v4.2.2)
+        _closed_clean = [p for p in self.positions if p.get("status") == "closed"
+                         and p.get("close_reason") not in
+                         ("cluster_prune", "longshot_filter", "contradiction_filter")]
+        if len(_closed_clean) >= 5:
+            try:
+                _cal = compute_calibration(_closed_clean)
+                save_calibration(_cal)
+                self.calibration_state = _cal
+                if _cal.get("brier_scores"):
+                    _bs = _cal["brier_scores"]
+                    log(f"Calibrator: Brier bot={_bs['bot']:.4f} mkt={_bs['market']:.4f} delta={_bs['delta']:+.4f} (n={_cal['resolved_count']})")
+            except Exception as _e:
+                log(f"Calibrator error: {_e}")
 
         # Apply adaptive risk recommendations (auto-tune)
         adaptive = self.learner_state.get("adaptive_risk", {})
