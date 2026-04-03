@@ -654,6 +654,60 @@ class BeckerBot:
                     log(f"CLUSTER $CAP: {question[:50]} — cluster '{_cid}' cost ${_exp['cost']:.2f} >= ${_max_cost:.2f} (15% bankroll)")
                     return None
 
+
+        # Step 0c2: Mutual exclusion filter — prevent contradictory positions
+        # Detects: same election/league/tournament with different candidates/outcomes
+        _open_positions = [p for p in self.positions if p.get("status") == "open"]
+        _me_keywords = [
+            "win the 2026 Colombian", "win the 2028 US Presidential",
+            "win the 2028 Democratic", "win the 2028 Republican",
+            "control the Senate after the 2026", "control the House after the 2026",
+            "Balance of Power:", "win the 2025-26 UEFA Europa League",
+            "win the 2025–26 Champions League", "win the 2025–26 La Liga",
+            "win the 2025–26 Serie A", "win the 2025-26 French Ligue",
+            "win the 2026 NBA Finals", "win the 2025–2026 NBA MVP",
+            "win the 2025–26 NBA Rookie", "win the 2026 Masters",
+            "announced as next James Bond", "finish in 2nd place in the 2025-26 En",
+            "finish in last place in the 2025-26 En",
+        ]
+        for _mek in _me_keywords:
+            if _mek.lower() in question.lower():
+                _existing = [p for p in _open_positions
+                             if _mek.lower() in p.get("question", "").lower()
+                             and p.get("side") == "YES"]
+                if _existing and yes_price < 0.85:  # allow high-confidence favorites
+                    _held = _existing[0].get("question", "")[:50]
+                    log(f"MUTEX FILTER: {question[:50]} — already hold YES on '{_held}'")
+                    return None
+                break
+
+
+        # Step 0c2: Mutual exclusion filter — prevent contradictory positions
+        # Detects: same election/league/tournament with different candidates/outcomes
+        _open_positions = [p for p in self.positions if p.get("status") == "open"]
+        _me_keywords = [
+            "win the 2026 Colombian", "win the 2028 US Presidential",
+            "win the 2028 Democratic", "win the 2028 Republican",
+            "control the Senate after the 2026", "control the House after the 2026",
+            "Balance of Power:", "win the 2025-26 UEFA Europa League",
+            "win the 2025–26 Champions League", "win the 2025–26 La Liga",
+            "win the 2025–26 Serie A", "win the 2025-26 French Ligue",
+            "win the 2026 NBA Finals", "win the 2025–2026 NBA MVP",
+            "win the 2025–26 NBA Rookie", "win the 2026 Masters",
+            "announced as next James Bond", "finish in 2nd place in the 2025-26 En",
+            "finish in last place in the 2025-26 En",
+        ]
+        for _mek in _me_keywords:
+            if _mek.lower() in question.lower():
+                _existing = [p for p in _open_positions
+                             if _mek.lower() in p.get("question", "").lower()
+                             and p.get("side") == "YES"]
+                if _existing and yes_price < 0.85:  # allow high-confidence favorites
+                    _held = _existing[0].get("question", "")[:50]
+                    log(f"MUTEX FILTER: {question[:50]} — already hold YES on '{_held}'")
+                    return None
+                break
+
         # Step 0d: Price-tier filter (Becker longshot bias protection)
         # Data: 72.1M trades show YES contracts below 15c have -41% to -16% expected value
         # Takers buying YES at 1-10c win only 0.43-4.18% vs implied 1-10%
