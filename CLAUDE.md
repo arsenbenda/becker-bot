@@ -42,9 +42,10 @@
 - Perplexity: hard data (odds, polls, prices) per category
 - Cache clear after prompt changes: rm -f /opt/becker-bot/cache/*.json
 
-## Cluster Filter (v4.1.6-1.7, expanded v4.2.0)
-- 19 keyword clusters (includes dem_2028, rep_2028, fifa_wc_2026, us_presidential_2028)
+## Cluster Filter (v4.1.6-1.7, expanded v4.2.2)
+- 31 keyword clusters (added: champions_league, europa_league, la_liga, serie_a, epl, epl_relegation, epl_top4, us_midterms_2026, colombia_2026, hungary_politics, ai_models, hyperliquid, james_bond)
 - Max 3 per cluster, max 15% bankroll per cluster
+- 100% open position coverage (was 37% with 19 clusters)
 - Prune exits tagged close_reason: "cluster_prune"
 
 ## Hard Design Rule — No Standalone Tools
@@ -65,11 +66,11 @@ Skip: poly-maker (Phase 3+), Polymarket/agents, arb-bot
 Human provides: Project: Becker Bot v4.1 / Repo: github.com/arsenbenda/becker-bot
 Assistant requests: tail -30 becker_bot.log + position summary one-liner
 
-## Current Status (2026-04-03, post v4.2.1)
+## Current Status (2026-04-03, post v4.2.2)
 
-- 42 open (all >15c), 83 real closed (60% WR, PF 1.8), 18 pruned, 50 longshot-filtered
-- Bankroll ~$694, Kelly 15%, min edge 10pp
-- Price-tier filter, cluster filter, hybrid exit, deviation cap all active
-- AI prompt: calibrated probability scale, anchoring rule, 30pp deviation cap
-- Learner: decontaminated, absolute Kelly tiers (0.25/0.15/0.10/0.05)
-- Gate: PASSED. Next: unified scoring system (50-100 trades)
+- 40 open (all >15c), 142 real closed (49.6% WR, PF 1.8), bankroll $736
+- Kelly 15%, min edge 10pp, max bet 6%
+- All filters active: price-tier, cluster (31), hybrid exit, deviation cap, spread gate
+- v4.2.2 fixes: trailing stop logs show actual tier (8/5/3 not hardcoded 3), duplicate mutex removed, cluster coverage 100%, bid-ask spread gate added
+- Learner: decontaminated, absolute Kelly tiers, auto-persist active
+- Gate: PASSED (142 trades). Next: unified scoring system

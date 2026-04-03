@@ -1,16 +1,16 @@
 {
   "status": {
-    "scan_count": 1417,
-    "last_scan": "2026-04-03T10:40:05.488169+00:00",
+    "scan_count": 1420,
+    "last_scan": "2026-04-03T10:48:55.120719+00:00",
     "bankroll": 736.41,
     "open_positions": 33,
-    "total_trades": 142,
+    "total_trades": 135,
     "winning_trades": 67,
     "realized_pnl": 349.18,
     "markets_fetched": 833,
     "markets_eligible": 144,
     "markets_evaluated": 0,
-    "markets_scanned_total": 59731,
+    "markets_scanned_total": 60163,
     "new_trades": 0,
     "layer_stats": {
       "layer1_ai": 280,
@@ -18,45 +18,6 @@
       "layer3_becker": 0
     },
     "scan_history": [
-      {
-        "scan": 1318,
-        "time": "2026-04-03T03:42:04.999316+00:00",
-        "bankroll": 122.37,
-        "open": 60,
-        "pnl": 307.66,
-        "fetched": 835,
-        "eligible": 198,
-        "new_trades": 1,
-        "deployed": 917.45,
-        "total_value": 1015.37,
-        "unrealised_pnl": -24.45
-      },
-      {
-        "scan": 1319,
-        "time": "2026-04-03T03:47:17.863540+00:00",
-        "bankroll": 122.37,
-        "open": 60,
-        "pnl": 307.66,
-        "fetched": 0,
-        "eligible": 0,
-        "new_trades": 0,
-        "deployed": 917.45,
-        "total_value": 1015.35,
-        "unrealised_pnl": -24.47
-      },
-      {
-        "scan": 1320,
-        "time": "2026-04-03T03:52:30.750943+00:00",
-        "bankroll": 122.37,
-        "open": 60,
-        "pnl": 307.66,
-        "fetched": 0,
-        "eligible": 0,
-        "new_trades": 0,
-        "deployed": 917.45,
-        "total_value": 1016.12,
-        "unrealised_pnl": -23.7
-      },
       {
         "scan": 1321,
         "time": "2026-04-03T03:57:43.432197+00:00",
@@ -1317,6 +1278,45 @@
         "deployed": 342.8,
         "total_value": 1074.91,
         "unrealised_pnl": -4.3
+      },
+      {
+        "scan": 1418,
+        "time": "2026-04-03T10:42:40.340402+00:00",
+        "bankroll": 736.41,
+        "open": 33,
+        "pnl": 349.18,
+        "fetched": 833,
+        "eligible": 144,
+        "new_trades": 0,
+        "deployed": 342.8,
+        "total_value": 1074.83,
+        "unrealised_pnl": -4.38
+      },
+      {
+        "scan": 1419,
+        "time": "2026-04-03T10:45:47.715545+00:00",
+        "bankroll": 736.41,
+        "open": 33,
+        "pnl": 349.18,
+        "fetched": 833,
+        "eligible": 144,
+        "new_trades": 0,
+        "deployed": 342.8,
+        "total_value": 1074.58,
+        "unrealised_pnl": -4.63
+      },
+      {
+        "scan": 1420,
+        "time": "2026-04-03T10:48:55.106262+00:00",
+        "bankroll": 736.41,
+        "open": 33,
+        "pnl": 349.18,
+        "fetched": 833,
+        "eligible": 144,
+        "new_trades": 0,
+        "deployed": 342.8,
+        "total_value": 1074.41,
+        "unrealised_pnl": -4.8
       }
     ],
     "learner": {
@@ -1324,7 +1324,7 @@
       "adaptive_status": "active",
       "markets_remembered": 186,
       "avoid_categories": [],
-      "last_cycle": "2026-04-03T10:40:05.481674+00:00"
+      "last_cycle": "2026-04-03T10:48:55.112563+00:00"
     }
   },
   "config": {
