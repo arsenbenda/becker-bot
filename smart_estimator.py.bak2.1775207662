@@ -483,38 +483,23 @@ def extract_probability_gpt(question: str, research: str, market_price: float) -
 
     prompt = (
         f"You are a calibrated probability estimator for prediction markets.\n"
-        f"CRITICAL CALIBRATION RULES — you MUST follow these:\n\n"
-        f"PROBABILITY SCALE (read carefully):\n"
-        f"- 0.95-0.99: NEAR-CERTAIN. Only use when failure requires multiple unlikely events. "
-        f"Example: team 15+ points clear with 3 games left, or election with 20+ point polling lead.\n"
-        f"- 0.85-0.94: VERY LIKELY. Strong favorite, but plausible upset paths exist. "
-        f"Example: team 8-12 points clear with 8+ games left, or candidate with 10-15 point lead.\n"
-        f"- 0.70-0.84: LIKELY. Clear favorite but meaningful uncertainty remains. "
-        f"Example: team leading league by 5-8 points, frontrunner with 5-10 point lead.\n"
-        f"- 0.55-0.69: LEAN YES. Evidence favors YES but outcome is contested.\n"
-        f"- 0.40-0.54: TOSS-UP. Genuinely uncertain, evidence balanced.\n"
-        f"- 0.20-0.39: LEAN NO. Evidence favors NO but not impossible.\n"
-        f"- 0.05-0.19: UNLIKELY. Would require significant surprise or reversal.\n"
-        f"- 0.01-0.04: NEAR-IMPOSSIBLE. Supernatural, no evidence, no realistic path.\n\n"
-        f"CATEGORY RULES:\n"
-        f"- Supernatural/physically impossible events: 0.01-0.02\n"
-        f"- Single team winning 20+ team tournament: favorites 0.15-0.25, mid-tier 0.05-0.15, longshots 0.01-0.05\n"
+        f"CRITICAL RULES — you MUST follow these:\n"
+        f"- Supernatural, physically impossible, or absurd events (religious prophecies, "
+        f"alien contact, laws of physics violated): probability 0.01-0.02\n"
+        f"- Single team winning a 20+ team tournament: use real odds. "
+        f"Favorites max 0.20-0.25, mid-tier 0.05-0.15, longshots 0.01-0.05\n"
         f"- Political removal/resignation with no active proceedings: 0.02-0.10\n"
-        f"- Relegation of an established top-flight team: base rate 0.05-0.15 unless currently in bottom 3\n"
-        f"- NEVER give two teams in the same league/tournament both >0.90\n\n"
-        f"ANCHORING RULE: The current market price reflects the wisdom of thousands of traders. "
-        f"If your estimate differs from market price by more than 15 percentage points, "
-        f"you MUST explain specifically what information the market is missing.\n"
-        f"If new information has emerged since the market last moved meaningfully, "
-        f"weight it heavily. Otherwise, be skeptical of your deviation from price.\n\n"
-        f"DATA USAGE: If the research includes betting odds, polling numbers, or market prices, "
-        f"use them as primary anchors — not just supporting evidence.\n"
-        f"- You MUST commit to a specific number — do not hedge.\n\n"
+        f"- Events with strong consensus evidence: 0.85-0.99\n"
+        f"- A coin-flip estimate (0.40-0.60) is ONLY for genuinely uncertain events "
+        f"where evidence is balanced on both sides\n"
+        f"- NEVER default to 0.50 out of uncertainty. If you lack info, use base rates\n"
+        f"- For sports: check actual betting odds, team rankings, historical win rates\n"
+        f"- For crypto/finance: check current prices, trends, analyst consensus\n\n"
         f"Market question: {question}\n"
         f"Current market price (implied probability): {market_price:.2f}\n\n"
         f"Research from web search:\n{research}\n\n"
         f"Based on this research, estimate the TRUE probability that this market "
-        f"resolves YES.\n"
+        f"resolves YES. You MUST commit to a specific number — do not hedge.\n"
         f"Consider:\n"
         f"1. Base rates for similar events (use actual statistics, not intuition)\n"
         f"2. Specific evidence for/against from the research above\n"
@@ -546,16 +531,6 @@ def extract_probability_gpt(question: str, research: str, market_price: float) -
         prob = float(result.get("probability", 0))
         conf = float(result.get("confidence", 0.5))
         reasoning = result.get("reasoning", "")
-
-        # Max deviation cap: clamp AI estimate to within 30pp of market price
-        max_dev = 0.30
-        original_prob = prob
-        if abs(prob - market_price) > max_dev:
-            clamped = max(market_price - max_dev, min(market_price + max_dev, prob))
-            clamped = max(0.01, min(0.99, clamped))
-            log(f"DEVIATION CAP: {question[:50]} — AI={original_prob:.2f} mkt={market_price:.2f} clamped={clamped:.2f} ({abs(original_prob - market_price)*100:.0f}pp dev)")
-            prob = clamped
-            reasoning = f"[CLAMPED from {original_prob:.2f}] {reasoning}"
 
         if 0.0 < prob < 1.0:
             return {
