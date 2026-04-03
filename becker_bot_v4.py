@@ -493,6 +493,10 @@ def reevaluate_position(pos, cfg):
         except Exception:
             pass
 
+    # P6: Convert YES token price to side-appropriate price for NO positions
+    if side == "NO":
+        current_price = 1.0 - current_price  # flip to NO-side price
+
     # Bayesian re-estimation — adjust probability toward market if price moved significantly
     price_move = abs(current_price - entry_price)
     bayesian_updated = False
@@ -504,11 +508,9 @@ def reevaluate_position(pos, cfg):
     edge = abs(est_prob - current_price)
 
     # Calculate unrealised P&L ratio
+    # After P6 flip, current_price and entry_price are both in side-appropriate space
     cost = float(pos.get("cost", entry_price))
-    if side == "YES":
-        _unreal = (current_price - entry_price) * pos.get("contracts", 1)
-    else:
-        _unreal = (entry_price - current_price) * pos.get("contracts", 1)
+    _unreal = (current_price - entry_price) * pos.get("contracts", 1)
     _unreal_pct = _unreal / cost if cost > 0 else 0
 
     # Position age in hours

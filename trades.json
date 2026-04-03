@@ -4223,5 +4223,15 @@
     "net_pnl": -0.51,
     "fees": 0.0,
     "timestamp": "2026-04-03T11:35:39.101148+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "676828",
+    "question": "Will GPT-6 be released by June 30, 2026?",
+    "reason": "8x edge thinning (Tier A)",
+    "pnl": -0.39,
+    "net_pnl": -0.51,
+    "fees": 0.11706,
+    "timestamp": "2026-04-03T12:19:59.803426+00:00"
   }
 ]

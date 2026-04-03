@@ -104,9 +104,9 @@
     "status": "active",
     "window_size": 50,
     "win_rate": 0.56,
-    "profit_factor": 1.78,
-    "total_pnl": 81.36,
-    "avg_pnl": 1.6272,
+    "profit_factor": 1.8,
+    "total_pnl": 82.83,
+    "avg_pnl": 1.6566,
     "max_drawdown": 54.65,
     "wins": 28,
     "losses": 22,
@@ -120,8 +120,8 @@
     "category_performance": {
       "entertainment": {
         "wins": 3,
-        "losses": 3,
-        "pnl": 10.229999999999999
+        "losses": 2,
+        "pnl": 12.089999999999998
       },
       "geopolitics": {
         "wins": 3,
@@ -152,6 +152,11 @@
         "wins": 0,
         "losses": 1,
         "pnl": -8.68
+      },
+      "tech": {
+        "wins": 0,
+        "losses": 1,
+        "pnl": -0.39
       }
     }
   },
@@ -172,7 +177,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 23226.39000000034
+      "resolution_pnl": 23347.740000000344
     },
     "610236": {
       "question": "NATO/EU troops fighting in Ukraine in June 30, 2026?",
@@ -190,7 +195,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 21781.319999999756
+      "resolution_pnl": 21895.119999999748
     },
     "610379": {
       "question": "Ukraine recognizes Russian sovereignty over its territory by June 30, 2026?",
@@ -208,7 +213,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 20872.170000000144
+      "resolution_pnl": 20981.22000000015
     },
     "610380": {
       "question": "Ukraine election called by June 30, 2026?",
@@ -235,7 +240,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 49910.2499999998
+      "resolution_pnl": 50120.5999999998
     },
     "629267": {
       "question": "Will any country leave NATO by June 30, 2026?",
@@ -253,7 +258,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 20207.88000000042
+      "resolution_pnl": 20277.180000000422
     },
     "813505": {
       "question": "Mike Johnson out as Speaker by June 30?",
@@ -271,7 +276,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 17599.229999999767
+      "resolution_pnl": 17691.179999999764
     },
     "540843": {
       "question": "Will China invades Taiwan before GTA VI?",
@@ -289,7 +294,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -18.150000000000123
+      "resolution_pnl": -18.400000000000126
     },
     "1117522": {
       "question": "Will Drake release Iceman before GTA VI?",
@@ -307,7 +312,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -749.0699999999936
+      "resolution_pnl": -759.2199999999934
     },
     "544093": {
       "question": "Will Harvey Weinstein be sentenced to less than 5 years in prison?",
@@ -325,7 +330,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 15779.839999999876
+      "resolution_pnl": 15856.889999999876
     },
     "677366": {
       "question": "Will Russia capture Kostyantynivka by December 31, 2026?",
@@ -352,7 +357,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -12794.080000000075
+      "resolution_pnl": -12972.080000000076
     },
     "1397260": {
       "question": "Will Russia capture Kostyantynivka by June 30?",
@@ -379,7 +384,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -460.4000000000051
+      "resolution_pnl": -468.0000000000053
     },
     "644510": {
       "question": "Spain snap election called by June 30, 2026?",
@@ -397,7 +402,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 13311.869999999888
+      "resolution_pnl": 13381.419999999887
     },
     "648872": {
       "question": "US x Russia military clash by June 30, 2026?",
@@ -415,7 +420,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 13560.690000000062
+      "resolution_pnl": 13631.540000000063
     },
     "1124834": {
       "question": "US x Russia military clash by December 31, 2026?",
@@ -433,7 +438,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 12240.030000000255
+      "resolution_pnl": 12303.98000000026
     },
     "1068702": {
       "question": "Trump eliminates capital gains tax on crypto before 2027?",
@@ -451,7 +456,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 17341.649999999878
+      "resolution_pnl": 17406.599999999886
     },
     "677274": {
       "question": "Israel and Syria normalize relations by June 30, 2026?",
@@ -469,7 +474,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 11426.580000000016
+      "resolution_pnl": 11486.280000000019
     },
     "677273": {
       "question": "Israel and Syria normalize relations by December 31, 2026?",
@@ -487,7 +492,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 9531.71999999991
+      "resolution_pnl": 9581.519999999906
     },
     "1007579": {
       "question": "Will Russia capture Sumy by March 31, 2027?",
@@ -505,7 +510,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 5014.100000000008
+      "resolution_pnl": 5059.6000000000095
     },
     "553824": {
       "question": "Will the Carolina Hurricanes win the 2026 NHL Stanley Cup?",
@@ -523,7 +528,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 7100.399999999912
+      "resolution_pnl": 7148.899999999911
     },
     "553827": {
       "question": "Will the Dallas Stars win the 2026 NHL Stanley Cup?",
@@ -541,7 +546,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 3549.4400000000173
+      "resolution_pnl": 3596.6400000000176
     },
     "553826": {
       "question": "Will the Edmonton Oilers win the 2026 NHL Stanley Cup?",
@@ -559,7 +564,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 3431.2500000000223
+      "resolution_pnl": 3477.0000000000227
     },
     "553828": {
       "question": "Will the Colorado Avalanche win the 2026 NHL Stanley Cup?",
@@ -577,7 +582,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 2654.999999999986
+      "resolution_pnl": 2690.3999999999855
     },
     "553829": {
       "question": "Will the Vegas Golden Knights win the 2026 NHL Stanley Cup?",
@@ -595,7 +600,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 7046.699999999873
+      "resolution_pnl": 7089.149999999872
     },
     "553830": {
       "question": "Will the Tampa Bay Lightning win the 2026 NHL Stanley Cup?",
@@ -613,7 +618,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 2658.7500000000023
+      "resolution_pnl": 2694.200000000003
     },
     "553849": {
       "question": "Will the Montreal Canadiens win the 2026 NHL Stanley Cup?",
@@ -631,7 +636,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 7397.609999999822
+      "resolution_pnl": 7436.25999999982
     },
     "553837": {
       "question": "Will the Ottawa Senators win the 2026 NHL Stanley Cup?",
@@ -649,7 +654,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 7120.0799999998635
+      "resolution_pnl": 7157.2799999998615
     },
     "553838": {
       "question": "Will the Minnesota Wild win the 2026 NHL Stanley Cup?",
@@ -667,7 +672,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 4622.3099999999795
+      "resolution_pnl": 4656.959999999981
     },
     "553851": {
       "question": "Will the Buffalo Sabres win the 2026 NHL Stanley Cup?",
@@ -685,7 +690,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 2447.7600000000107
+      "resolution_pnl": 2480.3100000000118
     },
     "553856": {
       "question": "Will the Oklahoma City Thunder win the 2026 NBA Finals?",
@@ -703,7 +708,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 1177.1100000000126
+      "resolution_pnl": 1183.2600000000127
     },
     "553857": {
       "question": "Will the Cleveland Cavaliers win the 2026 NBA Finals?",
@@ -721,7 +726,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 5799.420000000081
+      "resolution_pnl": 5829.720000000083
     },
     "824952": {
       "question": "MicroStrategy sells any Bitcoin by December 31, 2026?",
@@ -739,7 +744,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 8081.250000000047
+      "resolution_pnl": 8189.000000000048
     },
     "677404": {
       "question": "China x India military clash by December 31, 2026?",
@@ -757,7 +762,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 11136.360000000112
+      "resolution_pnl": 11223.910000000113
     },
     "597967": {
       "question": "Starmer out by June 30, 2026?",
@@ -775,7 +780,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -3261.0899999999892
+      "resolution_pnl": -3305.039999999989
     },
     "666655": {
       "question": "Starmer out by December 31, 2026?",
@@ -793,7 +798,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -5677.320000000011
+      "resolution_pnl": -5753.220000000012
     },
     "1500922": {
       "question": "Starmer out by April 30, 2026?",
@@ -811,7 +816,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -3681.439999999989
+      "resolution_pnl": -3734.6399999999885
     },
     "1323364": {
       "question": "Ukraine recognizes Russian sovereignty over its territory by December 31, 2026?",
@@ -829,7 +834,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 6487.500000000043
+      "resolution_pnl": 6574.000000000044
     },
     "610381": {
       "question": "Ukraine election held by June 30, 2026?",
@@ -847,7 +852,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -1016.3999999999933
+      "resolution_pnl": -1030.399999999993
     },
     "677358": {
       "question": "Ukraine election held by December 31, 2026?",
@@ -865,7 +870,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 190.34000000000108
+      "resolution_pnl": 191.8900000000011
     },
     "531202": {
       "question": "BitBoy convicted?",
@@ -910,7 +915,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 36795.08000000069
+      "resolution_pnl": 36938.73000000071
     },
     "540816": {
       "question": "Russia-Ukraine Ceasefire before GTA VI?",
@@ -928,7 +933,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -1034.5500000000054
+      "resolution_pnl": -1048.800000000005
     },
     "540817": {
       "question": "New Rihanna Album before GTA VI?",
@@ -946,7 +951,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -834.75
+      "resolution_pnl": -846.0
     },
     "540818": {
       "question": "New Playboi Carti Album before GTA VI?",
@@ -964,7 +969,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -693.7800000000041
+      "resolution_pnl": -703.0800000000041
     },
     "540819": {
       "question": "Will Jesus Christ return before GTA VI?",
@@ -982,7 +987,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 368.5200000000029
+      "resolution_pnl": 374.07000000000295
     },
     "540820": {
       "question": "Trump out as President before GTA VI?",
@@ -1000,7 +1005,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -667.9199999999996
+      "resolution_pnl": -677.1199999999998
     },
     "540844": {
       "question": "Will bitcoin hit $1m before GTA VI?",
@@ -1036,7 +1041,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -15.84000000000001
+      "resolution_pnl": -18.240000000000013
     },
     "544097": {
       "question": "Will Harvey Weinstein be sentenced to more than 30 years in prison?",
@@ -1063,7 +1068,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 10960.720000000027
+      "resolution_pnl": 11002.020000000028
     },
     "677361": {
       "question": "Will Russia capture Kostyantynivka by March 31?",
@@ -1099,7 +1104,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 3405.4799999999677
+      "resolution_pnl": 3429.5299999999675
     },
     "610256": {
       "question": "Will Russia invade a NATO country by June 30, 2026?",
@@ -1117,7 +1122,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -28.87999999999998
+      "resolution_pnl": -30.779999999999976
     },
     "550694": {
       "question": "Will Italy qualify for the 2026 FIFA World Cup?",
@@ -1135,7 +1140,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -15375.959999999839
+      "resolution_pnl": -15468.809999999838
     },
     "550703": {
       "question": "Will Sweden qualify for the 2026 FIFA World Cup?",
@@ -1153,7 +1158,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -3933.899999999941
+      "resolution_pnl": -3957.39999999994
     },
     "540881": {
       "question": "GTA VI released before June 2026?",
@@ -1171,7 +1176,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -606.2099999999992
+      "resolution_pnl": -614.559999999999
     },
     "813506": {
       "question": "Mike Johnson out as Speaker by December 31?",
@@ -1189,7 +1194,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 4129.759999999932
+      "resolution_pnl": 4154.1099999999315
     },
     "550706": {
       "question": "Will Poland qualify for the 2026 FIFA World Cup?",
@@ -1207,7 +1212,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 1003.2000000000152
+      "resolution_pnl": 1009.2000000000154
     },
     "902014": {
       "question": "Will Bosnia and Herzegovina qualify for the 2026 FIFA World Cup?",
@@ -1225,7 +1230,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 2884.0
+      "resolution_pnl": 2901.5
     },
     "902015": {
       "question": "Will Czechia qualify for the 2026 FIFA World Cup?",
@@ -1243,7 +1248,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 856.9599999999843
+      "resolution_pnl": 862.1099999999842
     },
     "902020": {
       "question": "Will Denmark qualify for the 2026 FIFA World Cup?",
@@ -1315,7 +1320,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -31.160000000000007
+      "resolution_pnl": -33.21
     },
     "553865": {
       "question": "Will the Denver Nuggets win the 2026 NBA Finals?",
@@ -1333,7 +1338,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -312.18000000000285
+      "resolution_pnl": -316.4800000000029
     },
     "553866": {
       "question": "Will the San Antonio Spurs win the 2026 NBA Finals?",
@@ -1351,7 +1356,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 121.38000000000105
+      "resolution_pnl": 122.23000000000106
     },
     "622738": {
       "question": "Will Hyperliquid perform an airdrop by December 31, 2026? ",
@@ -1387,7 +1392,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -105.27000000000073
+      "resolution_pnl": -106.72000000000077
     },
     "636111": {
       "question": "MegaETH market cap (FDV) >$4B one day after launch?",
@@ -1405,7 +1410,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 21827.51999999999
+      "resolution_pnl": 21941.919999999995
     },
     "666614": {
       "question": "MegaETH market cap (FDV) >$3B one day after launch?",
@@ -1423,7 +1428,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 20358.36000000012
+      "resolution_pnl": 20465.06000000012
     },
     "692258": {
       "question": "MicroStrategy sells any Bitcoin by June 30, 2026?",
@@ -1441,7 +1446,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -54.71999999999995
+      "resolution_pnl": -58.31999999999994
     },
     "553844": {
       "question": "Will the Columbus Blue Jackets win the 2026 NHL Stanley Cup?",
@@ -1459,7 +1464,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -319.4399999999988
+      "resolution_pnl": -323.8399999999988
     },
     "553850": {
       "question": "Will the Boston Bruins win the 2026 NHL Stanley Cup?",
@@ -1477,7 +1482,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -744.1499999999968
+      "resolution_pnl": -754.3999999999966
     },
     "1807912": {
       "question": "Will any country leave NATO by December 31, 2026?",
@@ -1495,7 +1500,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -107.9200000000001
+      "resolution_pnl": -115.02000000000011
     },
     "553839": {
       "question": "Will the Utah Mammoth win the 2026 NHL Stanley Cup?",
@@ -1513,7 +1518,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 31.160000000000007
+      "resolution_pnl": 33.21
     },
     "553842": {
       "question": "Will the New York Islanders win the 2026 NHL Stanley Cup?",
@@ -1531,7 +1536,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -1081.7400000000046
+      "resolution_pnl": -1096.6400000000046
     },
     "553848": {
       "question": "Will the Anaheim Ducks win the 2026 NHL Stanley Cup?",
@@ -1549,7 +1554,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -10.640000000000004
+      "resolution_pnl": -11.340000000000007
     },
     "553852": {
       "question": "Will the Pittsburgh Penguins win the 2026 NHL Stanley Cup?",
@@ -1567,7 +1572,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 230.28000000000006
+      "resolution_pnl": 245.43000000000006
     },
     "553860": {
       "question": "Will the Houston Rockets win the 2026 NBA Finals?",
@@ -1585,7 +1590,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -272.25
+      "resolution_pnl": -276.0
     },
     "553858": {
       "question": "Will the New York Knicks win the 2026 NBA Finals?",
@@ -1603,7 +1608,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -170.60999999999964
+      "resolution_pnl": -172.95999999999964
     },
     "553833": {
       "question": "Will the Winnipeg Jets win the 2026 NHL Stanley Cup?",
@@ -1621,7 +1626,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -548.1299999999977
+      "resolution_pnl": -555.6799999999977
     },
     "553859": {
       "question": "Will the Minnesota Timberwolves win the 2026 NBA Finals?",
@@ -1639,7 +1644,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -559.0200000000019
+      "resolution_pnl": -566.7200000000017
     },
     "553868": {
       "question": "Will the Los Angeles Clippers win the 2026 NBA Finals?",
@@ -1657,7 +1662,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -326.69999999999936
+      "resolution_pnl": -331.19999999999925
     },
     "553871": {
       "question": "Will the Detroit Pistons win the 2026 NBA Finals?",
@@ -1675,7 +1680,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 31.920000000000062
+      "resolution_pnl": 34.02000000000007
     },
     "553863": {
       "question": "Will the Los Angeles Lakers win the 2026 NBA Finals?",
@@ -1693,7 +1698,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -525.3600000000009
+      "resolution_pnl": -545.260000000001
     },
     "556063": {
       "question": "MegaETH market cap (FDV) >$6B one day after launch?",
@@ -1711,7 +1716,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -308.5500000000002
+      "resolution_pnl": -312.8000000000003
     },
     "965261": {
       "question": "MegaETH market cap (FDV) >$1B one day after launch?",
@@ -1729,7 +1734,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 258.4199999999985
+      "resolution_pnl": 262.0699999999986
     },
     "1299187": {
       "question": "MegaETH market cap (FDV) >$1.5B one day after launch?",
@@ -1747,7 +1752,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -18.24
+      "resolution_pnl": -19.43999999999999
     },
     "691547": {
       "question": "Kraken IPO by December 31, 2026?",
@@ -1765,7 +1770,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -900.2399999999946
+      "resolution_pnl": -912.3399999999943
     },
     "598936": {
       "question": "Will the next UK election be called by June 30, 2026?",
@@ -1783,7 +1788,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -978.6199999999931
+      "resolution_pnl": -993.2699999999928
     },
     "1373744": {
       "question": "MegaETH market cap (FDV) >$800M one day after launch?",
@@ -1801,7 +1806,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 1748.5799999999845
+      "resolution_pnl": 1767.879999999984
     },
     "1541748": {
       "question": "MegaETH market cap (FDV) >$600M one day after launch?",
@@ -1819,7 +1824,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 887.400000000009
+      "resolution_pnl": 894.6500000000092
     },
     "556108": {
       "question": "Will MegaETH perform an airdrop by June 30? ",
@@ -1837,7 +1842,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 904.6800000000019
+      "resolution_pnl": 922.630000000002
     },
     "558935": {
       "question": "Will England win the 2026 FIFA World Cup?",
@@ -1855,7 +1860,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -74.47999999999995
+      "resolution_pnl": -79.37999999999997
     },
     "558934": {
       "question": "Will Spain win the 2026 FIFA World Cup?",
@@ -1873,7 +1878,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -43.320000000000014
+      "resolution_pnl": -46.170000000000016
     },
     "558974": {
       "question": "Will Switzerland win the 2026 FIFA World Cup?",
@@ -1891,7 +1896,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -43.320000000000014
+      "resolution_pnl": -46.170000000000016
     },
     "558936": {
       "question": "Will France win the 2026 FIFA World Cup?",
@@ -1909,7 +1914,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 14.43999999999999
+      "resolution_pnl": 15.389999999999988
     },
     "558937": {
       "question": "Will Brazil win the 2026 FIFA World Cup?",
@@ -1927,7 +1932,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -20.519999999999975
+      "resolution_pnl": -21.869999999999973
     },
     "553831": {
       "question": "Will the Los Angeles Kings win the 2026 NHL Stanley Cup?",
@@ -1945,7 +1950,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -79.8599999999997
+      "resolution_pnl": -80.9599999999997
     },
     "1048199": {
       "question": "Taylor Swift pregnant before 2027?",
@@ -1963,7 +1968,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -1646.190000000013
+      "resolution_pnl": -1669.6400000000133
     },
     "558938": {
       "question": "Will Argentina win the 2026 FIFA World Cup?",
@@ -1981,7 +1986,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -28.120000000000015
+      "resolution_pnl": -29.97000000000002
     },
     "558939": {
       "question": "Will Germany win the 2026 FIFA World Cup?",
@@ -1999,7 +2004,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -19.0
+      "resolution_pnl": -20.25
     },
     "558947": {
       "question": "Will Colombia win the 2026 FIFA World Cup?",
@@ -2017,7 +2022,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -58.520000000000095
+      "resolution_pnl": -62.37000000000011
     },
     "558940": {
       "question": "Will Portugal win the 2026 FIFA World Cup?",
@@ -2035,7 +2040,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -13.679999999999987
+      "resolution_pnl": -14.579999999999986
     },
     "558941": {
       "question": "Will Netherlands win the 2026 FIFA World Cup?",
@@ -2053,7 +2058,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -25.079999999999956
+      "resolution_pnl": -26.729999999999947
     },
     "558943": {
       "question": "Will USA win the 2026 FIFA World Cup?",
@@ -2071,7 +2076,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -53.20000000000007
+      "resolution_pnl": -56.70000000000008
     },
     "544094": {
       "question": "Will Harvey Weinstein be sentenced to between 5 and 10 years in prison?",
@@ -2089,7 +2094,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -389.1599999999992
+      "resolution_pnl": -409.8599999999991
     },
     "558944": {
       "question": "Will Uruguay win the 2026 FIFA World Cup?",
@@ -2107,7 +2112,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -109.4399999999999
+      "resolution_pnl": -116.63999999999989
     },
     "558945": {
       "question": "Will Mexico win the 2026 FIFA World Cup?",
@@ -2125,7 +2130,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -42.56000000000002
+      "resolution_pnl": -45.36000000000003
     },
     "558949": {
       "question": "Will Japan win the 2026 FIFA World Cup?",
@@ -2143,7 +2148,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -71.43999999999993
+      "resolution_pnl": -76.13999999999992
     },
     "558951": {
       "question": "Will Norway win the 2026 FIFA World Cup?",
@@ -2161,7 +2166,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -38.76000000000002
+      "resolution_pnl": -41.31000000000001
     },
     "558963": {
       "question": "Will Morocco win the 2026 FIFA World Cup?",
@@ -2179,7 +2184,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -71.43999999999993
+      "resolution_pnl": -76.13999999999992
     },
     "558946": {
       "question": "Will Belgium win the 2026 FIFA World Cup?",
@@ -2197,7 +2202,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -53.20000000000007
+      "resolution_pnl": -56.70000000000008
     },
     "558976": {
       "question": "Will Croatia win the 2026 FIFA World Cup?",
@@ -2215,7 +2220,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -85.12000000000003
+      "resolution_pnl": -90.72000000000006
     },
     "1076685": {
       "question": "US recognize Somaliland by June 30, 2026?",
@@ -2233,7 +2238,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -1492.960000000001
+      "resolution_pnl": -1536.3600000000013
     },
     "559651": {
       "question": "Xi Jinping out before 2027?",
@@ -2251,7 +2256,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 11.400000000000016
+      "resolution_pnl": 12.150000000000018
     },
     "559657": {
       "question": "Will Stephen A. Smith win the 2028 Democratic presidential nomination?",
@@ -2269,7 +2274,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -80.56000000000009
+      "resolution_pnl": -85.8600000000001
     },
     "559659": {
       "question": "Will Gretchen Whitmer win the 2028 Democratic presidential nomination?",
@@ -2287,7 +2292,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -273.5999999999998
+      "resolution_pnl": -291.5999999999999
     },
     "559687": {
       "question": "Will Oprah Winfrey win the 2028 Democratic presidential nomination?",
@@ -2305,7 +2310,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -71.43999999999993
+      "resolution_pnl": -76.13999999999992
     },
     "559660": {
       "question": "Will Andy Beshear win the 2028 Democratic presidential nomination?",
@@ -2323,7 +2328,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -100.31999999999982
+      "resolution_pnl": -106.91999999999979
     },
     "559695": {
       "question": "Will James Talarico win the 2028 Democratic presidential nomination?",
@@ -2341,7 +2346,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -42.56000000000002
+      "resolution_pnl": -45.36000000000003
     },
     "559654": {
       "question": "Will Pete Buttigieg win the 2028 Democratic presidential nomination?",
@@ -2359,7 +2364,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -18.24
+      "resolution_pnl": -19.43999999999999
     },
     "559661": {
       "question": "Will Jon Ossoff win the 2028 Democratic presidential nomination?",
@@ -2377,7 +2382,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -15.199999999999978
+      "resolution_pnl": -16.199999999999974
     },
     "559665": {
       "question": "Will Cory Booker win the 2028 Democratic presidential nomination?",
@@ -2395,7 +2400,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -58.520000000000095
+      "resolution_pnl": -62.37000000000011
     },
     "559675": {
       "question": "Will Jon Stewart win the 2028 Democratic presidential nomination?",
@@ -2413,7 +2418,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 22.03999999999996
+      "resolution_pnl": 23.489999999999956
     },
     "559668": {
       "question": "Will Mark Kelly win the 2028 Democratic presidential nomination?",
@@ -2431,7 +2436,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -17.480000000000025
+      "resolution_pnl": -18.630000000000027
     },
     "559667": {
       "question": "Will Michelle Obama win the 2028 Democratic presidential nomination?",
@@ -2449,7 +2454,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -42.56000000000002
+      "resolution_pnl": -45.36000000000003
     },
     "559653": {
       "question": "Will Alexandria Ocasio-Cortez win the 2028 Democratic presidential nomination?",
@@ -2467,7 +2472,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 12.919999999999996
+      "resolution_pnl": 13.769999999999996
     },
     "559693": {
       "question": "Will Ruben Gallego win the 2028 Democratic presidential nomination?",
@@ -2485,7 +2490,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -28.120000000000015
+      "resolution_pnl": -29.97000000000002
     },
     "559662": {
       "question": "Will Mark Cuban win the 2028 Democratic presidential nomination?",
@@ -2503,7 +2508,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -42.56000000000002
+      "resolution_pnl": -45.36000000000003
     },
     "559656": {
       "question": "Will Wes Moore win the 2028 Democratic presidential nomination?",
@@ -2521,7 +2526,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -35.71999999999996
+      "resolution_pnl": -38.06999999999996
     },
     "559663": {
       "question": "Will J.B. Pritzker win the 2028 Democratic presidential nomination?",
@@ -2539,7 +2544,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -11.400000000000016
+      "resolution_pnl": -12.150000000000018
     },
     "559686": {
       "question": "Will Dwayne 'The Rock' Johnson win the 2028 Democratic presidential nomination?",
@@ -2557,7 +2562,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -37.239999999999974
+      "resolution_pnl": -39.68999999999998
     },
     "559694": {
       "question": "Will Ro Khanna win the 2028 Democratic presidential nomination?",
@@ -2575,7 +2580,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -17.480000000000025
+      "resolution_pnl": -18.630000000000027
     },
     "559655": {
       "question": "Will Josh Shapiro win the 2028 Democratic presidential nomination?",
@@ -2593,7 +2598,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -9.880000000000006
+      "resolution_pnl": -10.53000000000001
     },
     "559658": {
       "question": "Will Kamala Harris win the 2028 Democratic presidential nomination?",
@@ -2611,7 +2616,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -7.599999999999989
+      "resolution_pnl": -8.099999999999987
     },
     "559652": {
       "question": "Will Gavin Newsom win the 2028 Democratic presidential nomination?",
@@ -2647,7 +2652,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -28.120000000000015
+      "resolution_pnl": -29.97000000000002
     },
     "561229": {
       "question": "Will JD Vance win the 2028 US Presidential Election?",
@@ -2701,7 +2706,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -23.520000000000007
+      "resolution_pnl": -28.42000000000001
     },
     "561370": {
       "question": "Will Kon Knueppel win the 2025\u201326 NBA Rookie of the Year award?",
@@ -2719,7 +2724,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 24.200000000000006
+      "resolution_pnl": 29.700000000000014
     },
     "564162": {
       "question": "Will Shai Gilgeous-Alexander win the 2025\u20132026 NBA MVP?",
@@ -2827,7 +2832,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -7.649999999999998
+      "resolution_pnl": -10.199999999999998
     },
     "566512": {
       "question": "Will Inter win the 2025\u201326 Serie A league?",
@@ -2863,7 +2868,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -50.470000000000034
+      "resolution_pnl": -55.62000000000004
     },
     "567689": {
       "question": "Zelenskyy out as Ukraine president by end of 2026?",
@@ -2881,7 +2886,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -19.759999999999987
+      "resolution_pnl": -22.359999999999985
     },
     "1068728": {
       "question": "Will USDT market cap hit $200B before 2027?",
@@ -2899,7 +2904,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -32.339999999999954
+      "resolution_pnl": -34.789999999999964
     },
     "1294921": {
       "question": "Will Hamas agree to disarm by June 30?",
@@ -2953,7 +2958,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 663.1399999999999
+      "resolution_pnl": 709.84
     },
     "572833": {
       "question": "Will Wolves finish in last place in the 2025-26 English Premier League?",
@@ -2971,7 +2976,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -197.68000000000004
+      "resolution_pnl": -215.33000000000004
     },
     "572847": {
       "question": "Will Tottenham be relegated from the English Premier League after the 2025\u201326 season?",
@@ -3007,7 +3012,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -13.86
+      "resolution_pnl": -15.959999999999999
     },
     "572854": {
       "question": "Will West Ham be relegated from the English Premier League after the 2025\u201326 season?",
@@ -3061,7 +3066,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 902.4100000000008
+      "resolution_pnl": 965.960000000001
     },
     "1748641": {
       "question": "Will Claude 5 be released by May 31, 2026?",
@@ -3079,7 +3084,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 130.64000000000019
+      "resolution_pnl": 139.8400000000002
     },
     "1748840": {
       "question": "Will Claude 5 be released by June 30, 2026?",
@@ -3115,7 +3120,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -37.69999999999996
+      "resolution_pnl": -40.94999999999995
     },
     "578527": {
       "question": "Will Aston Villa win the 2025-26 UEFA Europa League?",
@@ -3133,7 +3138,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 345.7700000000002
+      "resolution_pnl": 370.12000000000023
     },
     "578536": {
       "question": "Will Porto win the 2025-26 UEFA Europa League?",
@@ -3187,7 +3192,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -302.3999999999996
+      "resolution_pnl": -323.3999999999995
     },
     "582134": {
       "question": "Will Liverpool finish in the top 4 of the EPL 2025\u201326 standings?",
@@ -3223,7 +3228,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -5.939999999999999
+      "resolution_pnl": -6.839999999999997
     },
     "562187": {
       "question": "Will John Cornyn win the 2026 Texas Republican Primary?",
@@ -3241,7 +3246,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 515.3400000000004
+      "resolution_pnl": 556.2400000000001
     },
     "1231857": {
       "question": "SCOTUS accepts sports event contract case by December 31, 2026?",
@@ -3259,7 +3264,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -46.200000000000045
+      "resolution_pnl": -50.05000000000006
     },
     "567560": {
       "question": "Will the next Prime Minister of Hungary be Viktor Orb\u00e1n?",
@@ -3277,7 +3282,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 414.7200000000003
+      "resolution_pnl": 447.1200000000004
     },
     "567688": {
       "question": "Netanyahu out by end of 2026?",
@@ -3295,7 +3300,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 379.8899999999995
+      "resolution_pnl": 410.03999999999934
     },
     "572765": {
       "question": "Will Liverpool finish in 3rd place in the 2025-26 English Premier League?",
@@ -3313,7 +3318,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 510.90000000000066
+      "resolution_pnl": 550.2000000000007
     },
     "579376": {
       "question": "Will Sassuolo finish in the top 4 in the 2025-26 Serie A season?",
@@ -3331,7 +3336,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": 209.92000000000004
+      "resolution_pnl": 226.32000000000005
     },
     "566138": {
       "question": "Will Barcelona win the 2025\u201326 Champions League?",
@@ -3367,7 +3372,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -79.86000000000004
+      "resolution_pnl": -91.96000000000005
     },
     "1301998": {
       "question": "Grok 5 released by June 30, 2026?",
@@ -3385,7 +3390,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -11.219999999999997
+      "resolution_pnl": -12.919999999999996
     },
     "903822": {
       "question": "Taylor Swift x Travis Kelce get married by June 30?",
@@ -3403,7 +3408,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -159.9600000000001
+      "resolution_pnl": -172.86000000000016
     },
     "676828": {
       "question": "Will GPT-6 be released by June 30, 2026?",
@@ -3420,8 +3425,8 @@
           "status": "open"
         }
       ],
-      "resolved": false,
-      "resolution_pnl": 0
+      "resolved": true,
+      "resolution_pnl": -1.9500000000000002
     },
     "562186": {
       "question": "Will Ken Paxton win the 2026 Texas Republican Primary?",
@@ -3475,7 +3480,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -4.289999999999997
+      "resolution_pnl": -4.939999999999997
     },
     "567561": {
       "question": "Will the next Prime Minister of Hungary be P\u00e9ter Magyar?",
@@ -3529,7 +3534,7 @@
         }
       ],
       "resolved": true,
-      "resolution_pnl": -4.620000000000001
+      "resolution_pnl": -5.319999999999999
     },
     "569368": {
       "question": "Will Ivan Cepeda Castro win the 2026 Colombian presidential election?",
@@ -3569,13 +3574,13 @@
     }
   },
   "trade_outcomes": [],
-  "last_update": "2026-04-03T12:17:23.642375+00:00",
+  "last_update": "2026-04-03T12:32:27.805409+00:00",
   "summary": {
     "calibrated_categories": 5,
     "adaptive_status": "active",
     "markets_remembered": 186,
     "avoid_categories": [],
-    "last_cycle": "2026-04-03T12:17:23.642360+00:00"
+    "last_cycle": "2026-04-03T12:32:27.805382+00:00"
   },
   "category_corrections": {
     "politics": {
@@ -3622,10 +3627,10 @@
       "sample_size": 30
     },
     "layer1_ai": {
-      "correction_pp": 0.2457,
-      "avg_prediction": 0.3233,
-      "actual_win_rate": 0.569,
-      "sample_size": 58
+      "correction_pp": 0.238,
+      "avg_prediction": 0.3213,
+      "actual_win_rate": 0.5593,
+      "sample_size": 59
     }
   },
   "price_bucket_corrections": {
@@ -3658,8 +3663,8 @@
       "sample_size": 5
     },
     "0.21-0.30": {
-      "correction_pp": -0.0806,
-      "sample_size": 7
+      "correction_pp": -0.0963,
+      "sample_size": 8
     }
   }
 }
