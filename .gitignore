@@ -8,3 +8,4 @@ becker_bot.log
 *.bak
 cache/
 *.bak.*
+backtest_data.db

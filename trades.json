@@ -4197,5 +4197,21 @@
     "reason": "cluster 'ai_models' pruned",
     "pnl": -0.34,
     "timestamp": "2026-04-03T10:40:05.070269+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "561365",
+    "question": "Will Cooper Flagg win the 2025\u201326 NBA Rookie of the Year award?",
+    "reason": "HARD STOP: unrealised -36% (>-30%)",
+    "pnl": -0.98,
+    "timestamp": "2026-04-03T11:07:34.040545+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "561370",
+    "question": "Will Kon Knueppel win the 2025\u201326 NBA Rookie of the Year award?",
+    "reason": "Tier B edge collapsed: 0.047",
+    "pnl": 1.1,
+    "timestamp": "2026-04-03T11:13:48.984688+00:00"
   }
 ]
