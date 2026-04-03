@@ -4141,5 +4141,61 @@
     "net_pnl": -0.52,
     "fees": 0.0,
     "timestamp": "2026-04-03T10:26:57.017685+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "562830",
+    "question": "2026 Balance of Power: R Senate, D House",
+    "reason": "cluster 'us_midterms_2026' pruned",
+    "pnl": -0.14,
+    "timestamp": "2026-04-03T10:40:04.982642+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "562794",
+    "question": "Will the Republican Party control the Senate after the 2026 Midterm elections?",
+    "reason": "cluster 'us_midterms_2026' pruned",
+    "pnl": -0.13,
+    "timestamp": "2026-04-03T10:40:04.998241+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "582136",
+    "question": "Will Chelsea finish in the top 4 of the EPL 2025\u201326 standings?",
+    "reason": "cluster 'epl' pruned",
+    "pnl": -2.42,
+    "timestamp": "2026-04-03T10:40:05.015204+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "572849",
+    "question": "Will Nottm Forest be relegated from the English Premier League after the 2025\u201326 season?",
+    "reason": "cluster 'epl' pruned",
+    "pnl": -0.42,
+    "timestamp": "2026-04-03T10:40:05.031310+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "572734",
+    "question": "Will Manchester City finish in 2nd place in the 2025-26 English Premier League?",
+    "reason": "cluster 'epl' pruned",
+    "pnl": -0.18,
+    "timestamp": "2026-04-03T10:40:05.046384+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "573647",
+    "question": "Will GPT-6 be released before GTA VI?",
+    "reason": "cluster 'ai_models' pruned",
+    "pnl": -0.48,
+    "timestamp": "2026-04-03T10:40:05.060021+00:00"
+  },
+  {
+    "action": "CLUSTER_PRUNE",
+    "market_id": "1301998",
+    "question": "Grok 5 released by June 30, 2026?",
+    "reason": "cluster 'ai_models' pruned",
+    "pnl": -0.34,
+    "timestamp": "2026-04-03T10:40:05.070269+00:00"
   }
 ]

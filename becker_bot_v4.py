@@ -783,6 +783,30 @@ class BeckerBot:
         # Step 4: Maker edge score
         m_score = maker_edge_score(yes_price, category)
 
+        # Step 4b: Bid-ask spread gate (P4)
+        # Reject markets where spread would eat a significant portion of edge
+        _spread_token = (market["yes_token_id"] if ev["best_side"] == "YES"
+                         else market["no_token_id"])
+        if _spread_token:
+            try:
+                from smart_estimator import fetch_orderbook
+                _book = fetch_orderbook(_spread_token)
+                if _book:
+                    _bids = _book.get("bids", [])
+                    _asks = _book.get("asks", [])
+                    if _bids and _asks:
+                        _best_bid = float(_bids[0].get("price", 0))
+                        _best_ask = float(_asks[0].get("price", 1))
+                        _spread = _best_ask - _best_bid
+                        _edge_abs = edge_check["abs_edge"]
+                        if _spread > _edge_abs * 0.5:
+                            log(f"SPREAD GATE: {question[:50]} — spread {_spread:.4f} > 50% of edge {_edge_abs:.4f}, skipping")
+                            return None
+                        elif _spread > 0.05:
+                            log(f"SPREAD WARN: {question[:50]} — spread {_spread:.4f} is wide (>5c)")
+            except Exception as _e:
+                pass  # Don't block trades if orderbook fetch fails
+
         # Step 5: Kelly sizing
         # Reduce Kelly for expensive contracts (80-95c) — steamroller risk
         _kelly_frac = cfg["KELLY_FRACTION"]
