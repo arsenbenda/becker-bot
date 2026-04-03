@@ -65,8 +65,11 @@ Skip: poly-maker (Phase 3+), Polymarket/agents, arb-bot
 Human provides: Project: Becker Bot v4.1 / Repo: github.com/arsenbenda/becker-bot
 Assistant requests: tail -30 becker_bot.log + position summary one-liner
 
-## Current Status (2026-04-03)
-- 33 open (all >15c), 67 real closed (51W/16L, 76.1%), 17 pruned, 50 longshot-filtered
-- Bankroll $878, net P&L +$244, total value ~$1,013
-- Price-tier filter, cluster filter, hybrid exit, anti-hedging prompts all active
+## Current Status (2026-04-03, post v4.2.1)
+
+- 42 open (all >15c), 83 real closed (60% WR, PF 1.8), 18 pruned, 50 longshot-filtered
+- Bankroll ~$694, Kelly 15%, min edge 10pp
+- Price-tier filter, cluster filter, hybrid exit, deviation cap all active
+- AI prompt: calibrated probability scale, anchoring rule, 30pp deviation cap
+- Learner: decontaminated, absolute Kelly tiers (0.25/0.15/0.10/0.05)
 - Gate: PASSED. Next: unified scoring system (50-100 trades)

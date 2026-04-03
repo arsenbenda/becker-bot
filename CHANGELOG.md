@@ -1,5 +1,21 @@
 # Changelog — Becker Bot
 
+## v4.2.1 — AI Calibration + Learner Decontamination (2026-04-03)
+
+### Fixed
+- GPT prompt rewritten: calibrated probability scale with explicit tiers (0.01-0.99)
+- Anchoring rule: AI must justify >15pp deviation from market price
+- Deviation cap: AI estimates clamped to within 30pp of market price
+- self_learner.py: longshot_filter exits now excluded from calibration + adaptive risk
+- Kelly logic: absolute tiers (0.25/0.15/0.10/0.05) replace relative multipliers
+- Kelly recovered from 0.05 (contaminated by longshot exits) to 0.15
+
+### Impact
+- AI estimates now grounded: no more 99% spam on sports markets
+- Erdogan removal: 0.08 (was ~0.30+), GPT-6 June: 0.20 (was inflated)
+- Learner WR corrected from 24% (contaminated) to 60% (real)
+- Bot actively trading again with proper position sizing
+
 ## v4.2.0 — Price-Tier Filter + Longshot Cleanup (2026-04-03)
 
 ### Added
