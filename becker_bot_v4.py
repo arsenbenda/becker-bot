@@ -1205,11 +1205,17 @@ class BeckerBot:
         deployed = sum(p.get("cost", 0) for p in open_pos)
         # Always compute from actual positions — single source of truth
         _closed = [p for p in self.positions if p.get("status") == "closed"]
-        _real = [p for p in _closed if p.get("close_reason") != "cluster_prune"]
-        _pruned = [p for p in _closed if p.get("close_reason") == "cluster_prune"]
+        _real = [p for p in _closed if p.get("close_reason") not in ("cluster_prune", "longshot_filter")]
+        _pruned = [p for p in _closed if p.get("close_reason") in ("cluster_prune", "longshot_filter")]
         _wins = sum(1 for p in _real if float(p.get("pnl", 0)) > 0)
         _total = len(_real)
+        # Resolved trades: close_price near 0 or 1 (market settled)
+        _resolved = [p for p in _real if float(p.get("close_price", 0.5)) > 0.90 or float(p.get("close_price", 0.5)) < 0.10]
+        _res_wins = sum(1 for p in _resolved if float(p.get("pnl", 0)) > 0)
+        _res_total = len(_resolved)
         win_rate = f"{_wins/_total*100:.1f}%" if _total > 0 else "N/A"
+        if _res_total > 0:
+            win_rate += f" (resolved: {_res_wins}/{_res_total} {_res_wins/_res_total*100:.0f}%)"
         if _pruned:
             win_rate += f" +{len(_pruned)}p"
         self.total_trades = _total
