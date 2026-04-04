@@ -592,9 +592,9 @@ def layer1_estimate(
     Full AI-powered estimate: Perplexity research → GPT probability extraction.
     Returns None if APIs unavailable (triggers fallback).
     """
-    # Check cache first (30-min window)
+    # Check cache first (4h window — saves API calls)
     if market_id:
-        cached = get_cached_estimate(market_id, max_age_sec=1800)
+        cached = get_cached_estimate(market_id, max_age_sec=14400)  # 4h TTL — markets change slowly
         if cached and cached.get("source") == "layer1_ai":
             log(f"Cache hit for {market_id}")
             return cached

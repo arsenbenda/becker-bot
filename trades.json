@@ -4241,5 +4241,25 @@
     "reason": "HARD STOP: unrealised -33% (>-30%)",
     "pnl": -1.28,
     "timestamp": "2026-04-03T13:49:20.908549+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "564162",
+    "question": "Will Shai Gilgeous-Alexander win the 2025\u20132026 NBA MVP?",
+    "reason": "6x edge thinning (Tier B)",
+    "pnl": 0.28,
+    "net_pnl": 0.24,
+    "fees": 0.04292,
+    "timestamp": "2026-04-03T15:23:37.809909+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "1748840",
+    "question": "Will Claude 5 be released by June 30, 2026?",
+    "reason": "6x edge thinning (Tier B)",
+    "pnl": -1.0,
+    "net_pnl": -1.71,
+    "fees": 0.70898,
+    "timestamp": "2026-04-03T18:52:18.843175+00:00"
   }
 ]

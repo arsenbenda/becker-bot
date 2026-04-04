@@ -196,11 +196,12 @@ def layer_bars(ls):
 
 
 def funnel_chart(status):
-    stages = ["Fetched", "Eligible", "Evaluated", "Traded"]
+    stages = ["Fetched", "Eligible", "Evaluated", "L1 Calls", "Traded"]
     vals = [status.get("markets_fetched", 0), status.get("markets_eligible", 0),
-            status.get("markets_evaluated", 0), status.get("new_trades", 0)]
+            status.get("markets_evaluated", 0), status.get("l1_calls_this_scan", 0),
+            status.get("new_trades", 0)]
     fig = go.Figure(go.Funnel(y=stages, x=vals,
-                               marker=dict(color=["#30363d", "#21262d", BLUE, GREEN]),
+                               marker=dict(color=["#30363d", "#21262d", BLUE, "#1a6dd4", GREEN]),
                                textinfo="value+percent initial",
                                textfont=dict(color=FONT_COLOR, size=11),
                                connector=dict(line=dict(color="#30363d"))))

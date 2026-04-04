@@ -1115,6 +1115,7 @@ class BeckerBot:
         # Evaluate
         new_trades = 0
         evaluated = 0
+        _pre_l1 = self.layer_stats.get("layer1_ai", 0) + self.layer_stats.get("layer2_quantitative", 0) + self.layer_stats.get("layer3_becker", 0)
         for market in parsed:
             if _circuit_breaker or len(open_positions) + new_trades >= cfg["MAX_CONCURRENT"]:
                 break
@@ -1136,6 +1137,7 @@ class BeckerBot:
             "pnl": round(self.realized_pnl, 2),
             "fetched": len(raw_markets),
             "eligible": len(parsed),
+            "l1_calls_this_scan": (self.layer_stats.get("layer1_ai", 0) + self.layer_stats.get("layer2_quantitative", 0) + self.layer_stats.get("layer3_becker", 0)) - _pre_l1,
             "new_trades": new_trades,
             "deployed": round(sum(p.get("cost", 0) for p in self.positions if p.get("status") == "open"), 2),
             "total_value": round(self.bankroll + sum(p.get("cost", 0) for p in self.positions if p.get("status") == "open") + sum(float(p.get("unrealised_pnl", 0)) for p in self.positions if p.get("status") == "open"), 2),
