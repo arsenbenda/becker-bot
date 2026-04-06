@@ -1347,9 +1347,9 @@
     "exit_fee": 0.0,
     "total_fees": 0.51957,
     "net_pnl": 0.0,
-    "current_price": 0.517,
-    "unrealised_pnl": -0.16,
-    "price_updated_at": "2026-04-04T10:36:05.332726+00:00"
+    "current_price": 0.513,
+    "unrealised_pnl": -0.04,
+    "price_updated_at": "2026-04-06T17:06:33.980664+00:00"
   },
   {
     "market_id": "573647",
@@ -1981,7 +1981,7 @@
     "net_pnl": 0.0,
     "current_price": 0.325,
     "unrealised_pnl": 0.0,
-    "price_updated_at": "2026-04-04T10:36:05.539012+00:00"
+    "price_updated_at": "2026-04-06T17:06:34.206463+00:00"
   },
   {
     "market_id": "902160",
@@ -2012,7 +2012,7 @@
     "net_pnl": 0.0,
     "current_price": 0.685,
     "unrealised_pnl": 0.0,
-    "price_updated_at": "2026-04-04T10:36:05.745409+00:00"
+    "price_updated_at": "2026-04-06T17:06:34.421688+00:00"
   },
   {
     "market_id": "553862",
@@ -2114,7 +2114,7 @@
     "entry_price": 0.365,
     "contracts": 51.47,
     "cost": 18.79,
-    "estimated_prob": 0.5645,
+    "estimated_prob": 0.3608,
     "category": "crypto",
     "ev": 0.1732,
     "kelly_pct": 5.0,
@@ -2125,18 +2125,19 @@
     "opened_at": "2026-03-31T08:41:14.859790+00:00",
     "yes_token_id": "101513571766435454355723114188696307527864518980689079866102837918467349506537",
     "no_token_id": "85487630954297906857427842745787851948079273488527800245673979479655643658539",
-    "status": "open",
-    "close_price": 0.0,
-    "pnl": 0.0,
-    "closed_at": "",
+    "status": "closed",
+    "close_price": 0.33,
+    "pnl": -1.8,
+    "closed_at": "2026-04-04T20:02:04.348035+00:00",
     "edge_thin_count": 0,
     "entry_fee": 0.85892,
-    "exit_fee": 0.0,
-    "total_fees": 0.85892,
-    "net_pnl": 0.0,
-    "current_price": 0.34,
-    "unrealised_pnl": -1.29,
-    "price_updated_at": "2026-04-04T10:36:05.963678+00:00"
+    "exit_fee": 0.81936,
+    "total_fees": 1.67828,
+    "net_pnl": -3.48,
+    "current_price": 0.33,
+    "unrealised_pnl": -1.8,
+    "price_updated_at": "2026-04-04T19:58:57.741976+00:00",
+    "close_reason": "exit"
   },
   {
     "market_id": "556062",
@@ -4357,9 +4358,9 @@
     "total_fees": 0.2505,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.242,
-    "unrealised_pnl": -0.12,
-    "price_updated_at": "2026-04-04T10:36:06.165856+00:00"
+    "current_price": 0.241,
+    "unrealised_pnl": -0.15,
+    "price_updated_at": "2026-04-06T17:06:34.639467+00:00"
   },
   {
     "market_id": "560317",
@@ -4420,9 +4421,9 @@
     "total_fees": 0.25727,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.176,
-    "unrealised_pnl": -0.02,
-    "price_updated_at": "2026-04-04T10:36:06.374642+00:00"
+    "current_price": 0.175,
+    "unrealised_pnl": -0.07,
+    "price_updated_at": "2026-04-06T17:06:34.866261+00:00"
   },
   {
     "market_id": "561230",
@@ -4451,9 +4452,9 @@
     "total_fees": 0.23283,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.168,
-    "unrealised_pnl": 0.24,
-    "price_updated_at": "2026-04-04T10:36:06.578927+00:00"
+    "current_price": 0.167,
+    "unrealised_pnl": 0.19,
+    "price_updated_at": "2026-04-06T17:06:35.082057+00:00"
   },
   {
     "market_id": "561365",
@@ -4580,7 +4581,7 @@
     "edge_thin_count": 0,
     "current_price": 0.25,
     "unrealised_pnl": -0.36,
-    "price_updated_at": "2026-04-04T10:36:06.820804+00:00"
+    "price_updated_at": "2026-04-06T17:06:35.290377+00:00"
   },
   {
     "market_id": "566142",
@@ -4609,9 +4610,9 @@
     "total_fees": 0.1884,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.21,
-    "unrealised_pnl": -0.19,
-    "price_updated_at": "2026-04-04T10:36:07.025527+00:00"
+    "current_price": 0.22,
+    "unrealised_pnl": 0.19,
+    "price_updated_at": "2026-04-06T17:06:35.514060+00:00"
   },
   {
     "market_id": "566227",
@@ -4620,7 +4621,7 @@
     "entry_price": 0.245,
     "contracts": 24.24,
     "cost": 5.94,
-    "estimated_prob": 0.4824,
+    "estimated_prob": 0.4151,
     "category": "sports",
     "ev": 0.23,
     "kelly_pct": 1.57,
@@ -4631,18 +4632,19 @@
     "opened_at": "2026-04-03T08:39:09.486151+00:00",
     "yes_token_id": "88657857917663921842097927058013051966750383205171131721194307619909198186324",
     "no_token_id": "88014215279768883204444335352790817853938492912441294789310865378166990386734",
-    "status": "open",
-    "close_price": 0.0,
-    "pnl": 0.0,
-    "closed_at": "",
+    "status": "closed",
+    "close_price": 0.17,
+    "pnl": -1.82,
+    "closed_at": "2026-04-04T15:08:20.409274+00:00",
     "entry_fee": 0.13451,
-    "exit_fee": 0.0,
-    "total_fees": 0.13451,
-    "net_pnl": 0.0,
+    "exit_fee": 0.10261,
+    "total_fees": 0.23712,
+    "net_pnl": -2.06,
     "edge_thin_count": 0,
-    "current_price": 0.23,
-    "unrealised_pnl": -0.36,
-    "price_updated_at": "2026-04-04T10:36:07.246485+00:00"
+    "current_price": 0.18,
+    "unrealised_pnl": -1.58,
+    "price_updated_at": "2026-04-04T15:05:06.438991+00:00",
+    "close_reason": "exit"
   },
   {
     "market_id": "566228",
@@ -4651,7 +4653,7 @@
     "entry_price": 0.755,
     "contracts": 53.18,
     "cost": 40.15,
-    "estimated_prob": 0.99,
+    "estimated_prob": 0.8706,
     "category": "sports",
     "ev": 0.2277,
     "kelly_pct": 4.8,
@@ -4662,18 +4664,19 @@
     "opened_at": "2026-04-03T08:39:18.537158+00:00",
     "yes_token_id": "1695215349928671243344999351502140335726593419457848711650326512058710392429",
     "no_token_id": "75520501144098352823148314621752649390426620045830907105011182051314236077340",
-    "status": "open",
-    "close_price": 0.0,
-    "pnl": 0.0,
-    "closed_at": "",
+    "status": "closed",
+    "close_price": 0.81,
+    "pnl": 2.92,
+    "closed_at": "2026-04-04T15:33:22.651932+00:00",
     "entry_fee": 0.29511,
-    "exit_fee": 0.0,
-    "total_fees": 0.29511,
-    "net_pnl": 0.0,
-    "edge_thin_count": 0,
-    "current_price": 0.74,
-    "unrealised_pnl": -0.8,
-    "price_updated_at": "2026-04-04T10:36:07.471890+00:00"
+    "exit_fee": 0.24553,
+    "total_fees": 0.54064,
+    "net_pnl": 2.38,
+    "edge_thin_count": 6,
+    "current_price": 0.81,
+    "unrealised_pnl": 2.92,
+    "price_updated_at": "2026-04-04T15:30:15.616791+00:00",
+    "close_reason": "trailing_stop"
   },
   {
     "market_id": "1397269",
@@ -4714,7 +4717,7 @@
     "entry_price": 0.825,
     "contracts": 22.7,
     "cost": 18.73,
-    "estimated_prob": 0.99,
+    "estimated_prob": 0.9354,
     "category": "sports",
     "ev": 0.1598,
     "kelly_pct": 2.36,
@@ -4725,18 +4728,19 @@
     "opened_at": "2026-04-03T08:39:43.702812+00:00",
     "yes_token_id": "93269611699920635821737053656816904171619706322566005117239732091321878587951",
     "no_token_id": "40604483926312827229651044975791794160039463920655733564123085180672336952627",
-    "status": "open",
-    "close_price": 0.0,
-    "pnl": 0.0,
-    "closed_at": "",
+    "status": "closed",
+    "close_price": 0.88,
+    "pnl": 1.25,
+    "closed_at": "2026-04-05T20:04:59.903244+00:00",
     "entry_fee": 0.09832,
-    "exit_fee": 0.0,
-    "total_fees": 0.09832,
-    "net_pnl": 0.0,
-    "edge_thin_count": 0,
-    "current_price": 0.84,
-    "unrealised_pnl": 0.34,
-    "price_updated_at": "2026-04-04T10:36:07.679981+00:00"
+    "exit_fee": 0.07191,
+    "total_fees": 0.17023,
+    "net_pnl": 1.08,
+    "edge_thin_count": 5,
+    "current_price": 0.88,
+    "unrealised_pnl": 1.25,
+    "price_updated_at": "2026-04-05T20:01:53.511329+00:00",
+    "close_reason": "exit"
   },
   {
     "market_id": "567687",
@@ -4893,9 +4897,9 @@
     "total_fees": 0.34941,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.67,
-    "unrealised_pnl": -0.65,
-    "price_updated_at": "2026-04-04T10:36:07.893405+00:00"
+    "current_price": 0.68,
+    "unrealised_pnl": -0.33,
+    "price_updated_at": "2026-04-06T17:06:35.725872+00:00"
   },
   {
     "market_id": "572121",
@@ -4990,7 +4994,7 @@
     "edge_thin_count": 0,
     "current_price": 0.316,
     "unrealised_pnl": -0.19,
-    "price_updated_at": "2026-04-04T10:36:08.121330+00:00"
+    "price_updated_at": "2026-04-06T17:06:35.942943+00:00"
   },
   {
     "market_id": "572849",
@@ -5053,7 +5057,7 @@
     "edge_thin_count": 0,
     "current_price": 0.45,
     "unrealised_pnl": 0.0,
-    "price_updated_at": "2026-04-04T10:36:08.332048+00:00"
+    "price_updated_at": "2026-04-06T17:06:36.144821+00:00"
   },
   {
     "market_id": "676829",
@@ -5082,9 +5086,9 @@
     "total_fees": 0.07693,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.82,
-    "unrealised_pnl": -0.14,
-    "price_updated_at": "2026-04-04T10:36:08.535166+00:00"
+    "current_price": 0.83,
+    "unrealised_pnl": 0.0,
+    "price_updated_at": "2026-04-06T17:06:36.379406+00:00"
   },
   {
     "market_id": "1363116",
@@ -5273,9 +5277,9 @@
     "total_fees": 0.04177,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.15,
-    "unrealised_pnl": -0.13,
-    "price_updated_at": "2026-04-04T10:36:08.752147+00:00"
+    "current_price": 0.14,
+    "unrealised_pnl": -0.23,
+    "price_updated_at": "2026-04-06T17:06:36.589357+00:00"
   },
   {
     "market_id": "578537",
@@ -5304,9 +5308,9 @@
     "total_fees": 0.14299,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.15,
-    "unrealised_pnl": -0.18,
-    "price_updated_at": "2026-04-04T10:36:08.968564+00:00"
+    "current_price": 0.17,
+    "unrealised_pnl": 0.55,
+    "price_updated_at": "2026-04-06T17:06:36.791950+00:00"
   },
   {
     "market_id": "582139",
@@ -5363,9 +5367,9 @@
     "total_fees": 0.05049,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.28,
-    "unrealised_pnl": -0.2,
-    "price_updated_at": "2026-04-04T10:36:09.174953+00:00"
+    "current_price": 0.31,
+    "unrealised_pnl": 0.04,
+    "price_updated_at": "2026-04-06T17:06:36.995346+00:00"
   },
   {
     "market_id": "572734",
@@ -5614,9 +5618,9 @@
     "total_fees": 0.10548,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.16,
-    "unrealised_pnl": -0.13,
-    "price_updated_at": "2026-04-04T10:36:09.381993+00:00"
+    "current_price": 0.17,
+    "unrealised_pnl": 0.13,
+    "price_updated_at": "2026-04-06T17:06:37.201364+00:00"
   },
   {
     "market_id": "582136",
@@ -5760,18 +5764,19 @@
     "opened_at": "2026-04-03T09:33:57.436390+00:00",
     "yes_token_id": "43891259347116330522865864075089973515827852946539612217753302847337982135578",
     "no_token_id": "114134832775772592035076635156705298512014414341622748270460538141767888144004",
-    "status": "open",
-    "close_price": 0.0,
-    "pnl": 0.0,
-    "closed_at": "",
+    "status": "closed",
+    "close_price": 0.66,
+    "pnl": 0.25,
+    "closed_at": "2026-04-06T07:27:48.234657+00:00",
     "entry_fee": 0.15222,
-    "exit_fee": 0.0,
-    "total_fees": 0.15222,
-    "net_pnl": 0.0,
-    "edge_thin_count": 0,
-    "current_price": 0.62,
-    "unrealised_pnl": -0.42,
-    "price_updated_at": "2026-04-04T10:36:09.585439+00:00"
+    "exit_fee": 0.14918,
+    "total_fees": 0.3014,
+    "net_pnl": -0.05,
+    "edge_thin_count": 6,
+    "current_price": 0.66,
+    "unrealised_pnl": 0.25,
+    "price_updated_at": "2026-04-06T07:24:42.359885+00:00",
+    "close_reason": "trailing_stop"
   },
   {
     "market_id": "562793",
@@ -5800,9 +5805,9 @@
     "total_fees": 0.2245,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.51,
-    "unrealised_pnl": -0.11,
-    "price_updated_at": "2026-04-04T10:36:09.790721+00:00"
+    "current_price": 0.52,
+    "unrealised_pnl": 0.11,
+    "price_updated_at": "2026-04-06T17:06:37.405692+00:00"
   },
   {
     "market_id": "562794",
@@ -5863,9 +5868,9 @@
     "total_fees": 0.117,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.65,
-    "unrealised_pnl": -0.2,
-    "price_updated_at": "2026-04-04T10:36:09.992663+00:00"
+    "current_price": 0.64,
+    "unrealised_pnl": -0.33,
+    "price_updated_at": "2026-04-06T17:06:37.615011+00:00"
   },
   {
     "market_id": "562828",
@@ -5896,7 +5901,7 @@
     "edge_thin_count": 0,
     "current_price": 0.51,
     "unrealised_pnl": 0.11,
-    "price_updated_at": "2026-04-04T10:36:10.199856+00:00"
+    "price_updated_at": "2026-04-06T17:06:37.827439+00:00"
   },
   {
     "market_id": "562830",
@@ -5937,7 +5942,7 @@
     "entry_price": 0.445,
     "contracts": 14.32,
     "cost": 6.37,
-    "estimated_prob": 0.6057899999999999,
+    "estimated_prob": 0.5675,
     "category": "politics",
     "ev": 0.143,
     "kelly_pct": 1.45,
@@ -5957,9 +5962,9 @@
     "total_fees": 0.14147,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.44,
-    "unrealised_pnl": -0.07,
-    "price_updated_at": "2026-04-04T10:36:10.406637+00:00"
+    "current_price": 0.42,
+    "unrealised_pnl": -0.36,
+    "price_updated_at": "2026-04-06T17:06:38.034736+00:00"
   },
   {
     "market_id": "569373",
@@ -5968,7 +5973,7 @@
     "entry_price": 0.375,
     "contracts": 18.0,
     "cost": 6.75,
-    "estimated_prob": 0.5008599999999999,
+    "estimated_prob": 0.4793,
     "category": "politics",
     "ev": 0.1109,
     "kelly_pct": 1.01,
@@ -5988,8 +5993,8 @@
     "total_fees": 0.16875,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.388,
-    "unrealised_pnl": 0.23,
-    "price_updated_at": "2026-04-04T10:36:10.609052+00:00"
+    "current_price": 0.395,
+    "unrealised_pnl": 0.36,
+    "price_updated_at": "2026-04-06T17:06:38.244256+00:00"
   }
 ]

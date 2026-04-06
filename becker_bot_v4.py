@@ -710,17 +710,18 @@ class BeckerBot:
         # Takers buying YES at 1-10c win only 0.43-4.18% vs implied 1-10%
         _yes_price = yes_price
         _no_price = 1.0 - yes_price
-        if _yes_price < 0.15:
-            # Sub-15c: longshot zone. Skip entirely — structural negative EV per Becker study
-            log(f"PRICE FILTER: {question[:50]} — YES at {_yes_price:.3f} is sub-15c longshot, skipping (Becker: negative EV)")
+        if _yes_price < 0.30:
+            # Sub-30c: longshot zone. Skip entirely — 21% WR, -$93.60 over 19 trades (v4.3.1)
+            log(f"PRICE FILTER: {question[:50]} — YES at {_yes_price:.3f} is sub-30c longshot, skipping")
             return None
-        elif _no_price < 0.15:
-            # YES is >85c, NO is the cheap side — also skip NO longshots
-            log(f"PRICE FILTER: {question[:50]} — NO at {_no_price:.3f} is sub-15c longshot, skipping")
+        elif _no_price < 0.30:
+            # YES is >70c, NO is the cheap side — also skip NO longshots
+            log(f"PRICE FILTER: {question[:50]} — NO at {_no_price:.3f} is sub-30c longshot, skipping")
             return None
         
-        # 15-30c zone: require higher confidence threshold
-        _in_caution_zone = (_yes_price < 0.30) or (_no_price < 0.30)
+        # 30-50c zone: require higher confidence + 15pp edge (v4.3.1)
+        # Data: 30-50c trades had 31% WR, -$34.06 at standard 10pp edge
+        _in_caution_zone = (_yes_price < 0.50) or (_no_price < 0.50)
 
         # Step 1: Smart probability estimation
         est = estimate_probability(
@@ -796,11 +797,11 @@ class BeckerBot:
 
         # Phase 1.x: Caution zone gate (15-30c) — require high AI confidence and large edge
         if _in_caution_zone:
-            if confidence < 0.6:
-                log(f"CAUTION ZONE: {question[:50]} — price in 15-30c zone but confidence {confidence:.2f} < 0.60, skipping")
+            if confidence < 0.70:
+                log(f"CAUTION ZONE: {question[:50]} — price in 30-50c zone but confidence {confidence:.2f} < 0.70, skipping")
                 return None
-            if _raw_edge < 0.10:
-                log(f"CAUTION ZONE: {question[:50]} — price in 15-30c zone but edge {_raw_edge:.3f} < 0.10, skipping")
+            if _raw_edge < 0.15:
+                log(f"CAUTION ZONE: {question[:50]} — price in 30-50c zone but edge {_raw_edge:.3f} < 0.15, skipping")
                 return None
 
         edge_check = edge_is_real(yes_price, est_prob, cfg["MIN_EDGE_POINTS"])
