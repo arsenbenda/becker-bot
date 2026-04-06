@@ -806,11 +806,13 @@ class BeckerBot:
 
         edge_check = edge_is_real(yes_price, est_prob, cfg["MIN_EDGE_POINTS"])
         if not edge_check["passed"]:
+            log(f"EDGE FAIL: {question[:50]} — raw_edge {_raw_edge:.3f}, min {cfg['MIN_EDGE_POINTS']}pp, est {est_prob:.3f} vs price {yes_price:.3f}")
             return None
 
         # Step 3: EV with fees
         ev = calculate_ev(yes_price, est_prob, category)
         if ev["best_side"] == "SKIP" or ev["best_ev"] < cfg["MIN_EV_THRESHOLD"]:
+            log(f"EV FAIL: {question[:50]} — best_ev {ev['best_ev']:.4f}, side {ev['best_side']}, min {cfg['MIN_EV_THRESHOLD']}")
             return None
 
         # Step 4: Maker edge score
