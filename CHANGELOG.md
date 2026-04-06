@@ -1,5 +1,17 @@
 # Changelog — Becker Bot
 
+## v4.3.1 (2026-04-06) — Tier A Entry Filter (Option C)
+
+### Changes
+- Price floor raised from 15c to 30c (sub-30c blocked entirely)
+- Caution zone expanded from 15-30c to 30-50c
+- Caution zone now requires 15pp edge (was 10pp) and 0.70 confidence (was 0.60)
+
+### Data Justification
+- Sub-30c trades: 4/19 WR=21%, PnL=-$93.60
+- 30-50c trades: 5/16 WR=31%, PnL=-$34.06
+- Simulated Option C: 56/67 WR=84%, PnL=+$506.32 (delta +$94.88 vs current)
+
 ## v4.3.0 NO-Side Integrity Audit + Calibration Fix (2026-04-03)
 
 ### Fixed
