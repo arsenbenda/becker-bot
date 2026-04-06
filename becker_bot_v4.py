@@ -212,7 +212,7 @@ CLUSTER_KEYWORDS = {
     "james_bond": ["james bond"],
 }
 
-MAX_POSITIONS_PER_CLUSTER = 3
+MAX_POSITIONS_PER_CLUSTER = 5
 MAX_CLUSTER_BANKROLL_PCT = 0.15
 
 def detect_clusters(question: str) -> list:
