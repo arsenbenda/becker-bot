@@ -25,8 +25,8 @@
 - Dashboard: 12-space indent inside column blocks
 
 ## Price-Tier Filter (v4.2.0) — Becker Longshot Bias Protection
-- Sub-15c: BLOCKED (YES and NO). Structural -41% to -16% EV per 72.1M trades.
-- 15-30c: Caution zone. Requires confidence >0.6 AND edge >10pp.
+- Sub-30c: BLOCKED (YES and NO). v4.3.1 raised from 15c. Tier A data: 21% WR, -$93.60.
+- 30-50c: Caution zone. Requires confidence >0.70 AND edge >12pp (v4.3.1a).
 - 30-80c: Unrestricted. Bot's sweet spot, minimal structural bias.
 - 80-95c: Half-Kelly sizing. Steamroller risk.
 - Rationale: takers buying YES at 1-10c win 0.43-4.18% vs implied 1-10%.
@@ -44,7 +44,7 @@
 
 ## Cluster Filter (v4.1.6-1.7, expanded v4.2.2)
 - 31 keyword clusters (added: champions_league, europa_league, la_liga, serie_a, epl, epl_relegation, epl_top4, us_midterms_2026, colombia_2026, hungary_politics, ai_models, hyperliquid, james_bond)
-- Max 3 per cluster, max 15% bankroll per cluster
+- Max 5 per cluster (temp, was 3), max 15% bankroll per cluster
 - 100% open position coverage (was 37% with 19 clusters)
 - Prune exits tagged close_reason: "cluster_prune"
 
@@ -70,19 +70,21 @@ Skip: poly-maker (Phase 3+), Polymarket/agents, arb-bot
 - RL (PPO): DEFERRED — needs 10k+ trades, dedicated infra
 
 ## Session Startup
-Human provides: Project: Becker Bot v4.3 / Repo: github.com/arsenbenda/becker-bot
+Human provides: Project: Becker Bot v4.3.1 / Repo: github.com/arsenbenda/becker-bot
 Assistant requests: tail -30 becker_bot.log + position summary one-liner
 
-## Current Status (2026-04-03, v4.3.0)
+## Current Status (2026-04-06, v4.3.1a)
 
-- 29 open, 164 closed (84.8% resolved WR, 48.9% overall incl. early exits), bankroll $755
-- Net P&L +$279, 139 trades, Kelly 15%, min edge 10pp, max bet 6%
+- 21 open, ~97 closed (85% resolved WR 28/33, 67% overall), bankroll $873
+- Net P&L +$275, total value $1,077 (+115% from $500 seed)
+- Kelly 0.10 (adaptive), price floor 30c, caution zone 30-50c (12pp edge + 0.70 conf)
+- Cluster cap temporarily 5 (was 3) — testing post-v4.3.1 entry flow
 - All filters active: price-tier, cluster (31), hybrid exit, deviation cap, spread gate
-- v4.3.0 fixes (P5-P9): NO-side corrections across codebase, circuit breaker bankroll fix
-- P9: Self-learner corrections now diagnostic-only; calibrator.py is sole correction source
-- Brier: bot=0.019 mkt=0.006 — gap is 84% from 3 pre-filter longshot YES trades (historical)
-- Learner corrections sane: sports +0.005, crypto +0.089, L2 +0.031, L1 -0.026
-- Gate: PASSED (164 trades). Next: unified scoring system
+- P9: Self-learner diagnostic-only; calibrator.py sole correction source
+- Brier: bot=0.019 mkt=0.006. Learner: sports -0.001, crypto +0.057, entertainment -0.198
+- Diagnostic logging: EDGE FAIL, EV FAIL added to evaluate() silent zone
+- No post-P9/v4.3.1 entries yet — market lacks qualifying opportunities
+- Gate: PASSED. Next: unified scoring system
 
-## Key Gotcha — Calibration (v4.3.0)
+## Key Gotcha — Calibration (v4.3.1)
 - Only calibrator.py modifies est_prob (Brier-proper, ±8pp cap). self_learner logs only (LEARNER_DIAG).
