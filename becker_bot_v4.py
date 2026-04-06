@@ -800,8 +800,8 @@ class BeckerBot:
             if confidence < 0.70:
                 log(f"CAUTION ZONE: {question[:50]} — price in 30-50c zone but confidence {confidence:.2f} < 0.70, skipping")
                 return None
-            if _raw_edge < 0.15:
-                log(f"CAUTION ZONE: {question[:50]} — price in 30-50c zone but edge {_raw_edge:.3f} < 0.15, skipping")
+            if _raw_edge < 0.12:
+                log(f"CAUTION ZONE: {question[:50]} — price in 30-50c zone but edge {_raw_edge:.3f} < 0.12, skipping")
                 return None
 
         edge_check = edge_is_real(yes_price, est_prob, cfg["MIN_EDGE_POINTS"])
