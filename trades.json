@@ -5163,5 +5163,15 @@
     "reason": "Tier B edge collapsed: 0.033",
     "pnl": -9.08,
     "timestamp": "2026-04-07T02:55:11.709468+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "572133",
+    "question": "No one announced as next James Bond?",
+    "reason": "6x edge thinning (Tier B)",
+    "pnl": 0.98,
+    "net_pnl": 0.3,
+    "fees": 0.67872,
+    "timestamp": "2026-04-07T07:19:00.270310+00:00"
   }
 ]

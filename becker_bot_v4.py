@@ -612,8 +612,9 @@ class BeckerBot:
             sum(1 for p in _closed if float(p.get("pnl", 0)) > 0)))
         self.realized_pnl = float(_saved.get("realized_pnl",
             sum(float(p.get("pnl", 0)) for p in _closed)))
-        _closed_fees = sum(float(p.get("total_fees", 0)) for p in self.positions if p.get("status") == "closed")
-        _closed_net = sum(float(p.get("net_pnl", p.get("pnl", 0))) for p in self.positions if p.get("status") == "closed")
+        _excl = ("cluster_prune", "longshot_filter", "contradiction_filter", "deviation_cap_bug")
+        _closed_fees = sum(float(p.get("total_fees", 0)) for p in self.positions if p.get("status") == "closed" and p.get("close_reason") not in _excl)
+        _closed_net = sum(float(p.get("net_pnl", p.get("pnl", 0))) for p in self.positions if p.get("status") == "closed" and p.get("close_reason") not in _excl)
         self.realized_pnl_net = _closed_net
         self.total_fees = _closed_fees
         log(f"  Restored fees: ${self.total_fees:.4f} | Net P&L: ${self.realized_pnl_net:+.2f}")
