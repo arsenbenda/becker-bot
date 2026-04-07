@@ -24,7 +24,7 @@
 - Circuit breaker: close_reason not in ("cluster_prune", "longshot_filter")
 - Dashboard: 12-space indent inside column blocks
 
-## Price-Tier Filter (v4.2.0) — Becker Longshot Bias Protection
+## Price-Tier Filter (v4.3.1a) — Becker Longshot Bias Protection
 - Sub-30c: BLOCKED (YES and NO). v4.3.1 raised from 15c. Tier A data: 21% WR, -$93.60.
 - 30-50c: Caution zone. Requires confidence >0.70 AND edge >12pp (v4.3.1a).
 - 30-80c: Unrestricted. Bot's sweet spot, minimal structural bias.
@@ -73,18 +73,18 @@ Skip: poly-maker (Phase 3+), Polymarket/agents, arb-bot
 Human provides: Project: Becker Bot v4.3.1 / Repo: github.com/arsenbenda/becker-bot
 Assistant requests: tail -30 becker_bot.log + position summary one-liner
 
-## Current Status (2026-04-06, v4.3.1a)
+## Current Status (2026-04-07, v4.3.1a + P11)
 
-- 21 open, ~97 closed (85% resolved WR 28/33, 67% overall), bankroll $873
-- Net P&L +$275, total value $1,077 (+115% from $500 seed)
-- Kelly 0.10 (adaptive), price floor 30c, caution zone 30-50c (12pp edge + 0.70 conf)
-- Cluster cap temporarily 5 (was 3) — testing post-v4.3.1 entry flow
-- All filters active: price-tier, cluster (31), hybrid exit, deviation cap, spread gate
-- P9: Self-learner diagnostic-only; calibrator.py sole correction source
-- Brier: bot=0.019 mkt=0.006. Learner: sports -0.001, crypto +0.057, entertainment -0.198
-- Diagnostic logging: EDGE FAIL, EV FAIL added to evaluate() silent zone
-- No post-P9/v4.3.1 entries yet — market lacks qualifying opportunities
+- 20 open, 99 closed (85% resolved WR 28/33, 67% overall), bankroll $500 (re-seed)
+- Net P&L +$386, Gross +$411. 34 Masters trades (-$665) excluded as deviation_cap_bug
+- Kelly 0.10 (adaptive), price floor 30c, caution zone 30-50c (12pp edge + 0.70 conf, <=0.50)
+- Cluster cap 3, per-event cap 3. Golf cluster added (32 total)
+- All filters active: price-tier, cluster (32), hybrid exit, deviation cap (anti-inflate), spread gate, event cap
+- P11 fixes: deviation cap anti-inflate, golf cluster, event cap, caution <=0.50, sports+golf category
+- Diagnostic logging: EDGE FAIL, EV FAIL in evaluate() silent zone
 - Gate: PASSED. Next: unified scoring system
-
+- TODO #8: Alpha combination engine (Phase 4.1, needs 500+ trades)
+- TODO #7 note: walk-forward validation (train 70% / validate 30%)
+- Phase 2.1 note: WebSocket, queue-aware limit orders, multi-level placement
 ## Key Gotcha — Calibration (v4.3.1)
 - Only calibrator.py modifies est_prob (Brier-proper, ±8pp cap). self_learner logs only (LEARNER_DIAG).
