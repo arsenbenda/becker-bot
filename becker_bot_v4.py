@@ -359,7 +359,7 @@ def calculate_ev(market_price: float, estimated_prob: float, category: str) -> d
 #  KELLY SIZING
 # ════════════════════════════════════════════════════════
 
-def kelly_size(bankroll, price, estimated_prob, side, kelly_fraction, max_bet_pct):
+def kelly_size(bankroll, price, estimated_prob, side, kelly_fraction, max_bet_pct, category="default"):
     if side == "YES":
         p, cost = estimated_prob, price
     else:
@@ -368,7 +368,10 @@ def kelly_size(bankroll, price, estimated_prob, side, kelly_fraction, max_bet_pc
     if cost <= 0 or cost >= 1:
         return {"bet": 0, "contracts": 0, "kelly_pct": 0, "warning": "invalid_price"}
 
-    b = (1.0 - cost) / cost
+    # Fee-aware Kelly: adjust cost by taker fee so b reflects true net odds
+    _fee = calculate_taker_fee(price if side == "YES" else 1.0 - price, category)
+    _fee_adj_cost = min(cost + _fee, 0.999)
+    b = (1.0 - _fee_adj_cost) / _fee_adj_cost
     q = 1.0 - p
     full_kelly = (b * p - q) / b if b > 0 else 0
     if full_kelly <= 0:
@@ -877,7 +880,7 @@ class BeckerBot:
             _max_bet *= 0.5
             log(f"KELLY REDUCE: {question[:50]} — entry {_entry:.3f} >= 0.80, using half-Kelly")
         k = kelly_size(self.bankroll, yes_price, est_prob,
-                       ev["best_side"], _kelly_frac, _max_bet)
+                       ev["best_side"], _kelly_frac, _max_bet, category)
         if k["bet"] <= 0 or k["contracts"] <= 0:
             return None
 
