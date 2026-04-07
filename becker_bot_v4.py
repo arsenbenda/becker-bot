@@ -214,7 +214,7 @@ CLUSTER_KEYWORDS = {
     "golf_tournament": ["masters tournament", "pga championship", "us open golf", "the open championship", "ryder cup"],
 }
 
-MAX_POSITIONS_PER_CLUSTER = 5
+MAX_POSITIONS_PER_CLUSTER = 3
 MAX_CLUSTER_BANKROLL_PCT = 0.15
 
 def detect_clusters(question: str) -> list:
