@@ -548,12 +548,19 @@ def extract_probability_gpt(question: str, research: str, market_price: float) -
         reasoning = result.get("reasoning", "")
 
         # Max deviation cap: clamp AI estimate to within 30pp of market price
+        # CRITICAL: only deflate extreme estimates, never inflate toward market
         max_dev = 0.30
         original_prob = prob
         if abs(prob - market_price) > max_dev:
             clamped = max(market_price - max_dev, min(market_price + max_dev, prob))
             clamped = max(0.01, min(0.99, clamped))
-            log(f"DEVIATION CAP: {question[:50]} — AI={original_prob:.2f} mkt={market_price:.2f} clamped={clamped:.2f} ({abs(original_prob - market_price)*100:.0f}pp dev)")
+            # Safety: never move AI estimate TOWARD market if AI is more extreme
+            # e.g. AI=0.01, mkt=0.50 -> clamped=0.20 is INFLATING, block this
+            if abs(clamped - 0.50) < abs(original_prob - 0.50):
+                log(f"DEVIATION CAP BLOCKED: {question[:50]} — AI={original_prob:.2f} mkt={market_price:.2f} would inflate to {clamped:.2f}, keeping AI estimate")
+                clamped = original_prob
+            else:
+                log(f"DEVIATION CAP: {question[:50]} — AI={original_prob:.2f} mkt={market_price:.2f} clamped={clamped:.2f} ({abs(original_prob - market_price)*100:.0f}pp dev)")
             prob = clamped
             reasoning = f"[CLAMPED from {original_prob:.2f}] {reasoning}"
 

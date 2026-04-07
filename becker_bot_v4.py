@@ -210,6 +210,8 @@ CLUSTER_KEYWORDS = {
     # ── Entertainment ──
     "taylor_swift": ["taylor swift"],
     "james_bond": ["james bond"],
+    # ── Golf ──
+    "golf_tournament": ["masters tournament", "pga championship", "us open golf", "the open championship", "ryder cup"],
 }
 
 MAX_POSITIONS_PER_CLUSTER = 5
@@ -267,7 +269,7 @@ def infer_category(market: dict) -> str:
                      "sol", "defi", "token", "usdc", "usdt", "xrp", "doge",
                      "coin", "megaeth", "airdrop", "market cap (fdv)"]),
         ("sports", ["nba", "nfl", "mlb", "nhl", "soccer", "football",
-                     "basketball", "tennis", "ufc", "stanley cup",
+                     "basketball", "tennis", "ufc", "stanley cup", "golf", "masters tournament", "pga", "ryder cup",
                      "championship", "premier league", "la liga", "fifa",
                      "world cup", "qualify", "mvp", "rookie of the",
                      "conference finals", "playoffs", "stanley cup",
@@ -678,6 +680,16 @@ class BeckerBot:
                     log(f"CLUSTER $CAP: {question[:50]} — cluster '{_cid}' cost ${_exp['cost']:.2f} >= ${_max_cost:.2f} (15% bankroll)")
                     return None
 
+        # Step 0c2: Per-event position limit (safety net — max 3 per event)
+        _event_title = market.get("event_title", "")
+        if _event_title:
+            _positions = load_positions() if '_positions' not in dir() else _positions
+            _event_count = sum(1 for p in _positions if p.get("status") == "open"
+                              and p.get("event_title", "") == _event_title)
+            if _event_count >= 3:
+                log(f"EVENT CAP: {question[:50]} — event '{_event_title[:40]}' has {_event_count} positions (max 3)")
+                return None
+
 
         # Step 0c2: Mutual exclusion filter — prevent contradictory positions
         # Detects: same election/league/tournament with different candidates/outcomes
@@ -721,7 +733,7 @@ class BeckerBot:
         
         # 30-50c zone: require higher confidence + 15pp edge (v4.3.1)
         # Data: 30-50c trades had 31% WR, -$34.06 at standard 10pp edge
-        _in_caution_zone = (_yes_price < 0.50) or (_no_price < 0.50)
+        _in_caution_zone = (_yes_price <= 0.50) or (_no_price <= 0.50)
 
         # Step 1: Smart probability estimation
         est = estimate_probability(
