@@ -1,4 +1,4 @@
-# Becker Bot v4.3 -- Polymarket Paper-Trading Bot
+# Becker Bot v4.3.1a — Polymarket Paper-Trading Bot
 
 Autonomous prediction-market trading bot targeting Polymarket. Currently in **paper-trading mode** validating edge before live deployment. Named after the Becker study (72.1M trades analysis of prediction market inefficiencies).
 
@@ -12,23 +12,26 @@ SSH into the VPS, then:
     systemctl restart becker-bot        # restart bot
     systemctl restart becker-dashboard  # restart dashboard
 
-## Current Performance (as of 2026-04-03, v4.3.0)
+## Current Performance (as of 2026-04-07, v4.3.1a + P12b)
 
 | Metric | Value |
 | --- | --- |
 | Mode | Paper Trading |
-| Scan count | 1,475+ |
-| Open positions | 29/60 |
-| Closed trades | 89 real + 75 pruned/longshot |
-| Win rate (overall) | 68.5% |
+| Open positions | 19/60 |
+| Closed trades | 99 (excl. 34 Masters deviation_cap_bug) |
+| Win rate (overall) | 66.7% |
 | Win rate (resolved) | 85% (28/33) |
-| Net P&L (after fees) | +$279.40 |
-| Total fees | $84.37 |
-| Starting bankroll | $500.00 |
-| Current bankroll | $755.57 |
-| Total value | $1,073.83 (+114.8%) |
+| Net P&L (after fees) | +$385.79 |
+| Gross P&L | +$410.94 |
+| Total fees | ~$26.16 |
+| Bankroll | $500.00 (re-seeded post-Masters) |
+| Total value | ~$675 |
 | API cost | ~$0.69/day |
+| Kelly fraction | 0.10 (adaptive) |
 | Brier score | Bot 0.019, Market 0.006 (n=33) |
+| Tier B WR | 82% (+$117.58) |
+| Tier C WR | 97% (+$421.52) |
+| Active patches | P11 (Masters fixes) + P12 (adaptive edge) + P12b (fee-aware Kelly) |
 | Categories | geopolitics, sports, crypto, politics, entertainment |
 
 ## How It Works

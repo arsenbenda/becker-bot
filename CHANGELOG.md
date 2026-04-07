@@ -1,5 +1,21 @@
 # Changelog — Becker Bot
 
+## v4.3.1a + P12 (2026-04-07) — Post-Masters Hardening + Session Fixes
+
+### Fixed
+- Duplicate log writes: `log()` was writing directly to `becker_bot.log` AND systemd was capturing stdout to the same file via `StandardOutput=append`. Every line appeared twice. Removed manual file write from `log()` — systemd is now sole writer via `StandardOutput=append`.
+- Version banner: both runtime log banner and startup print now correctly display `v4.3.1a — PAPER` (was `v4.1`).
+
+### Added
+- P12: Adaptive min-edge — Brier-driven per-category edge threshold inserted before `edge_is_real()` in `evaluate()`. Bot-beats-market categories (geopolitics n=9, crypto n=6) get relaxed edge (base−3pp, floor 0.03). Market-beats-bot categories (politics n=5, sports n=9) get tightened edge (base+5pp, cap 0.15). Categories with n<5 fall back to global `MIN_EDGE_POINTS`. Logs `ADAPTIVE EDGE` on every adjustment.
+- P12b: Fee-aware Kelly sizing — `kelly_size()` now accepts `category` param and adjusts `cost` by `calculate_taker_fee()` before computing `b = (1−cost)/cost`. True net odds now reflected in sizing. Particularly impactful for near-zero-fee categories (geopolitics, world_events: 0% taker fee) and high-confidence NO trades where fee is minimised.
+
+### Current State (post-session)
+- Bankroll $500 (re-seeded post-Masters), Net P&L +$385.79, Gross +$410.94
+- 19/60 open, 99 closed (66.7% overall WR, 85% resolved WR 28/33)
+- 34 Masters trades excluded as `deviation_cap_bug`
+- Active patches: P11 (Masters fixes) + P12 (adaptive edge) + P12b (fee-aware Kelly)
+
 ## v4.3.1 (2026-04-06) — Tier A Entry Filter (Option C)
 
 ### Changes
