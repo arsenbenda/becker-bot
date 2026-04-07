@@ -813,9 +813,25 @@ class BeckerBot:
                 log(f"CAUTION ZONE: {question[:50]} — price in 30-50c zone but edge {_raw_edge:.3f} < 0.12, skipping")
                 return None
 
-        edge_check = edge_is_real(yes_price, est_prob, cfg["MIN_EDGE_POINTS"])
+        # Adaptive min-edge: Brier-driven per-category threshold
+        _base_edge = cfg["MIN_EDGE_POINTS"]
+        _cat_brier = (_cal_state or {}).get("by_category", {}).get(category, {})
+        _cat_n = _cat_brier.get("sample_size", 0)
+        if _cat_n >= 5:
+            if _cat_brier.get("bot_beats_market"):
+                # Bot better calibrated than market → relax edge (floor: base - 3pp, min 0.03)
+                _adaptive_min_edge = max(0.03, _base_edge - 0.03)
+            else:
+                # Bot worse than market → tighten edge (cap: base + 5pp, max 0.15)
+                _adaptive_min_edge = min(0.15, _base_edge + 0.05)
+        else:
+            _adaptive_min_edge = _base_edge
+        if _adaptive_min_edge != _base_edge:
+            log(f"ADAPTIVE EDGE: {category} n={_cat_n} beats_mkt={_cat_brier.get('bot_beats_market')} → {_base_edge:.2f}→{_adaptive_min_edge:.2f}")
+
+        edge_check = edge_is_real(yes_price, est_prob, _adaptive_min_edge)
         if not edge_check["passed"]:
-            log(f"EDGE FAIL: {question[:50]} — raw_edge {_raw_edge:.3f}, min {cfg['MIN_EDGE_POINTS']}pp, est {est_prob:.3f} vs price {yes_price:.3f}")
+            log(f"EDGE FAIL: {question[:50]} — raw_edge {_raw_edge:.3f}, min {_adaptive_min_edge:.2f}pp (adaptive), est {est_prob:.3f} vs price {yes_price:.3f}")
             return None
 
         # Step 3: EV with fees
