@@ -242,7 +242,7 @@ if __name__ == "__main__":
     positions = load_positions()
     closed = [p for p in positions if p.get("status") == "closed"
               and p.get("close_reason") not in
-              ("cluster_prune", "longshot_filter", "contradiction_filter")]
+              ("cluster_prune", "longshot_filter", "contradiction_filter", "deviation_cap_bug")]
 
     print(f"Analyzing {len(closed)} closed trades...\n")
     cal = compute_calibration(closed)

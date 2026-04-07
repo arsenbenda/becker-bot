@@ -6028,7 +6028,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -35.83,
     "price_updated_at": "2026-04-07T02:51:51.052964+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568696",
@@ -6060,7 +6060,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -33.65,
     "price_updated_at": "2026-04-07T02:51:51.278216+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568699",
@@ -6092,7 +6092,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -32.99,
     "price_updated_at": "2026-04-07T02:51:51.493383+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568709",
@@ -6124,7 +6124,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -31.65,
     "price_updated_at": "2026-04-07T02:51:51.718537+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568693",
@@ -6156,7 +6156,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -30.36,
     "price_updated_at": "2026-04-07T02:51:51.914330+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568697",
@@ -6188,7 +6188,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -29.12,
     "price_updated_at": "2026-04-07T02:51:52.125228+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568701",
@@ -6220,7 +6220,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -27.94,
     "price_updated_at": "2026-04-07T02:51:52.327158+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568708",
@@ -6252,7 +6252,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -26.8,
     "price_updated_at": "2026-04-07T02:51:52.538392+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568712",
@@ -6284,7 +6284,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -25.71,
     "price_updated_at": "2026-04-07T02:51:52.757410+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568714",
@@ -6316,7 +6316,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -24.66,
     "price_updated_at": "2026-04-07T02:51:52.997845+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568692",
@@ -6348,7 +6348,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -23.65,
     "price_updated_at": "2026-04-07T02:51:53.208914+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568702",
@@ -6380,7 +6380,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -22.69,
     "price_updated_at": "2026-04-07T02:51:53.416942+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568713",
@@ -6412,7 +6412,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -21.77,
     "price_updated_at": "2026-04-07T02:51:53.630528+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568689",
@@ -6444,7 +6444,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -20.88,
     "price_updated_at": "2026-04-07T02:51:53.864730+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568695",
@@ -6476,7 +6476,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -20.03,
     "price_updated_at": "2026-04-07T02:51:54.066889+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568700",
@@ -6508,7 +6508,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -19.21,
     "price_updated_at": "2026-04-07T02:51:54.282769+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568703",
@@ -6540,7 +6540,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -18.43,
     "price_updated_at": "2026-04-07T02:51:54.528350+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568704",
@@ -6572,7 +6572,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -17.68,
     "price_updated_at": "2026-04-07T02:51:54.743044+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568705",
@@ -6604,7 +6604,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -16.96,
     "price_updated_at": "2026-04-07T02:51:54.960429+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568706",
@@ -6636,7 +6636,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -16.27,
     "price_updated_at": "2026-04-07T02:51:55.160931+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568707",
@@ -6668,7 +6668,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -15.6,
     "price_updated_at": "2026-04-07T02:51:55.406569+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568710",
@@ -6700,7 +6700,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -14.97,
     "price_updated_at": "2026-04-07T02:51:55.620957+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568690",
@@ -6732,7 +6732,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -14.36,
     "price_updated_at": "2026-04-07T02:51:55.827996+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568698",
@@ -6764,7 +6764,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -13.77,
     "price_updated_at": "2026-04-07T02:51:56.034746+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "568711",
@@ -6796,7 +6796,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -13.21,
     "price_updated_at": "2026-04-07T02:51:56.245319+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "575823",
@@ -6828,7 +6828,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -12.67,
     "price_updated_at": "2026-04-07T02:51:56.450839+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "575824",
@@ -6860,7 +6860,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -12.16,
     "price_updated_at": "2026-04-07T02:51:56.693528+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "575825",
@@ -6892,7 +6892,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -11.66,
     "price_updated_at": "2026-04-07T02:51:56.904818+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "575826",
@@ -6924,7 +6924,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -11.19,
     "price_updated_at": "2026-04-07T02:51:57.151754+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "575827",
@@ -6956,7 +6956,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -10.73,
     "price_updated_at": "2026-04-07T02:51:57.382648+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "575828",
@@ -6988,7 +6988,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -10.29,
     "price_updated_at": "2026-04-07T02:51:57.595804+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "575829",
@@ -7020,7 +7020,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -9.92,
     "price_updated_at": "2026-04-07T02:51:57.826283+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "575830",
@@ -7052,7 +7052,7 @@
     "current_price": 1.0,
     "unrealised_pnl": -9.47,
     "price_updated_at": "2026-04-07T02:51:58.060721+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   },
   {
     "market_id": "575831",
@@ -7084,6 +7084,6 @@
     "current_price": 1.0,
     "unrealised_pnl": -9.08,
     "price_updated_at": "2026-04-07T02:51:58.274482+00:00",
-    "close_reason": "resolved"
+    "close_reason": "deviation_cap_bug"
   }
 ]

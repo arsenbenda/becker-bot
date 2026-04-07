@@ -1443,5 +1443,6 @@
     "MAX_LEVERAGE": 1.5,
     "MIN_VOL_ALLOCATION": 0.2,
     "EWMA_DECAY": 0.94
-  }
+  },
+  "bankroll": 500.0
 }

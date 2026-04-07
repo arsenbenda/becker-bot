@@ -1120,7 +1120,7 @@ class BeckerBot:
         # Phase 0.4: Daily drawdown circuit breaker
         _today_closed = [p for p in self.positions if p.get("status") == "closed"
                          and p.get("closed_at", "")[:10] == datetime.now(timezone.utc).strftime("%Y-%m-%d")
-                         and p.get("close_reason") not in ("cluster_prune", "longshot_filter", "contradiction_filter")]
+                         and p.get("close_reason") not in ("cluster_prune", "longshot_filter", "contradiction_filter", "deviation_cap_bug")]
         _today_losses = sum(float(p.get("pnl", 0)) for p in _today_closed if float(p.get("pnl", 0)) < 0)
         _drawdown_limit = self.bankroll * 0.05  # P8: use current bankroll, not initial seed
         _circuit_breaker = abs(_today_losses) >= _drawdown_limit
@@ -1168,7 +1168,7 @@ class BeckerBot:
         # Run Brier-based calibrator (v4.2.2)
         _closed_clean = [p for p in self.positions if p.get("status") == "closed"
                          and p.get("close_reason") not in
-                         ("cluster_prune", "longshot_filter", "contradiction_filter")]
+                         ("cluster_prune", "longshot_filter", "contradiction_filter", "deviation_cap_bug")]
         if len(_closed_clean) >= 5:
             try:
                 _cal = compute_calibration(_closed_clean)
@@ -1226,8 +1226,8 @@ class BeckerBot:
         deployed = sum(p.get("cost", 0) for p in open_pos)
         # Always compute from actual positions — single source of truth
         _closed = [p for p in self.positions if p.get("status") == "closed"]
-        _real = [p for p in _closed if p.get("close_reason") not in ("cluster_prune", "longshot_filter")]
-        _pruned = [p for p in _closed if p.get("close_reason") in ("cluster_prune", "longshot_filter")]
+        _real = [p for p in _closed if p.get("close_reason") not in ("cluster_prune", "longshot_filter", "deviation_cap_bug")]
+        _pruned = [p for p in _closed if p.get("close_reason") in ("cluster_prune", "longshot_filter", "deviation_cap_bug")]
         _wins = sum(1 for p in _real if float(p.get("pnl", 0)) > 0)
         _total = len(_real)
         # Resolved trades: close_price near 0 or 1 (market settled)
