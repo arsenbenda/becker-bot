@@ -606,7 +606,7 @@ class BeckerBot:
             _saved = _raw.get("status", _raw)  # handle nested or flat
         except:
             _saved = {}
-        _closed = [p for p in self.positions if p.get("status") == "closed"]
+        _closed = [p for p in self.positions if p.get("status") == "closed" and p.get("close_reason") not in ("cluster_prune", "longshot_filter", "contradiction_filter", "deviation_cap_bug")]
         self.total_trades = int(_saved.get("total_trades", len(_closed)))
         self.winning_trades = int(_saved.get("winning_trades",
             sum(1 for p in _closed if float(p.get("pnl", 0)) > 0)))
