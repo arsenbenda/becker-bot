@@ -1244,7 +1244,7 @@ class BeckerBot:
         self.winning_trades = _wins
 
         log("\n" + "=" * 65)
-        log(f"  BECKER BOT v4.1 — {'PAPER' if not self.cfg['LIVE_MODE'] else 'LIVE'}")
+        log(f"  BECKER BOT v4.3.1a — {'PAPER' if not self.cfg['LIVE_MODE'] else 'LIVE'}")
         log("=" * 65)
         log(f"  Bankroll:  ${self.bankroll:>10.2f}")
         log(f"  Deployed:  ${deployed:>10.2f}")
@@ -1264,7 +1264,7 @@ class BeckerBot:
 def main():
     bot = BeckerBot()
     print("\n" + "█" * 65)
-    print("  BECKER BOT v4.1 — Polymarket Paper Trading")
+    print("  BECKER BOT v4.3.1a — Polymarket Paper Trading")
     print("  Becker 72.1M trades | Dunik filters | Noisy vol | 3-layer AI")
     print("█" * 65 + "\n")
 
