@@ -744,9 +744,9 @@ if "Dashboard" in page:
                 wr = v["wins"] / n * 100 if n > 0 else 0
                 retired = " (retired)" if cat in ("sports", "politics") and src == "L1 AI" else ""
                 active = "L2 primary" if cat in ("sports", "politics") and src == "L2 Quant" else ""
-                status = "🔴" if retired else ("🟢" if wr >= 55 else "🟡" if wr >= 40 else "🔴")
+                _lp_status = "🔴" if retired else ("🟢" if wr >= 55 else "🟡" if wr >= 40 else "🔴")
                 _lp_rows.append({
-                    "": status,
+                    "": _lp_status,
                     "Category": cat.title(),
                     "Layer": src + retired,
                     "Trades": n,
