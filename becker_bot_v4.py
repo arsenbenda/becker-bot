@@ -1184,6 +1184,21 @@ class BeckerBot:
                 parsed.append(m)
 
         log(f"Parsed {len(parsed)} eligible markets (liq >= ${cfg['MIN_LIQUIDITY']})")
+
+        # P15: Category diversity cap — max 25 markets per inferred category per scan
+        from collections import defaultdict
+        _cat_buckets = defaultdict(list)
+        for _m in parsed:
+            _cat = _m.get("category") or "unknown"
+            _cat_buckets[_cat].append(_m)
+        import random as _random
+        _diverse = []
+        for _cat, _ms in _cat_buckets.items():
+            _random.shuffle(_ms)
+            _diverse.extend(_ms[:25])
+        _random.shuffle(_diverse)
+        parsed = _diverse
+        log(f"P15 diversity: {len(parsed)} markets — " + str({k: len(v) for k, v in sorted(_cat_buckets.items())}))
         self.markets_scanned_total += len(parsed)
 
         # Phase 0.4: Daily drawdown circuit breaker
