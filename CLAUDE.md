@@ -26,7 +26,7 @@
 
 ## Price-Tier Filter (v4.3.1a) — Becker Longshot Bias Protection
 - Sub-30c: BLOCKED (YES and NO). v4.3.1 raised from 15c. Tier A data: 21% WR, -$93.60.
-- 30-50c: Caution zone. Requires confidence >0.70 AND edge >12pp (v4.3.1a).
+- 30-50c: Caution zone. Requires confidence ≥0.70 (L1/L3) or ≥0.50 (L2). Edge gate = adaptive MIN_EDGE_POINTS (P14).
 - 30-80c: Unrestricted. Bot's sweet spot, minimal structural bias.
 - 80-95c: Half-Kelly sizing. Steamroller risk.
 - Rationale: takers buying YES at 1-10c win 0.43-4.18% vs implied 1-10%.
@@ -73,26 +73,17 @@ Skip: poly-maker (Phase 3+), Polymarket/agents, arb-bot
 Human provides: Project: Becker Bot v4.3.1 / Repo: github.com/arsenbenda/becker-bot
 Assistant requests: tail -30 becker_bot.log + position summary one-liner
 
-## Current Status (2026-04-13, v4.3.1a + P13d)
+## Current Status (2026-04-13, v4.3.1a + P15)
 
-- 19 open, 99 closed (85% resolved WR 28/33, 66.7% overall), bankroll $500 (re-seed)
-- Net P&L +$385.79, Gross +$410.94. 34 Masters trades excluded as deviation_cap_bug
-- Kelly 0.10 (adaptive), price floor 30c, caution zone 30-50c (12pp edge + 0.70 conf, <=0.50)
-- P12: Adaptive min-edge — geopolitics/crypto relaxed (base−3pp), politics/sports tightened (base+5pp)
-- P12b: Fee-aware Kelly — kelly_size() adjusts net odds by taker fee per category
-- P13a: Block default category at entry gate (uncategorized markets skipped)
-- P13b: L1 AI retired for sports/politics — L2 quant is primary (100% WR vs L1 46%/38%)
-- P13c: Auto-block circuit breaker checks full history, not just rolling window
-- P13d: LLM fallback categorizer (GPT-4o-mini classifies when keywords miss)
-- Duplicate log write fixed — systemd sole writer via StandardOutput=append
-- Known issues: Entertainment WR 44% (n=10) — 10 trades until auto-block threshold
-- Cluster cap 3, per-event cap 3. Golf cluster added (32 total)
-- All filters active: price-tier, cluster (32), hybrid exit, deviation cap (anti-inflate), spread gate, event cap
-- P11 fixes: deviation cap anti-inflate, golf cluster, event cap, caution <=0.50, sports+golf category
-- Diagnostic logging: EDGE FAIL, EV FAIL in evaluate() silent zone
-- Gate: PASSED. Next: unified scoring system
-- TODO #8: Alpha combination engine (Phase 4.1, needs 500+ trades)
-- TODO #7 note: walk-forward validation (train 70% / validate 30%)
-- Phase 2.1 note: WebSocket, queue-aware limit orders, multi-level placement
+- 9 open, 219 closed | Bankroll $557.23 | Filtered Net P&L +$385.79 | True Net P&L -$421.77
+- Kelly 0.10 (adaptive), price floor 30c, caution zone conf-only gate (P14)
+- MIN_EDGE_POINTS: 0.06 (reset from 0.10 auto-tune overcorrection)
+- Adaptive floors: crypto/geo beats_mkt → 0.03; sports/politics loses → 0.11
+- P13a: Block default category | P13b: L1 retired sports/politics | P13c: full-history circuit breaker
+- P13d: LLM fallback categorizer | P14: caution zone edge hardcode removed + MIN_EDGE reset
+- P15: Category diversity cap (max 25/category/scan) — prevents presidential market flood
+- Roadmap 1.7 COMPLETE (19/21). Remaining: 1.3, 1.6, 1.10, 1.11
+- Watch: Entertainment WR 50% n=10 — 10 trades to auto-block; L2 100% WR will regress (n=15)
+
 ## Key Gotcha — Calibration (v4.3.1)
 - Only calibrator.py modifies est_prob (Brier-proper, ±8pp cap). self_learner logs only (LEARNER_DIAG).

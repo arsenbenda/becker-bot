@@ -37,7 +37,7 @@
 - [x] 1.4 Live unrealised P&L (CLOB mid-price per position)
 - [x] 1.5 Category auto-block (<40% win rate over 20+ trades)
 - [ ] 1.6 Adaptive scan intervals (120s volatile / 600s calm)
-- [ ] 1.7 Auto-retire Layer 1 (when L2 outperforms by >2pp MAE)
+- [x] 1.7 Auto-retire Layer 1 (when L2 outperforms by >2pp MAE) — P13b: L1 retired for sports/politics
 - [ ] 1.8 Geopolitics priority mode — DEFERRED to unified scoring system
 - [x] 1.9 Category performance dashboard panel
 - [ ] 1.10 Install pmxt library
@@ -57,7 +57,7 @@
 - [x] 1.20 Cluster keywords expanded (dem_2028, rep_2028, fifa_wc_2026, us_presidential_2028)
 - [x] 1.21 Longshot position cleanup (50 sub-15c YES positions force-closed)
 
-**Phase 1 status:** 18/21 complete. Remaining: 1.3, 1.6, 1.10, 1.11 (1.8 deferred).
+**Phase 1 status:** 19/21 complete. Remaining: 1.3, 1.6, 1.10, 1.11 (1.8 deferred).
 
 ## Phase 2 — Execution & Data
 

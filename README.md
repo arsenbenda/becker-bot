@@ -12,26 +12,26 @@ SSH into the VPS, then:
     systemctl restart becker-bot        # restart bot
     systemctl restart becker-dashboard  # restart dashboard
 
-## Current Performance (as of 2026-04-07, v4.3.1a + P12b)
+## Current Performance (as of 2026-04-13, v4.3.1a + P15)
 
 | Metric | Value |
 | --- | --- |
 | Mode | Paper Trading |
-| Open positions | 19/60 |
-| Closed trades | 99 (excl. 34 Masters deviation_cap_bug) |
-| Win rate (overall) | 66.7% |
-| Win rate (resolved) | 85% (28/33) |
-| Net P&L (after fees) | +$385.79 |
-| Gross P&L | +$410.94 |
-| Total fees | ~$26.16 |
-| Bankroll | $500.00 (re-seeded post-Masters) |
+| Open positions | 9/60 |
+| Closed trades | 219 (excl. 34 Masters deviation_cap_bug) |
+| Win rate (overall) | 61.5% (sports), 58.8% (politics), 75% (geo), 78.6% (crypto) |
+| Win rate (resolved) | see per-category above |
+| Net P&L (filtered) | +$385.79 |
+| Net P&L (true incl. bug trades) | -$421.77 |
+| Total fees | $108.38 |
+| Bankroll | $557.23 |
 | Total value | ~$675 |
 | API cost | ~$0.69/day |
 | Kelly fraction | 0.10 (adaptive) |
 | Brier score | Bot 0.019, Market 0.006 (n=33) |
 | Tier B WR | 82% (+$117.58) |
 | Tier C WR | 97% (+$421.52) |
-| Active patches | P11 (Masters fixes) + P12 (adaptive edge) + P12b (fee-aware Kelly) + P13 (layer routing + default block) |
+| Active patches | P11-P13d (layer routing, default block) + P14 (edge gate fix) + P15 (diversity cap) |
 | Categories | geopolitics, sports, crypto, politics, entertainment |
 
 ## How It Works

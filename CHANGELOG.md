@@ -1,5 +1,26 @@
 # Changelog — Becker Bot
 
+## P14 + P15 — Edge Gate Fix + Category Diversity Cap (2026-04-13, commits 3a3c71d, c8b6de5)
+
+### Root Cause
+L1 auto-tuner (April 3) raised MIN_EDGE_POINTS 0.02→0.10 in response to L1 sports/politics underperformance.
+P13b then retired L1 for those categories — but the overcorrection remained.
+Additionally, a hardcoded `_raw_edge < 0.12` check in the caution zone (30–50c) ran *before* the adaptive
+edge system and blocked every caution-zone trade regardless of source. Result: 3-day trade drought.
+
+### P14: Fix orphaned caution zone edge hardcode
+- Removed `if _raw_edge < 0.12` from caution zone gate — this bypassed adaptive edge entirely
+- Caution zone now only checks confidence (correct gate: L2 ≥0.50, L1/L3 ≥0.70)
+- Adaptive edge system (line ~891) handles all edge filtering for all zones uniformly
+- Also reset MIN_EDGE_POINTS 0.10→0.06 in bot_state.json (auto-tuner overcorrection)
+- Effective adaptive floors: crypto/geo (bot beats mkt) → 0.03; sports/politics → 0.11
+
+### P15: Category diversity cap
+- Added post-parse diversity filter: max 25 markets per inferred category per scan
+- Prevents 2028 presidential market flood from consuming entire 348-market evaluation budget
+- Logs `P15 diversity: N markets — {category: count}` each scan for monitoring
+- Markets shuffled within each bucket to ensure random sampling across the category
+
 ## P13 — Category-Aware Layer Routing + Default Block (2026-04-13, commit 3b481c6)
 
 ### P13a: Block default category at entry gate
