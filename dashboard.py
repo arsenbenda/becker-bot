@@ -719,6 +719,49 @@ if "Dashboard" in page:
     ""
     ""
 
+    # ── ROW 3.6b: Layer Performance by Category (P13 Monitor) ──
+    with st.container(border=True):
+        st.caption("ESTIMATOR LAYER PERFORMANCE BY CATEGORY (P13)")
+        _excl_reasons = ("cluster_prune", "longshot_filter", "contradiction_filter", "deviation_cap_bug")
+        _lp_trades = [c for c in closed_pos if c.get("close_reason") not in _excl_reasons]
+        if _lp_trades:
+            _lp_data = {}
+            for t in _lp_trades:
+                cat = t.get("category", "other")
+                src = (t.get("estimator_source") or "unknown").replace("layer1_ai", "L1 AI").replace("layer2_quantitative", "L2 Quant").replace("layer3_becker", "L3 Becker")
+                key = (cat, src)
+                if key not in _lp_data:
+                    _lp_data[key] = {"wins": 0, "losses": 0, "pnl": 0.0}
+                if float(t.get("net_pnl", t.get("pnl", 0))) > 0:
+                    _lp_data[key]["wins"] += 1
+                else:
+                    _lp_data[key]["losses"] += 1
+                _lp_data[key]["pnl"] += float(t.get("net_pnl", t.get("pnl", 0)))
+
+            _lp_rows = []
+            for (cat, src), v in sorted(_lp_data.items(), key=lambda x: (-x[1]["wins"] - x[1]["losses"])):
+                n = v["wins"] + v["losses"]
+                wr = v["wins"] / n * 100 if n > 0 else 0
+                retired = " (retired)" if cat in ("sports", "politics") and src == "L1 AI" else ""
+                active = "L2 primary" if cat in ("sports", "politics") and src == "L2 Quant" else ""
+                status = "🔴" if retired else ("🟢" if wr >= 55 else "🟡" if wr >= 40 else "🔴")
+                _lp_rows.append({
+                    "": status,
+                    "Category": cat.title(),
+                    "Layer": src + retired,
+                    "Trades": n,
+                    "Win Rate": f"{wr:.0f}%",
+                    "Net P&L": f"${v['pnl']:+.2f}",
+                    "Note": active,
+                })
+            st.dataframe(pd.DataFrame(_lp_rows), use_container_width=True, hide_index=True,
+                         height=min(len(_lp_rows) * 38 + 40, 400))
+        else:
+            st.info("No qualifying closed trades yet", icon=":material/hourglass_empty:")
+
+    ""
+    ""
+
     # ── ROW 3.7: Score Card ──
     """
     ## Score Card
