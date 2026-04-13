@@ -1187,11 +1187,18 @@ class BeckerBot:
 
         # P15: Category diversity cap — max 25 markets per inferred category per scan
         from collections import defaultdict
+        import random as _random
+        def _p15_cat(q):
+            q = q.lower()
+            if any(x in q for x in ["bitcoin","crypto","eth","solana","btc","token","opensea","nft","defi"]): return "crypto"
+            if any(x in q for x in ["2028","governor","senate","congress","democrat","republican","election","mayor","president"]): return "politics"
+            if any(x in q for x in ["nba","nfl","nhl","mlb","soccer","premier","champions","world cup","tennis","golf","ufc","nascar"]): return "sports"
+            if any(x in q for x in ["war","ukraine","russia","nato","china","taiwan","israel","iran","nuclear","sanction"]): return "geopolitics"
+            if any(x in q for x in ["apple","google","tesla","ai","openai","gpt","microsoft","amazon","meta","fed","gdp","inflation"]): return "tech_econ"
+            return "other"
         _cat_buckets = defaultdict(list)
         for _m in parsed:
-            _cat = _m.get("category") or "unknown"
-            _cat_buckets[_cat].append(_m)
-        import random as _random
+            _cat_buckets[_p15_cat(_m["question"])].append(_m)
         _diverse = []
         for _cat, _ms in _cat_buckets.items():
             _random.shuffle(_ms)
