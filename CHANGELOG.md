@@ -1,5 +1,29 @@
 # Changelog — Becker Bot
 
+## P13 — Category-Aware Layer Routing + Default Block (2026-04-13, commit 3b481c6)
+
+### P13a: Block default category at entry gate
+- Markets that fail keyword categorization AND LLM fallback are blocked
+- Prevents uncategorized trades from bypassing edge/fee/learner safeguards
+- Would have prevented the -$632 Masters blowup (34 trades as "default")
+
+### P13b: Retire L1 AI for sports and politics
+- L1 AI WR: sports 46.4% (-$30.59), politics 38.5% (-$24.35)
+- L2 quant WR: sports 100% (+$78.89), politics 100% (+$69.23)
+- Sports/politics now route to L2 first, skip L1 entirely, fall to L3 if L2 unavailable
+- L1 remains active for crypto (78.6% WR), geopolitics, entertainment, tech
+- Implements roadmap item 1.7 (auto-retire L1 when L2 outperforms)
+
+### P13c: Fix category auto-block circuit breaker
+- Circuit breaker now checks full trade history, not just rolling 50-trade window
+- Rolling window exclusions were hiding underperformance
+
+### P13d: LLM fallback categorizer
+- Two-stage: fast keywords first (free), GPT-4o-mini fallback for unknowns (~$0.001/call)
+- Eliminates keyword maintenance whack-a-mole
+- Confirmed working: Erdogan market correctly classified as politics
+
+
 ## v4.3.1a + P12 (2026-04-07) — Post-Masters Hardening + Session Fixes
 
 ### Fixed

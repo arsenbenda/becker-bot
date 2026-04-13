@@ -57,7 +57,7 @@
 - [x] 1.20 Cluster keywords expanded (dem_2028, rep_2028, fifa_wc_2026, us_presidential_2028)
 - [x] 1.21 Longshot position cleanup (50 sub-15c YES positions force-closed)
 
-**Phase 1 status:** 17/21 complete. Remaining: 1.3, 1.6, 1.7, 1.10, 1.11 (1.8 deferred).
+**Phase 1 status:** 18/21 complete. Remaining: 1.3, 1.6, 1.10, 1.11 (1.8 deferred).
 
 ## Phase 2 — Execution & Data
 

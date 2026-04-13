@@ -31,7 +31,7 @@ SSH into the VPS, then:
 | Brier score | Bot 0.019, Market 0.006 (n=33) |
 | Tier B WR | 82% (+$117.58) |
 | Tier C WR | 97% (+$421.52) |
-| Active patches | P11 (Masters fixes) + P12 (adaptive edge) + P12b (fee-aware Kelly) |
+| Active patches | P11 (Masters fixes) + P12 (adaptive edge) + P12b (fee-aware Kelly) + P13 (layer routing + default block) |
 | Categories | geopolitics, sports, crypto, politics, entertainment |
 
 ## How It Works
@@ -48,11 +48,21 @@ The bot runs a continuous scan loop every ~180s (300s at full capacity):
 
 ## 3-Layer Estimation Engine (smart_estimator.py)
 
-**Layer 1 - AI (v4.1.9):** Perplexity Sonar searches for hard data (odds, polls, prices, rankings). GPT-4o-mini converts research into calibrated probability with anti-hedging rules: supernatural events = 0.01-0.02, tournament longshots = real odds, no 0.50 default. Costs ~$0.005/call.
+**Layer 1 - AI (v4.1.9):** Perplexity Sonar searches for hard data (odds, polls, prices, rankings). GPT-4o-mini converts research into calibrated probability with anti-hedging rules: supernatural events = 0.01-0.02, tournament longshots = real odds, no 0.50 default. Costs ~$0.005/call. **P13b: Retired for sports and politics** (46.4% / 38.5% WR). Active for crypto (78.6% WR), geopolitics, entertainment, tech.
 
-**Layer 2 - Quantitative (free):** CLOB orderbook midpoint, momentum z-scores (7/14/30-day windows), volume profile, learner corrections. Activates when Layer 1 hits daily API cap.
+**Layer 2 - Quantitative (free, primary for sports/politics):** CLOB orderbook midpoint, momentum z-scores (7/14/30-day windows), volume profile, learner corrections. **P13b: Now primary estimator for sports and politics** (100% WR, n=15). Fallback for other categories when L1 hits API cap.
 
 **Layer 3 - Becker heuristic (free):** Category base rates from 72.1M-trade study. Fallback when both Layer 1 and 2 are unavailable.
+
+
+## Smart Categorizer (P13d)
+
+Two-stage market classification:
+
+1. **Keywords (free, instant):** Pattern-matching against 10 category keyword lists. Handles ~95% of markets.
+2. **LLM fallback (GPT-4o-mini, ~$0.001/call):** Classifies markets that keywords miss. Eliminates `default` category leaks.
+
+Markets that fail both stages are blocked at the entry gate (P13a). This prevents trades from bypassing category-specific edge thresholds, fee models, and learner corrections.
 
 ## Hybrid Exit System (v4.1.8)
 

@@ -73,13 +73,17 @@ Skip: poly-maker (Phase 3+), Polymarket/agents, arb-bot
 Human provides: Project: Becker Bot v4.3.1 / Repo: github.com/arsenbenda/becker-bot
 Assistant requests: tail -30 becker_bot.log + position summary one-liner
 
-## Current Status (2026-04-07, v4.3.1a + P12b)
+## Current Status (2026-04-13, v4.3.1a + P13d)
 
 - 19 open, 99 closed (85% resolved WR 28/33, 66.7% overall), bankroll $500 (re-seed)
 - Net P&L +$385.79, Gross +$410.94. 34 Masters trades excluded as deviation_cap_bug
 - Kelly 0.10 (adaptive), price floor 30c, caution zone 30-50c (12pp edge + 0.70 conf, <=0.50)
 - P12: Adaptive min-edge — geopolitics/crypto relaxed (base−3pp), politics/sports tightened (base+5pp)
 - P12b: Fee-aware Kelly — kelly_size() adjusts net odds by taker fee per category
+- P13a: Block default category at entry gate (uncategorized markets skipped)
+- P13b: L1 AI retired for sports/politics — L2 quant is primary (100% WR vs L1 46%/38%)
+- P13c: Auto-block circuit breaker checks full history, not just rolling window
+- P13d: LLM fallback categorizer (GPT-4o-mini classifies when keywords miss)
 - Duplicate log write fixed — systemd sole writer via StandardOutput=append
 - Known issues: Entertainment WR 44% (n=10) — 10 trades until auto-block threshold
 - Cluster cap 3, per-event cap 3. Golf cluster added (32 total)
