@@ -62,30 +62,26 @@ class PaperPosition:
 # ════════════════════════════════════════════════════════
 
 def fetch_active_markets(limit: int = 100) -> list:
-    """Fetch active markets from Gamma API."""
-    try:
-        r = requests.get(
-            f"{GAMMA_API}/events",
-            params={
-                "active": "true",
-                "closed": "false",
-                "limit": limit,
-            },
-            timeout=15,
-        )
-        if r.status_code == 200:
-            events = r.json()
+    """Fetch active markets from Gamma API. P16: dual-fetch (volume + newest) for market diversity."""
+    def _fetch(extra_params: dict) -> list:
+        try:
+            r = requests.get(
+                f"{GAMMA_API}/events",
+                params={"active": "true", "closed": "false", "limit": limit, **extra_params},
+                timeout=15,
+            )
+            if r.status_code != 200:
+                log(f"Gamma API error: HTTP {r.status_code}")
+                return []
             markets = []
-            for event in events:
+            for event in r.json():
                 event_tags = []
                 for t in event.get("tags", []):
                     if isinstance(t, dict):
                         event_tags.append(t.get("label", t.get("slug", "")).lower())
                     elif isinstance(t, str):
                         event_tags.append(t.lower())
-
                 for m in event.get("markets", []):
-                    # Skip closed markets inside open events
                     if m.get("closed", False):
                         continue
                     if not m.get("active", True):
@@ -96,12 +92,18 @@ def fetch_active_markets(limit: int = 100) -> list:
                     m["_event_liquidity"] = event.get("liquidity", 0)
                     markets.append(m)
             return markets
-        else:
-            log(f"Gamma API error: HTTP {r.status_code}")
+        except Exception as e:
+            log(f"Gamma API exception: {e}")
             return []
-    except Exception as e:
-        log(f"Gamma API exception: {e}")
-        return []
+
+    # P16: primary fetch (default volume sort) + secondary fetch (newest first)
+    primary = _fetch({})
+    secondary = _fetch({"order": "startDate", "ascending": "false"})
+    seen = {m["id"] for m in primary}
+    new_from_secondary = [m for m in secondary if m["id"] not in seen]
+    if new_from_secondary:
+        log(f"P16 new-market fetch: +{len(new_from_secondary)} markets not in primary sweep")
+    return primary + new_from_secondary
 
 
 def parse_market(raw: dict) -> dict | None:
