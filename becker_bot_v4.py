@@ -868,9 +868,6 @@ class BeckerBot:
             if confidence < _conf_threshold:
                 log(f"CAUTION ZONE: {question[:50]} — price in 30-50c zone but confidence {confidence:.2f} < {_conf_threshold:.2f} ({source[-4:]}), skipping")
                 return None
-            if _raw_edge < _adaptive_min_edge:
-                log(f"CAUTION ZONE: {question[:50]} — price in 30-50c zone but edge {_raw_edge:.3f} < {_adaptive_min_edge:.2f} (adaptive), skipping")
-                return None
 
         # Adaptive min-edge: Brier-driven per-category threshold
         _base_edge = cfg["MIN_EDGE_POINTS"]
