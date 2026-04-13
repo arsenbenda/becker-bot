@@ -263,7 +263,7 @@ def update_adaptive_risk(state: dict, positions: list) -> dict:
 
     # Edge threshold adjustment
     if win_rate < 0.45 and total_pnl < 0:
-        recommended_edge = min(current_min_edge * 1.5, 0.10)
+        recommended_edge = min(current_min_edge * 1.5, 0.08)
         edge_reason = "Raising edge bar — too many losing trades"
     elif win_rate > 0.65 and profit_factor > 1.5:
         recommended_edge = max(current_min_edge * 0.8, 0.01)

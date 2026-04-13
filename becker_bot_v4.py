@@ -705,6 +705,14 @@ class BeckerBot:
         yes_price = market["yes_price"]
         category = infer_category(market)
 
+        # P16b: Block short-term Up/Down price prediction markets — pure noise, no L2 signal
+        _q_lower = question.lower()
+        if "up or down" in _q_lower or (
+            any(x in _q_lower for x in ["8:45am", "8:50am", "8:30am", "8:35am", "8:40am", "9:00am", "9:15am"]) and
+            any(x in _q_lower for x in ["bitcoin", "ethereum", "solana", "btc", "eth", "sol", "bnb", "xrp"])
+        ):
+            return None
+
         # P13a: Block uncategorized markets — cannot apply proper edge/fee/learner without category
         if category == "default":
             log(f"DEFAULT BLOCK: {question[:50]} — uncategorized, skipping")
@@ -878,7 +886,7 @@ class BeckerBot:
         if _cat_n >= 5:
             if _cat_brier.get("bot_beats_market"):
                 # Bot better calibrated than market → relax edge (floor: base - 3pp, min 0.03)
-                _adaptive_min_edge = max(0.03, _base_edge - 0.03)
+                _adaptive_min_edge = max(0.01, _base_edge - 0.03)
             else:
                 # Bot worse than market → tighten edge (cap: base + 5pp, max 0.15)
                 _adaptive_min_edge = min(0.15, _base_edge + 0.05)
