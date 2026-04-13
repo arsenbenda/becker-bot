@@ -1349,7 +1349,7 @@
     "net_pnl": 0.0,
     "current_price": 0.512,
     "unrealised_pnl": -0.01,
-    "price_updated_at": "2026-04-13T08:35:49.117863+00:00"
+    "price_updated_at": "2026-04-13T08:43:59.566188+00:00"
   },
   {
     "market_id": "573647",
@@ -1981,7 +1981,7 @@
     "net_pnl": 0.0,
     "current_price": 0.325,
     "unrealised_pnl": 0.0,
-    "price_updated_at": "2026-04-13T08:35:49.330407+00:00"
+    "price_updated_at": "2026-04-13T08:43:59.794485+00:00"
   },
   {
     "market_id": "902160",
@@ -2012,7 +2012,7 @@
     "net_pnl": 0.0,
     "current_price": 0.685,
     "unrealised_pnl": 0.0,
-    "price_updated_at": "2026-04-13T08:35:49.552708+00:00"
+    "price_updated_at": "2026-04-13T08:44:00.008554+00:00"
   },
   {
     "market_id": "553862",
@@ -4360,7 +4360,7 @@
     "edge_thin_count": 0,
     "current_price": 0.273,
     "unrealised_pnl": 0.93,
-    "price_updated_at": "2026-04-13T08:35:49.780511+00:00"
+    "price_updated_at": "2026-04-13T08:44:00.231846+00:00"
   },
   {
     "market_id": "560317",
@@ -4423,7 +4423,7 @@
     "edge_thin_count": 0,
     "current_price": 0.187,
     "unrealised_pnl": 0.46,
-    "price_updated_at": "2026-04-13T08:35:50.025168+00:00"
+    "price_updated_at": "2026-04-13T08:44:00.441000+00:00"
   },
   {
     "market_id": "561230",
@@ -4452,9 +4452,9 @@
     "total_fees": 0.23283,
     "net_pnl": 0.0,
     "edge_thin_count": 0,
-    "current_price": 0.165,
-    "unrealised_pnl": 0.11,
-    "price_updated_at": "2026-04-13T08:35:50.247468+00:00"
+    "current_price": 0.166,
+    "unrealised_pnl": 0.15,
+    "price_updated_at": "2026-04-13T08:44:00.657818+00:00"
   },
   {
     "market_id": "561365",
@@ -5093,7 +5093,7 @@
     "edge_thin_count": 0,
     "current_price": 0.84,
     "unrealised_pnl": 0.14,
-    "price_updated_at": "2026-04-13T08:35:50.458979+00:00"
+    "price_updated_at": "2026-04-13T08:44:00.855148+00:00"
   },
   {
     "market_id": "1363116",
@@ -5316,7 +5316,7 @@
     "edge_thin_count": 0,
     "current_price": 0.15,
     "unrealised_pnl": -0.18,
-    "price_updated_at": "2026-04-13T08:35:50.662974+00:00"
+    "price_updated_at": "2026-04-13T08:44:01.058438+00:00"
   },
   {
     "market_id": "582139",
@@ -5911,7 +5911,7 @@
     "edge_thin_count": 0,
     "current_price": 0.53,
     "unrealised_pnl": 0.57,
-    "price_updated_at": "2026-04-13T08:35:50.902368+00:00"
+    "price_updated_at": "2026-04-13T08:44:01.265095+00:00"
   },
   {
     "market_id": "562830",

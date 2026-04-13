@@ -1173,7 +1173,7 @@ class BeckerBot:
 
         # Fetch (skip if at max capacity)
         skip_new = len(open_positions) >= cfg["MAX_CONCURRENT"]
-        raw_markets = [] if skip_new else fetch_active_markets(limit=100)
+        raw_markets = [] if skip_new else fetch_active_markets(limit=200)
         log(f"Fetched {len(raw_markets)} raw markets")
 
         # Parse & filter

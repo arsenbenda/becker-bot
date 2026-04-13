@@ -89,7 +89,7 @@ def layer3_estimate(market_price: float, category: str) -> dict:
 
     return {
         "probability": est_prob,
-        "confidence": 0.3,  # low confidence — no real-world info
+        "confidence": 0.35,  # P13: raised from 0.3 to pass L2 fallback gate (>0.3)
         "source": "layer3_becker",
         "reasoning": f"Becker bias: price {market_price:.2f} → est prob {est_prob:.4f}, "
                      f"category '{category}' edge {cat_edge:.2f}pp",
