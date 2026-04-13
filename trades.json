@@ -5173,5 +5173,114 @@
     "net_pnl": 0.3,
     "fees": 0.67872,
     "timestamp": "2026-04-07T07:19:00.270310+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "566142",
+    "question": "Will Bayern Munich win the 2025\u201326 Champions League?",
+    "reason": "Tier A stale exit: edge 0.027, age 107h",
+    "pnl": 2.79,
+    "timestamp": "2026-04-07T19:51:26.188876+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "566140",
+    "question": "Will Arsenal win the 2025\u201326 Champions League?",
+    "reason": "HARD STOP: unrealised -36% (>-30%)",
+    "pnl": -2.26,
+    "timestamp": "2026-04-07T20:28:26.097872+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "562793",
+    "question": "Will the Democratic Party control the Senate after the 2026 Midterm elections?",
+    "reason": "6x edge thinning (Tier B)",
+    "pnl": 0.79,
+    "net_pnl": 0.34,
+    "fees": 0.44695,
+    "timestamp": "2026-04-07T21:33:17.598974+00:00"
+  },
+  {
+    "action": "TRAILING_STOP",
+    "market_id": "567561",
+    "question": "Will the next Prime Minister of Hungary be P\u00e9ter Magyar?",
+    "reason": "6x edge thinning (Tier B)",
+    "pnl": -0.46,
+    "net_pnl": -0.7,
+    "fees": 0.23942,
+    "timestamp": "2026-04-07T23:33:38.844429+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "569373",
+    "question": "Will Paloma Valencia win the 2026 Colombian presidential election?",
+    "reason": "Tier A stale exit: edge 0.029, age 110h",
+    "pnl": 0.54,
+    "timestamp": "2026-04-08T00:04:23.277802+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "566138",
+    "question": "Will Barcelona win the 2025\u201326 Champions League?",
+    "reason": "HARD STOP: unrealised -45% (>-30%)",
+    "pnl": -1.91,
+    "timestamp": "2026-04-08T19:49:21.566068+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "578536",
+    "question": "Will Porto win the 2025-26 UEFA Europa League?",
+    "reason": "HARD STOP: unrealised -66% (>-30%)",
+    "pnl": -1.09,
+    "timestamp": "2026-04-09T18:30:47.878634+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "582134",
+    "question": "Will Liverpool finish in the top 4 of the EPL 2025\u201326 standings?",
+    "reason": "Tier A stale exit: edge 0.029, age 169h",
+    "pnl": -0.28,
+    "timestamp": "2026-04-10T09:57:23.797976+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "572854",
+    "question": "Will West Ham be relegated from the English Premier League after the 2025\u201326 season?",
+    "reason": "Tier A stale exit: edge 0.028, age 179h",
+    "pnl": -2.28,
+    "timestamp": "2026-04-10T20:08:43.079499+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "572847",
+    "question": "Will Tottenham be relegated from the English Premier League after the 2025\u201326 season?",
+    "reason": "Tier A stale exit: edge 0.030, age 180h",
+    "pnl": 1.22,
+    "timestamp": "2026-04-10T20:36:12.645063+00:00"
+  },
+  {
+    "action": "OPEN",
+    "market_id": "575832",
+    "question": "Will Jake Knapp win the 2026 Masters tournament?",
+    "side": "NO",
+    "price": 0.5,
+    "contracts": 16.28,
+    "cost": 8.14,
+    "ev": 0.4438,
+    "kelly_pct": 1.44,
+    "maker_score": 2.62,
+    "vol_scalar": 1.0,
+    "source": "layer1_ai",
+    "confidence": 0.9,
+    "category": "sports",
+    "timestamp": "2026-04-10T23:15:16.766420+00:00"
+  },
+  {
+    "action": "CLOSE",
+    "market_id": "575832",
+    "question": "Will Jake Knapp win the 2026 Masters tournament?",
+    "reason": "Tier B edge collapsed: 0.045",
+    "pnl": -8.14,
+    "timestamp": "2026-04-10T23:33:36.300308+00:00"
   }
 ]

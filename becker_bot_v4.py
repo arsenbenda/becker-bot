@@ -654,6 +654,11 @@ class BeckerBot:
         yes_price = market["yes_price"]
         category = infer_category(market)
 
+        # P13a: Block uncategorized markets — cannot apply proper edge/fee/learner without category
+        if category == "default":
+            log(f"DEFAULT BLOCK: {question[:50]} — uncategorized, skipping")
+            return None
+
         # Step 0: Market memory check
         mem_check = should_trade_market(
             self.learner_state, market["id"],

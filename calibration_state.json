@@ -1,6 +1,6 @@
 {
-  "resolved_count": 33,
-  "early_exit_count": 66,
+  "resolved_count": 36,
+  "early_exit_count": 74,
   "overall": {},
   "by_category": {
     "politics": {
@@ -28,15 +28,15 @@
       "bot_beats_market": true
     },
     "sports": {
-      "correction_pp": -0.0211,
-      "effective_correction": -0.0063,
-      "confidence": 0.3,
-      "sample_size": 9,
-      "avg_bot_conf": 0.91,
-      "actual_win_rate": 0.8889,
-      "avg_market_conf": 0.8288,
-      "bot_brier": 0.026409,
-      "mkt_brier": 0.007134,
+      "correction_pp": -0.0661,
+      "effective_correction": -0.0264,
+      "confidence": 0.4,
+      "sample_size": 12,
+      "avg_bot_conf": 0.7327,
+      "actual_win_rate": 0.6667,
+      "avg_market_conf": 0.6905,
+      "bot_brier": 0.031948,
+      "mkt_brier": 0.030653,
       "bot_beats_market": false
     },
     "crypto": {
@@ -66,15 +66,15 @@
       "bot_beats_market": false
     },
     "layer1_ai": {
-      "correction_pp": -0.0689,
-      "effective_correction": -0.0298,
-      "confidence": 0.433,
-      "sample_size": 13,
-      "avg_bot_conf": 0.7612,
-      "actual_win_rate": 0.6923,
-      "avg_market_conf": 0.661,
-      "bot_brier": 0.034267,
-      "mkt_brier": 0.009018,
+      "correction_pp": -0.0936,
+      "effective_correction": -0.0499,
+      "confidence": 0.533,
+      "sample_size": 16,
+      "avg_bot_conf": 0.6561,
+      "actual_win_rate": 0.5625,
+      "avg_market_conf": 0.5888,
+      "bot_brier": 0.036949,
+      "mkt_brier": 0.026304,
       "bot_beats_market": false
     }
   },
@@ -92,35 +92,35 @@
       "bot_beats_market": true
     },
     "0.00-0.20": {
-      "correction_pp": -0.3043,
-      "effective_correction": -0.0507,
-      "confidence": 0.167,
-      "sample_size": 5,
-      "avg_bot_conf": 0.3043,
+      "correction_pp": -0.2929,
+      "effective_correction": -0.0683,
+      "confidence": 0.233,
+      "sample_size": 7,
+      "avg_bot_conf": 0.2929,
       "actual_win_rate": 0.0,
-      "avg_market_conf": 0.0781,
-      "bot_brier": 0.11674,
-      "mkt_brier": 0.009259,
+      "avg_market_conf": 0.1026,
+      "bot_brier": 0.103405,
+      "mkt_brier": 0.014275,
       "bot_beats_market": false
     }
   },
   "brier_scores": {
-    "bot": 0.018956,
-    "market": 0.005993,
-    "delta": 0.012963
+    "bot": 0.021424,
+    "market": 0.013928,
+    "delta": 0.007496
   },
   "reliability_diagram": [
     {
       "bin": "0.0-0.2",
-      "avg_predicted": 0.035,
+      "avg_predicted": 0.055,
       "actual_frequency": 0.0,
-      "count": 1
+      "count": 2
     },
     {
       "bin": "0.2-0.4",
-      "avg_predicted": 0.338,
+      "avg_predicted": 0.309,
       "actual_frequency": 0.0,
-      "count": 3
+      "count": 5
     },
     {
       "bin": "0.4-0.6",

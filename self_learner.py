@@ -301,6 +301,30 @@ def update_adaptive_risk(state: dict, positions: list) -> dict:
             log(f"AUTO-BLOCK: '{cat}' — win rate "
                 f"{perf['wins']/total:.0%} over {total} trades (<40% over 20+)")
 
+    # P13c: Also check full closed history for categories not yet flagged
+    all_closed = [p for p in positions if p.get("status") == "closed"
+                  and p.get("close_reason") not in
+                  ("cluster_prune", "longshot_filter", "contradiction_filter", "deviation_cap_bug")]
+    full_cat_perf = {}
+    for p in all_closed:
+        cat = p.get("category", "default")
+        if cat not in full_cat_perf:
+            full_cat_perf[cat] = {"wins": 0, "losses": 0}
+        if p.get("pnl", 0) > 0:
+            full_cat_perf[cat]["wins"] += 1
+        else:
+            full_cat_perf[cat]["losses"] += 1
+
+    for cat, perf in full_cat_perf.items():
+        if cat in avoid_categories:
+            continue
+        total = perf["wins"] + perf["losses"]
+        if total >= 20 and perf["wins"] / total < 0.40:
+            avoid_categories.append(cat)
+            wr = perf["wins"] / total
+            log(f"AUTO-BLOCK (full history): '{cat}' — win rate "
+                f"{wr:.0%} over {total} trades (<40% over 20+)")
+
     state["adaptive_risk"] = {
         "status": "active",
         "window_size": len(recent),

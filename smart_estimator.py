@@ -637,6 +637,9 @@ def layer1_estimate(
 #  MAIN ESTIMATOR: cascading 3-layer fallback
 # ════════════════════════════════════════════════════════
 
+# ── Categories where L1 AI has proven unreliable (P13b) ──
+L1_RETIRED_CATEGORIES = {"sports", "politics"}
+
 def estimate_probability(
     question: str,
     market_price: float,
@@ -647,12 +650,31 @@ def estimate_probability(
     context: str = "",
 ) -> dict:
     """
-    Master estimator with automatic fallback:
-    Layer 1 (AI) → Layer 2 (quant) → Layer 3 (Becker).
-
+    Master estimator — P13b: category-aware layer routing.
+    - Sports/politics: L2 first (L1 retired per data: 23.8% / 13.2% WR)
+    - All others: L1 first, L2 fallback (original cascade)
     Always returns a dict with: probability, confidence, source, reasoning.
     """
-    # ── Try Layer 1: AI-powered (if keys available) ────
+
+    # ── P13b: For retired categories, try L2 FIRST ────
+    if category in L1_RETIRED_CATEGORIES:
+        log(f"L1_RETIRED: {category} — routing to L2 first")
+        if yes_token_id:
+            try:
+                result = layer2_estimate(market_price, category, yes_token_id, no_token_id)
+                if result and result.get("confidence", 0) > 0.3:
+                    log(f"L2 estimate for '{question[:50]}': {result['probability']:.3f} "
+                        f"(conf {result['confidence']:.2f})")
+                    return result
+            except Exception as e:
+                log(f"Layer 2 failed for retired category: {e}")
+
+        # L2 failed — fall through to L3 (skip L1 entirely for these categories)
+        result = layer3_estimate(market_price, category)
+        log(f"L3 fallback for '{question[:50]}': {result['probability']:.3f}")
+        return result
+
+    # ── Standard cascade for all other categories ─────
     keys = api_keys_available_quick()
     _within_cap = within_daily_cap()
     if _within_cap and keys["openai"] and keys["perplexity"]:
@@ -665,7 +687,6 @@ def estimate_probability(
         except Exception as e:
             log(f"Layer 1 failed: {e}")
 
-    # ── Try Layer 2: Free quantitative signals ─────────
     if yes_token_id:
         try:
             result = layer2_estimate(market_price, category, yes_token_id, no_token_id)
@@ -676,7 +697,6 @@ def estimate_probability(
         except Exception as e:
             log(f"Layer 2 failed: {e}")
 
-    # ── Layer 3: Becker baseline (always works) ────────
     result = layer3_estimate(market_price, category)
     log(f"L3 estimate for '{question[:50]}': {result['probability']:.3f}")
     return result
