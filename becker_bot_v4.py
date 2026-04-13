@@ -861,13 +861,15 @@ class BeckerBot:
                 log(f"SANITY: {question[:50]} edge {_raw_edge:.3f} > 3x category avg {_cat_avg:.3f} — skeptical (learner n={_learner_n})")
                 est_prob = est_prob * 0.7 + yes_price * 0.3  # Shrink toward market
 
-        # Phase 1.x: Caution zone gate (15-30c) — require high AI confidence and large edge
+        # Phase 1.x: Caution zone gate (30-50c) — require confidence and large edge
+        # P13e: Layer-aware threshold — L2 maxes at ~0.65, L1 reaches 0.90
         if _in_caution_zone:
-            if confidence < 0.70:
-                log(f"CAUTION ZONE: {question[:50]} — price in 30-50c zone but confidence {confidence:.2f} < 0.70, skipping")
+            _conf_threshold = 0.50 if source == "layer2_quantitative" else 0.70
+            if confidence < _conf_threshold:
+                log(f"CAUTION ZONE: {question[:50]} — price in 30-50c zone but confidence {confidence:.2f} < {_conf_threshold:.2f} ({source[-4:]}), skipping")
                 return None
-            if _raw_edge < 0.12:
-                log(f"CAUTION ZONE: {question[:50]} — price in 30-50c zone but edge {_raw_edge:.3f} < 0.12, skipping")
+            if _raw_edge < _adaptive_min_edge:
+                log(f"CAUTION ZONE: {question[:50]} — price in 30-50c zone but edge {_raw_edge:.3f} < {_adaptive_min_edge:.2f} (adaptive), skipping")
                 return None
 
         # Adaptive min-edge: Brier-driven per-category threshold
