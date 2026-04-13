@@ -1,4 +1,4 @@
-# Architecture — Becker Bot v4.1
+# Architecture — Becker Bot v4.3.1a
 
 ## System Overview
 
@@ -19,7 +19,7 @@
 ## Scan Loop (becker_bot_v4.py)
 
     scan()
-    |-- fetch_markets()            # Gamma API: binary, open, volume > min
+    |-- fetch_markets()            # Gamma API: P16 dual-fetch (volume sort + startDate sort, deduplicated)
     |-- filter_eligible()          # Price range, not held, not avoided
     |-- evaluate()                   # Full decision pipeline
     |   |-- AI Estimation (v4.1.9)
@@ -50,21 +50,24 @@
 
 ## Estimation Pipeline (smart_estimator.py)
 
+    L1_RETIRED_CATEGORIES = {sports, politics, crypto, geopolitics}  # P13b + P18
+
     estimate_probability(question, category, market_data)
     |
-    |-- Layer 1: AI (if within daily cap)
-    |   |-- Perplexity Sonar (primary)
-    |   |-- GPT-4o mini (fallback)
-    |   +-- Returns: probability, confidence, reasoning
+    |-- If category in L1_RETIRED_CATEGORIES:
+    |   |-- Layer 2: Quantitative (PRIMARY)
+    |   |   |-- CLOB orderbook midpoint
+    |   |   |-- Price momentum z-scores (7/14/30 day)
+    |   |   +-- Learner correction per category
+    |   +-- Layer 3: Becker heuristic (if L2 fails)
     |
-    |-- Layer 2: Quantitative (if L1 unavailable)
-    |   |-- CLOB midpoint price
-    |   |-- Price momentum (7/14/30 day)
-    |   +-- Learner correction per category
-    |
-    +-- Layer 3: Becker heuristic (last resort)
-        |-- Category base rate from 72.1M trade study
-        +-- Known inefficiency margins
+    +-- Else (tech_econ, other, entertainment):
+        |-- Layer 1: AI (primary, if within daily cap)
+        |   |-- Perplexity Sonar (primary)
+        |   |-- GPT-4o mini (fallback)
+        |   +-- Returns: probability, confidence, reasoning
+        |-- Layer 2: Quantitative (if L1 hits API cap)
+        +-- Layer 3: Becker heuristic (last resort)
 
 ## Fee Calculation (shared_state.py)
 
@@ -112,7 +115,7 @@ Dashboard reads JSON files directly (no DB, no API between bot and dashboard).
 
 - Paper trading only: assumes perfect fills at displayed prices
 - No slippage model: real execution faces 0.5-2% slippage
-- Layer 1 dominance: ~95% of evaluations use paid AI calls (Layer 2 activates at API cap)
+- L1 retired for sports/politics/crypto/geopolitics (P13b+P18): L2 is now primary for all major categories
 - Positions now priced via CLOB mid-price every scan (Phase 1.4)
 - Scan history unbounded: bot_state.json grows (cap at 200 in Phase 5.6)
 - Single-threaded scan: sequential evaluation

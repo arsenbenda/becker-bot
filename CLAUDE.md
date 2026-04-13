@@ -73,17 +73,19 @@ Skip: poly-maker (Phase 3+), Polymarket/agents, arb-bot
 Human provides: Project: Becker Bot v4.3.1 / Repo: github.com/arsenbenda/becker-bot
 Assistant requests: tail -30 becker_bot.log + position summary one-liner
 
-## Current Status (2026-04-13, v4.3.1a + P15)
+## Current Status (2026-04-13, v4.3.1a + P18)
 
-- 9 open, 219 closed | Bankroll $557.23 | Filtered Net P&L +$385.79 | True Net P&L -$421.77
+- 9 open, 110 closed | Bankroll $557.23 | Net P&L +$399
 - Kelly 0.10 (adaptive), price floor 30c, caution zone conf-only gate (P14)
-- MIN_EDGE_POINTS: 0.06 (reset from 0.10 auto-tune overcorrection)
-- Adaptive floors: crypto/geo beats_mkt → 0.03; sports/politics loses → 0.11
-- P13a: Block default category | P13b: L1 retired sports/politics | P13c: full-history circuit breaker
-- P13d: LLM fallback categorizer | P14: caution zone edge hardcode removed + MIN_EDGE reset
-- P15: Category diversity cap (max 25/category/scan) — prevents presidential market flood
-- Roadmap 1.7 COMPLETE (19/21). Remaining: 1.3, 1.6, 1.10, 1.11
-- Watch: Entertainment WR 50% n=10 — 10 trades to auto-block; L2 100% WR will regress (n=15)
+- MIN_EDGE_POINTS: 0.04 | Auto-tuner ceiling: 0.08 (was 0.10)
+- Adaptive floors: crypto/geo beats_mkt → 0.01 (was 0.03); sports/politics loses → 0.09 (was 0.11)
+- L1_RETIRED_CATEGORIES: sports, politics, crypto, geopolitics (P13b+P18) — L2 primary for all
+- P15: Category diversity cap + _p15_cat() keyword fix (was {'unknown':345}, now real categories)
+- P16: dual-fetch (volume+startDate), P16b: "Up or Down" junk market filter
+- P17: adaptive floor 0.03→0.01 for beats_mkt | P18: L1 retired crypto+geo
+- No trades firing: current crypto markets have insufficient edge to clear fees (EV ~ -0.01)
+  Waiting for event-driven crypto/geo markets with edge ≥ 0.05
+- Watch: auto-tuner — check for "Auto-tune Edge" log lines after each learner cycle
 
 ## Key Gotcha — Calibration (v4.3.1)
 - Only calibrator.py modifies est_prob (Brier-proper, ±8pp cap). self_learner logs only (LEARNER_DIAG).

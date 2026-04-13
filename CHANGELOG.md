@@ -1,5 +1,47 @@
 # Changelog — Becker Bot
 
+## P15-fix + P16 + P16b + P17 + P18 — Session 2026-04-13 (commits 2ca391e, ea33a16, 6037cc4, 0167002)
+
+### Root Cause (no trades for ~2h)
+P15 category fix was written to disk but service not restarted — bot still running old in-memory code.
+After restart: diversity log showed real categories. Root blocker then traced through:
+ADAPTIVE EDGE → EV gate → L1 calibration penalty killing crypto edge → L1 still primary for crypto/geo.
+
+### P15 fix (2ca391e): keyword-based _p15_cat() — m.get("category") is None at Gamma parse time
+- `_p15_cat()` classifies by question text: crypto/politics/sports/geopolitics/tech_econ/other
+- Resolves `{'unknown': 345}` diversity log bug
+- Verified live: 132 markets — crypto:17 geo:22 politics:161 sports:30 tech_econ:18 other:97
+
+### P16 (ea33a16): dual-fetch fetch_active_markets (volume + newest startDate)
+- Secondary fetch orders by startDate desc to catch new markets not in volume top-200
+- Deduplicates by market id, primary takes precedence
+- Logs `P16 new-market fetch: +N` when secondary adds markets
+- Result: +0 new markets currently (Gamma universe fully covered at limit=200)
+- Future-proof: will surface new crypto/geo markets as they appear
+
+### P16b (6037cc4): filter short-term "Up or Down" price prediction markets
+- Markets matching "up or down" in question blocked at evaluate() entry gate
+- These are 5-minute crypto price direction bets, raw_edge ~0.005, pure noise
+- Were flooding crypto scan after adaptive floor lowered
+
+### P17 (6037cc4): lower adaptive floor for beats_mkt categories
+- `max(0.03, base-0.03)` → `max(0.01, base-0.03)` in evaluate()
+- crypto/geo floor: 0.03 → 0.01 (enables Base/Abstract token markets at edge 0.021)
+- self_learner auto-tuner ceiling: 0.10 → 0.08 (prevents re-lockout in 3 bad cycles)
+- MIN_EDGE_POINTS in bot_state.json: 0.06 → 0.04
+- New adaptive floors: crypto/geo beats_mkt → 0.01; sports/politics loses → 0.09
+
+### P18 (0167002): retire L1 for crypto and geopolitics
+- L1_RETIRED_CATEGORIES: {"sports", "politics"} → {"sports", "politics", "crypto", "geopolitics"}
+- L1 layer[1_ai]=-0.0499 calibration penalty was collapsing crypto edge to ~0.001
+  (L1 est 0.350 → calibrate 0.364 → vs price 0.365 → edge 0.001, below any floor)
+- L2 now primary for all 4 main categories; L1 active only for tech_econ/other/entertainment
+- Post-fix: EV gate correctly blocks Base/Abstract (best_ev -0.01) — fees exceed edge
+- Conclusion: current crypto markets (stale long-dated token launch questions) have
+  insufficient edge to clear ~2.5% Polymarket fees. Bot is behaving correctly.
+  New event-driven crypto/geo markets needed to resume trading.
+
+
 ## P14 + P15 — Edge Gate Fix + Category Diversity Cap (2026-04-13, commits 3a3c71d, c8b6de5)
 
 ### Root Cause

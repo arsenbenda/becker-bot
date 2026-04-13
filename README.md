@@ -31,7 +31,7 @@ SSH into the VPS, then:
 | Brier score | Bot 0.019, Market 0.006 (n=33) |
 | Tier B WR | 82% (+$117.58) |
 | Tier C WR | 97% (+$421.52) |
-| Active patches | P11-P13d (layer routing, default block) + P14 (edge gate fix) + P15 (diversity cap) |
+| Active patches | P14 (edge gate) + P15 (diversity cap+fix) + P16/P16b (dual-fetch, junk filter) + P17 (floor 0.01) + P18 (L1 retired crypto/geo) |
 | Categories | geopolitics, sports, crypto, politics, entertainment |
 
 ## How It Works
@@ -48,9 +48,9 @@ The bot runs a continuous scan loop every ~180s (300s at full capacity):
 
 ## 3-Layer Estimation Engine (smart_estimator.py)
 
-**Layer 1 - AI (v4.1.9):** Perplexity Sonar searches for hard data (odds, polls, prices, rankings). GPT-4o-mini converts research into calibrated probability with anti-hedging rules: supernatural events = 0.01-0.02, tournament longshots = real odds, no 0.50 default. Costs ~$0.005/call. **P13b: Retired for sports and politics** (46.4% / 38.5% WR). Active for crypto (78.6% WR), geopolitics, entertainment, tech.
+**Layer 1 - AI (v4.1.9):** Perplexity Sonar + GPT-4o-mini. Costs ~$0.005/call. **P13b+P18: Retired for sports, politics, crypto, geopolitics.** Active only for tech_econ, entertainment, other.
 
-**Layer 2 - Quantitative (free, primary for sports/politics):** CLOB orderbook midpoint, momentum z-scores (7/14/30-day windows), volume profile, learner corrections. **P13b: Now primary estimator for sports and politics** (100% WR, n=15). Fallback for other categories when L1 hits API cap.
+**Layer 2 - Quantitative (free, primary for all major categories):** CLOB orderbook midpoint, momentum z-scores (7/14/30-day windows), volume profile, learner corrections. **Now primary estimator for sports, politics, crypto, geopolitics.** Fallback for remaining categories when L1 hits API cap.
 
 **Layer 3 - Becker heuristic (free):** Category base rates from 72.1M-trade study. Fallback when both Layer 1 and 2 are unavailable.
 
@@ -204,6 +204,6 @@ When starting a new AI development session, paste:
     Stack: Python 3.11, Streamlit, systemd, Gamma API, Perplexity/OpenAI APIs
     Key files: becker_bot_v4.py, dashboard.py, shared_state.py, smart_estimator.py, self_learner.py
     Data: positions.json, bot_state.json, learner_state.json, trades.json
-    Status: v4.3.0, 164 closed trades (85% resolved WR), bankroll $755, P&L +$279
+    Status: v4.3.1a+P18, 110 closed trades (63.6% WR), bankroll $557, P&L +$399
     Read CLAUDE.md, README.md, ARCHITECTURE.md, ROADMAP.md, CHANGELOG.md
     Latest log: tail -30 /opt/becker-bot/becker_bot.log
