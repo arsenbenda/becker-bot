@@ -240,14 +240,19 @@ def cluster_exposure(positions: list, cluster_id: str) -> dict:
                 break
     return {"count": count, "cost": cost}
 
-def infer_category(market: dict) -> str:
+# P13d: Valid categories for LLM fallback classifier
+VALID_CATEGORIES = [
+    "geopolitics", "politics", "crypto", "sports", "finance",
+    "entertainment", "tech", "weather", "economics", "world_events"
+]
+
+def _keyword_category(market: dict) -> str:
+    """Fast keyword-based categorization (free, instant)."""
     tags = market.get("tags", [])
     question = market.get("question", "").lower()
     event = market.get("event_title", "").lower()
     text = " ".join(tags + [question, event])
 
-    # Order matters: more specific categories first to avoid misclassification
-    # e.g. "president" must match politics before "win the" matches sports
     category_rules = [
         ("geopolitics", ["nato", "sanctions", "ceasefire", "treaty", "invasion",
                          "military", "troops", "capture", "sovereignty",
@@ -259,7 +264,7 @@ def infer_category(market: dict) -> str:
                        "out as", "vance", "desantis", "newsom", "shapiro",
                        "rubio", "ocasio", "buttigieg", "pritzker", "whitmer",
                        "beshear", "ossoff", "carlson", "harris", "obama",
-                       "macron", "starmer", "putin", "xi jinping",
+                       "macron", "starmer", "putin", "xi jinping", "erdogan",
                        "balance of power", "scotus"]),
         ("crypto", ["bitcoin", "btc", "eth", "ethereum", "crypto", "solana",
                      "sol", "defi", "token", "usdc", "usdt", "xrp", "doge",
@@ -296,6 +301,50 @@ def infer_category(market: dict) -> str:
         if any(kw in text for kw in keywords):
             return cat
     return "default"
+
+
+def _llm_category(question: str) -> str:
+    """LLM fallback categorizer — called only when keywords return default."""
+    try:
+        from shared_state import get_api_key
+        api_key = get_api_key("OPENAI_API_KEY")
+        if not api_key:
+            return "default"
+
+        from openai import OpenAI
+        client = OpenAI(api_key=api_key)
+        cat_list = ", ".join(VALID_CATEGORIES)
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {"role": "system", "content": f"Classify the prediction market question into exactly one category. Valid categories: {cat_list}. Respond with ONLY the category name, nothing else."},
+                {"role": "user", "content": question},
+            ],
+            max_tokens=10,
+            temperature=0.0,
+        )
+        result = response.choices[0].message.content.strip().lower()
+        if result in VALID_CATEGORIES:
+            log(f"LLM_CATEGORIZE: '{question[:50]}' → {result}")
+            return result
+        else:
+            log(f"LLM_CATEGORIZE: '{question[:50]}' → invalid '{result}', keeping default")
+            return "default"
+    except Exception as e:
+        log(f"LLM_CATEGORIZE failed: {e}")
+        return "default"
+
+
+def infer_category(market: dict) -> str:
+    """Two-stage categorizer: fast keywords first, LLM fallback for unknowns."""
+    cat = _keyword_category(market)
+    if cat != "default":
+        return cat
+    # P13d: LLM fallback — catches markets keywords miss
+    question = market.get("question", "")
+    if question:
+        cat = _llm_category(question)
+    return cat
 
 
 # ════════════════════════════════════════════════════════
