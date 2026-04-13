@@ -638,7 +638,7 @@ def layer1_estimate(
 # ════════════════════════════════════════════════════════
 
 # ── Categories where L1 AI has proven unreliable (P13b) ──
-L1_RETIRED_CATEGORIES = {"sports", "politics"}
+L1_RETIRED_CATEGORIES = {"sports", "politics", "crypto", "geopolitics"}
 
 def estimate_probability(
     question: str,
